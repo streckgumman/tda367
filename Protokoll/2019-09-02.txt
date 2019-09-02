@@ -1,10 +1,56 @@
-#Meeting agenda
+#Mötesprotokoll
 
-Group:
-Date:
-Chair:
-Participants:
+Grupp: Duckoo
+Datum: 2019-09-02
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén
 
-##Objectives
+##Uppkomna problem
+-
 
-##Discussion
+##Tidigare möten
+-
+
+##Diskussion
+	Bestäm ambitionsnivå
+		Klara kursen
+		Behöver inte få högsta betyg, men satsa högt
+		Över en 3a är bra, men inte nödvändigt
+
+	Hur vi ska programmera
+		Anna går igenom hur vi ska skriva koden
+		Ska skapa en mall över hur koden ska se ut och lägga ut på Github
+
+	Hur vi ska ses
+		Försöka ses så mycket som möjligt för att ligga på samma nivå
+		Parprogrammera, särskilt i början för att fräscha upp minnet från sommaren
+
+	Träffas nästa gång
+		Imorgon tisdag vid 10, Linnea bokar grupprum, M1203B
+		Övning på onsdag
+		Handledning förhoppningsvis på fredag
+		Eventuellt möte innan/efter handledning beroende på tid vi får för handledning
+		Avvakta tills onsdag för att få höra vad som förväntas av oss
+	
+	Mål för veckan
+		Bestämma projekt
+		Bestämma spannet av vad vi ska göra
+		Eventuellt börja konkretisera i form av UML och liknande
+
+	Regler
+		Fikaprick om de andra inte förlåter att du är sen
+		Alla gör sitt bästa 
+		Alla hjälps åt
+		Ta upp sina konflikter direkt för att undvika större konflikter
+		Boka in möten veckan innan för att folk har liv
+		Ska försöka se till att alla kodar ungefär lika mycket
+		Se hur mycket kodrader alla har i början av veckan för att ge alla chans att koda ca lika mycket
+		
+
+##Beslut
+
+##Wrap up
+	Vi ses imorgon för att diskutera projektet
+	
+	Läxa till imorgon
+		Fundera på vad vi vill jobba på
