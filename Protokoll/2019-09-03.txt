@@ -1,0 +1,81 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-09-03
+Antecknare: Linnea
+Deltagare: Amanda Dehlén, Anna Nilsson, Linnea Johansson, Johannes Kvernes, Linnea Johansson
+
+##Uppkomna problem
+	Fixar med Github så att alla kommer åt repositoryn
+
+
+##Tidigare möten
+-
+
+
+##Skvaller
+	Hemligt
+
+
+##Diskussion
+	Vad vill vi ha för projekt?
+		Desktop applikation
+		Vore kul med applikation till android, men för dåligt dokumenterat
+
+
+	Desktop applikation med objektorienterad core
+		Spel 
+		World building app
+		Måla grejer - typ paint
+		Algoritminriktat - kan bli fel fokus
+		AirBnB
+		Blocket
+		
+
+	Spel - idéer
+		Pixel art
+		Candy Crush ripoff
+		Point and click
+		INTE 3D - 2D spel
+		RPG
+		2D platform
+		Puzzle 
+		Fighter
+
+
+	Puzzle essentials
+		Ett rum
+		En player som kan röra sig
+		Något att interagera med
+
+
+	Puzzle features
+		Olika objekt
+		Customization	
+		Ljudfiler
+
+
+	Nästa steg
+		Hitta bibliotek
+		Eventuellt hitta pixel art - sprites
+		
+
+	Upside down pusselspel
+		Spelet börjar upp och ned och målet är att få det rätt vänt
+		Hur man går är åt fel håll
+		Målet är att fixa världen
+
+
+##Beslut
+	Se diskussion
+
+
+##Wrap up
+	När ska vi ses nästa vecka?
+		Tisdag förmiddag vid 10 (eller 9) eventuellt eftermiddag också
+		Beroende på handledningstid ses på torsdag 13-15 och fredag 9-12
+		
+
+	Prata ihop oss på onsdag för att maila handledare
+
+	Annars ses på fredag för handledning/möte
