@@ -5,7 +5,7 @@ Datum: 2019-09-10
 Antecknare: Linnea Johansson
 Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
 
-##Uppkomna problem
+##Lösta problem
 	Alla tillagda i Trello och i overleaf-dokumenten
 
 ##Tidigare möten
