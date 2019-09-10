@@ -1,0 +1,31 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-09-10
+Antecknare: Linnea Johansson
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+	Alla tillagda i Trello och i overleaf-dokumenten
+
+##Tidigare möten
+	Skapat kalender, Trello, och overleaf-dokument
+
+##Diskussion
+	Börja med User Stories idag
+		Har börjat, skriva in dem i Trello
+
+	Behöver göra en domänmodell
+		Lägg in i RAD	
+
+##Beslut
+	Alla gör user stories och 
+	Alla målar upp domänmodellen tillsammans på en whiteboard
+
+##Skvaller
+	Björnbärshallon existerar??????
+	Hemligt
+
+##Wrap up
+	Nästa träff är på torsdag 13:15
+	Handledning på fredag 13:00
