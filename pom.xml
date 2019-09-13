@@ -18,7 +18,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>main.java.helloworld.HelloWorld</mainClass> <!-- This should be the path to the main class-->
+                            <mainClass>src.main.java.helloworld.HelloWorld</mainClass> <!-- This should be the path to the main class-->
                         </manifest>
                     </archive>
                 </configuration>
