@@ -1,0 +1,67 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-09-13
+Antecknare: Linnea Johansson
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+	Inte börjat programmera än - är det ett problem?
+
+	Hur mycket ska vi bryta ner User Stories? Hur små kan tasks vara?
+		Delade åsikter
+			Inte "skapa en metod för att plocka upp objekt" utan "ska kunna plocka upp objekt"
+			Annan åsikt: Det ska vara konkret exakt vad vi ska programmera
+				Först måste "object" existera, sen kan man interagera osv
+
+##Tidigare möten
+-
+
+##Gjorts sen sist
+	Alla har jobbat på User Stories
+		Och tasks till User Stories
+	
+	Alla har jobbat med domänmodell
+
+	Anna och Johannes har jobbat med UML-diagram
+
+##Diskussion
+	Hur långt har vi kommit / var är vi i kursen?
+		Vi har rankat efter "nödvändig", "ganska nödvändig" och "helt en feature"
+		Vi har gett tasks till alla nödvändiga och ganska nödvändiga User Stories
+		Inte prioriterat de User Stories som helt är features
+		Kollat mest på de strikt nödvändiga User Stories
+		Vi har inte gjort en estimation av hur lång tid de kommer ta
+
+	Vad har vi kvar med User Stories / Domänmodell / UML-diagram?
+		Vi avvaktar tills vi fått respons av handledaren hur vi ligger till
+		I UML-diagrammet har vi kvar View och Controller
+
+
+	Har vi frågor till handledare?
+		Hur tasks ska se ut, tekniska eller ej, se "uppkomna problem"
+
+		Hur mycket räknas våra klasser, har vi tillräckligt många klasser?
+			Kan några mindre klasser räknas som en med substans tillsammans?
+
+		Kan vi ha klass med fel stavning - character --> karacter
+			Ex character-klass, både NPC och Player ska ärva 
+
+		Gå igenom en User Story med handledare för att se om vi tolkat rätt
+
+		Vecka 3 står det att vi ska "torrköra" vår designmodell. Vad betyder det?
+
+##Beslut
+	Möten/träffar nästa vecka
+		Måndag vid 9/10 till lunch
+		Seminarie på tisdag 10-11:45
+		Onsdag 10-12
+		Torsdag 13:15-15/16
+		Preliminärt fredag förmiddag 9/10-12
+		Fredag efter eventuell handledning
+
+##Skvaller
+	Hemligt
+
+##Wrap up
+	Vi ska på handledning 13:00
