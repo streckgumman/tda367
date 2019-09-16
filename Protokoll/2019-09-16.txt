@@ -1,0 +1,49 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-09-16
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+ 	Måste göra om User Stories så de är i rätt format
+
+	Maven fungerar inte på allas datorer än
+
+	Vi borde göra Travis-workshopen
+
+	Lägg till handledare på overleaf
+
+
+##Gjorts sen sist
+	Samuel har kollat på Maven
+		Maven verkar vara problematiskt
+		Fixat Maven på sin dator
+		Löst gitignore
+
+	Johannes har börjat skriva om User Stories
+
+	Anna har renskrivit domänmodellen
+
+##Diskussion
+	Seminarie imorgon
+		10:00-11:45 eller 11:00-11:30? Tid blir nog tydligt efter föreläsning idag
+		Anna fixar domänmodellen till en pdf som vi kan visa på projektor
+		Bara 10 minuter, inte stressa över det
+		
+	Vad ska vi göra idag?
+		Fixa User Stories
+		Fixa Maven på allas datorer
+		Gå igenom domänmodellen
+		Om vi har tid - 
+			Kolla på UML, försöka strukturera upp klasser
+
+
+##Beslut
+	Vi är bäst
+
+##Skvaller
+	Hemligt
+
+##Wrap up
+	Ses imorgon inför seminariet, nästa gång på onsdag 10
