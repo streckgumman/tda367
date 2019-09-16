@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion> <!-- Should be set to 4.0.0, has to do with Maven stuff-->
+    <groupId>edu.chalmers.tda367.duckoo</groupId> <!-- "The id of the project's group"-->
+    <artifactId>upsideDownAndDead</artifactId> <!--The id of the project.-->
+    <version>0.1-TEST</version> <!--The version of the artifact (project).-->
+    <packaging>jar</packaging>
+    <name>UpsideDownAndDead</name> <!-- @TODO Not sure what the value of this is supposed to be. Context: Was "ProjectTemplate" in the template.-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>src.main.java.helloworld.HelloWorld</mainClass> <!-- This should be the path to the main class-->
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
