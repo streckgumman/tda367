@@ -1,3 +1,4 @@
+import controller.KeyInput;
 import model.Game;
 import view.Screen;
 
@@ -11,6 +12,9 @@ public class Main {
         Game game = new Game();
         Screen screen = new Screen();
         testScreen(screen);
+
+        KeyInput keyInput = new KeyInput();
+        screen.getWindow().addKeyListener(keyInput);
     }
 
     /**
