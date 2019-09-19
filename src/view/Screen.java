@@ -15,6 +15,23 @@ public class Screen {
 
     }
 
+    /**
+     * Sets a JFrame to fullscreen
+     * @param displayMode Display Settings, Resolution, bit-Depth, Framerate
+     * @param window The JFrame to be fullscreened
+     */
+    public void setFullscreen(DisplayMode displayMode, JFrame window){
+        window.setUndecorated(true); /* Remove Title bar etc. */
+        window.setResizable(false); /*Remove the ability to change window size */
+        vc.setFullScreenWindow(window);
+
+        if(displayMode != null && vc.isDisplayChangeSupported()){
+            try{
+                vc.setDisplayMode(displayMode);
+            }catch(Exception e){}
+        }
+    }
+
     public java.awt.Window getWindow(){
         return vc.getFullScreenWindow();
     }
