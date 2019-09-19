@@ -8,7 +8,7 @@ public abstract class Level {
     Trap[] traps;
     Item[] items;
 
-    Level() {
+    public Level() {
 
     }
 }
