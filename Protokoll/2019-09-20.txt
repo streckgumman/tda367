@@ -1,0 +1,43 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-09-20
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+	Anna kommer inte åt Github
+	Amanda kan inte köra koden
+
+##Gjorts sen sist
+	Anna, Linnea, Johannes: Jobbat med UML - inte riktigt klart än
+	Samuel, Johannes, Amanda: Börjat skriva kod
+	Amanda, Linnea: Kollat att User Stories är i rätt format
+	Anna: Fixat bakgrunder och grafik
+
+##Diskussion
+	Vad ska vi göra idag?
+		Vi borde fixa UML bra
+		Skapa en värld med koden
+			Skapa model i koden
+			Visa de grafiska komponenterna (om vi hinner)
+
+	När ska vi ses nästa vecka?	
+		Onsdag 10-12
+		Torsdag 13-16
+		Fredag 9:30-12
+		Handledning fredag vid 13?
+		Eventuellt efter handledning
+
+	Frågor till Robert
+		Kolla på trello
+
+	Att göra tills på onsdag
+		Bestäm efter handledning idag
+
+##Skvaller
+	Hemligt
+
+##Wrap up
+	Jobba på så har vi handledning vid 13!
+	
