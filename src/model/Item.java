@@ -1,8 +1,8 @@
 package model;
 
 public abstract class Item {
-    
-    public Item() {
-
+    private String name;
+    public Item(String name) {
+        this.name = name; 
     }
 }
