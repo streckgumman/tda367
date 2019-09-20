@@ -2,7 +2,9 @@ package model;
 
 public abstract class Charakter {
 
-    public Charakter() {
+    private String name;
 
+    public Charakter(String name) {
+        this.name = name;
     }
 }
