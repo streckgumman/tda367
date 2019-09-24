@@ -4,8 +4,8 @@ import model.Item;
 
 public class TestItem extends Item {
 
-    public TestItem() {
-        super();
+    public TestItem(String name) {
+        super(name);
     }
 
 }
