@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Charakter {
+public abstract class Charakter extends GameObject{
 
     private String name;
 
