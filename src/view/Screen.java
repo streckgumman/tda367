@@ -1,5 +1,8 @@
 package view;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 public class Screen {
@@ -45,5 +48,18 @@ public class Screen {
             w.dispose();
         }
         vc.setFullScreenWindow(null); /* TODO Why not False? */
+    }
+
+
+    /**
+     *
+     *
+     */
+    public void testScreen(){
+        JFrame window = new JFrame();
+        DisplayMode displayMode = new DisplayMode(1920, 1080,32, 60);
+        setFullscreen(displayMode, window);
+
+
     }
 }
