@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 public class StartMenuView extends View {
 
@@ -24,7 +25,8 @@ public class StartMenuView extends View {
         try {
             File pathToFile = new File("./resources/player.png");
             BufferedImage image = ImageIO.read(pathToFile);
-            g.drawImage(image, 1920 / 2, 1080 / 2, image.getWidth() / 4, image.getHeight() / 4, null);
+            Random r = new Random();
+            g.drawImage(image, r.nextInt(w), r.nextInt(h), image.getWidth() / 4, image.getHeight() / 4, null);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
