@@ -28,19 +28,19 @@ public abstract class Controller implements KeyListener{
 
     public void keyPressed(KeyEvent e){
         for(Updater updater : updaters){
-            updater.update(e);
+            updater.keyPressed(e);
         }
     }
 
     public void keyReleased(KeyEvent e){
         for(Updater updater : updaters){
-            updater.update(e);
+            updater.keyReleased(e);
         }
     }
 
     public void keyTyped(KeyEvent e){
         for(Updater updater : updaters){
-            updater.update(e);
+            updater.keyTyped(e);
         }
     }
 
