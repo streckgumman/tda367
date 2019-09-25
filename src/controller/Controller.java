@@ -17,6 +17,7 @@ public abstract class Controller implements KeyListener{
     public Controller(View view, Level level){
         this.level = level;
         this.view = view;
+
     }
 
     public void redrawView(){

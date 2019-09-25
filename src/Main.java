@@ -1,5 +1,6 @@
 import controller.KeyInput;
 import model.Game;
+import model.Player;
 import view.View;
 
 
@@ -10,7 +11,6 @@ public class Main {
         Game game = new Game();
         View screen = new View();
         screen.testScreen();
-
 
 
         KeyInput keyInput = new KeyInput();

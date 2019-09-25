@@ -6,7 +6,7 @@ public class Game {
     Level currentLevel;
 
     public Game() {
-        player = new Player("Bob");
+        player = new Player("Duckoo");
 
     }
 }
