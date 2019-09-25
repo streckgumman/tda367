@@ -35,7 +35,7 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
 
-        Controller c = new StartMenuController(new StartMenuView());
+        Controller c = new StartMenuController(view);
         view.addKeyListener(c);
     }
 
