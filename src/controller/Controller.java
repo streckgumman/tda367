@@ -5,6 +5,7 @@ import view.View;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Controller implements KeyListener{
@@ -17,6 +18,7 @@ public abstract class Controller implements KeyListener{
     public Controller(View view, Level level){
         this.level = level;
         this.view = view;
+        updaters = new ArrayList<Updater>();
     }
 
     public void redrawView(){
