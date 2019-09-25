@@ -1,4 +1,45 @@
 package controller;
 
-public class Controller {
+import model.Level;
+import view.Screen;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Controller implements KeyListener{
+
+    Screen view;
+    Level level;
+    List<Updater> updaters;
+
+
+    public Controller(Screen view, Level level){
+        this.level = level;
+        this.view = view;
+    }
+
+    public void redrawView(){
+
+    }
+
+    public void keyPressed(KeyEvent e){
+        for(Updater updater : updaters){
+            updater.update(e);
+        }
+    }
+
+    public void keyReleased(KeyEvent e){
+        for(Updater updater : updaters){
+            updater.update(e);
+        }
+    }
+
+    public void keyTyped(KeyEvent e){
+        for(Updater updater : updaters){
+            updater.update(e);
+        }
+    }
+
 }

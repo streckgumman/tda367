@@ -4,7 +4,8 @@ import model.NPC;
 
 public class TestNPC extends NPC {
 
-    public TestNPC() {
+    public TestNPC(String name) {
+        super(name);
 
     }
 

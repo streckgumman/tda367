@@ -1,5 +1,8 @@
 package view;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 public class Screen {
@@ -45,5 +48,43 @@ public class Screen {
             w.dispose();
         }
         vc.setFullScreenWindow(null); /* TODO Why not False? */
+    }
+
+
+    /**
+     *
+     *
+     */
+    public void testScreen(){
+        JFrame window = new JFrame();
+        DisplayMode displayMode = new DisplayMode(1920, 1080,32, 60);
+        setFullscreen(displayMode, window);
+
+        Canvas canvas = new Canvas() {
+            @Override
+            public void paint(Graphics g) {
+//                g.setColor(Color.BLACK);
+//                g.fillOval(100, 100, 200, 200);
+                try {
+                    File pathToFile = new File("./resources/background_1.png");
+                    Image image = ImageIO.read(pathToFile);
+                    g.drawImage(image, 0, 0, 1920, 1080, null);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                try {
+                    File pathToFile = new File("./resources/player.png");
+                    Image image = ImageIO.read(pathToFile);
+                    g.drawImage(image, 0, 0, 200, 200, null);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        };
+        canvas.setSize(displayMode.getWidth(), displayMode.getHeight());
+        window.add(canvas);
+        window.pack();
+
     }
 }
