@@ -1,0 +1,43 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-09-25
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén
+
+##Uppkomna problem
+Problem 1: Att skärmen, bakgrunden och karaktären inte laddas samtidigt
+
+Problem 2: Det är frågetecken kring vart man ska lägga filepaths. Items ligger i en lista så går inte att särskilja, så om
+filepaths inte ligger i item så går det ej att veta vilket item som ska ha vilken bild. Enligt MVC så får filepaths inte ligga i modellen
+vilket skapar ett problem.
+
+##Lösningar av tidigare problem
+Amandas maven fungerar, kan nu köra programmet i datorn(vilket tidigare inte var möjligt)
+
+##Gjorts sen sist
+Anna och Samuel har undersökt hur man sätter ihop två bilder. För nu laddas först skärmen upp, sen bakgrunden och sen karaktären. Målet är att det ska laddas upp samtidigt på
+skärmen.
+
+Linnea och Johannes har skapat ett skal för controllern
+
+##Diskussion
+Problem 1 är ett problem som kommer att lösas efter att de essentiella user stories har lösts. Det är en fråga om användarupplevelse som inte prioteras
+för att spelet fungerar i sig.
+
+Problem 2: Vi tar upp det på handledaremötet för att bestämma hur det problemet ska lösas.
+
+##Beslut
+Vi bör skriva upp varje gång vi planerar att eller har använt ett pattern för att underlätta för senare arbete.
+
+#Framtida arbete
+Ska parprogrammera under dagens pass.
+
+Johannes och Anna ska försöka skapa introskärmen och menyn att fungera
+
+Amanda och Linnea ska försöka ge karaktären en position och röra sig med hjälp av keyinputs. 
+
+##Skvaller
+	Hemligt och väldigt spännande
+
+##Wrap up
