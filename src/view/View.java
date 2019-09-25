@@ -10,6 +10,7 @@ public abstract class View extends JPanel {
     public View(int w, int h) {
         this.w = w;
         this.h = h;
+        setFocusable(true);
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(w, h));
     }
