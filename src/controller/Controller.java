@@ -43,4 +43,8 @@ public abstract class Controller implements KeyListener{
         }
     }
 
+    public void addUpdater(Updater u){
+        updaters.add(u);
+    }
+
 }
