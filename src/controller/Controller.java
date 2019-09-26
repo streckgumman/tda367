@@ -9,47 +9,53 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Controller implements KeyListener{
+public abstract class Controller implements KeyListener {
 
-    View view;
-    Level level;
-    List<Updater> updaters;
     Game game;
+    private View view;
+    private List<Updater> updaters;
 
 
-    public Controller(View view, Level level, Game game){
-        this.level = level;
+    public Controller(View view, Game game){
         this.view = view;
         this.game = game;
         updaters = new ArrayList<Updater>();
-
     }
 
-    public void redrawView(){
+    protected abstract void updateModel();
+
+    protected void redrawView() {
         view.repaint();
     }
 
-    public void keyPressed(KeyEvent e){
-        System.out.println("you pressed a key");
-        for(Updater updater : updaters){
+    public void keyPressed(KeyEvent e) {
+        for (Updater updater : updaters) {
             updater.keyPressed(e);
         }
     }
 
-    public void keyReleased(KeyEvent e){
-        for(Updater updater : updaters){
+    public void keyReleased(KeyEvent e) {
+        for (Updater updater : updaters) {
             updater.keyReleased(e);
         }
     }
 
-    public void keyTyped(KeyEvent e){
-        for(Updater updater : updaters){
+    public void keyTyped(KeyEvent e) {
+        for (Updater updater : updaters) {
             updater.keyTyped(e);
         }
     }
 
     public void addUpdater(Updater u) {
         updaters.add(u);
+    }
+
+    /**
+     * Updates and displays the model once (one frame)
+     */
+    public void update() {
+        updateModel();
+        redrawView();
     }
 
 }
