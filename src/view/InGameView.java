@@ -10,25 +10,28 @@ import java.io.IOException;
 
 public class InGameView extends View {
 
+    private BufferedImage background;
+    private BufferedImage character;
+    private Point characterPos;
+
     public InGameView(Game game) {
         super(1920, 1080, game);
+
+        try {
+            File backgroundPath = new File("./resources/background_1.png");
+            this.background = ImageIO.read(backgroundPath);
+
+            File characterPath = new File("./resources/player.png");
+            this.character = ImageIO.read(characterPath);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     void draw(Graphics g) {
-        try {
-            File pathToFile = new File("./resources/background_1.png");
-            Image image = ImageIO.read(pathToFile);
-            g.drawImage(image, 0, 0, 1920, 1080, null);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        try {
-            File pathToFile = new File("./resources/player.png");
-            BufferedImage image = ImageIO.read(pathToFile);
-            Point point = game.getPlayer().getPosition();
-            g.drawImage(image, (int)point.getX(), (int)point.getY(), image.getWidth() / 4, image.getHeight() / 4, null);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        g.drawImage(background, 0, 0, 1920, 1080, null);
+        characterPos = game.getPlayer().getPosition();
+        g.drawImage(character, (int) characterPos.getX(), (int) characterPos.getY(), character.getWidth() / 4, character.getHeight() / 4, null);
+
     }
 }
