@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 public class StartMenuController extends Controller{
 
     public StartMenuController(View v){
-        super(v, null);
+        super(v);
         Updater u = new Updater(null) {
 
             public void keyPressed(KeyEvent event) {
