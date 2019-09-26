@@ -1,5 +1,6 @@
 package controller;
 
+import model.Game;
 import model.Level;
 import view.View;
 
@@ -13,11 +14,13 @@ public abstract class Controller implements KeyListener{
     View view;
     Level level;
     List<Updater> updaters;
+    Game game;
 
 
-    public Controller(View view, Level level){
+    public Controller(View view, Level level, Game game){
         this.level = level;
         this.view = view;
+        this.game = game;
         updaters = new ArrayList<Updater>();
 
     }
@@ -27,6 +30,7 @@ public abstract class Controller implements KeyListener{
     }
 
     public void keyPressed(KeyEvent e){
+        System.out.println("you pressed a key");
         for(Updater updater : updaters){
             updater.keyPressed(e);
         }
