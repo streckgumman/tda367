@@ -4,23 +4,15 @@ import view.StartMenuView;
 import view.View;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class Main {
 
+    private static Main instance;
+    private Controller controller;
+
+
     public static void main(String[] args) {
-
-//        Game game = new Game();
-//        View screen = new View();
-//        screen.testScreen();
-//
-//
-//        KeyInput keyInput = new KeyInput();
-//        screen.getWindow().addKeyListener(keyInput);
-
         int w = 1920;
         int h = 1080;
 
@@ -37,6 +29,21 @@ public class Main {
 
         Controller c = new StartMenuController(view);
         view.addKeyListener(c);
+
+        // calls the controller's update method 60 times per second (ideally)
+        while (true) {
+            long startTime = System.currentTimeMillis();
+            c.update();
+            long totalTime = System.currentTimeMillis() - startTime;
+            if (totalTime < 16) {
+                try {
+                    Thread.sleep(16 - totalTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 
 }

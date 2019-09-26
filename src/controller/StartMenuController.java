@@ -30,4 +30,9 @@ public class StartMenuController extends Controller{
         addUpdater(u);
     }
 
+    @Override
+    public void updateModel() {
+
+    }
+
 }

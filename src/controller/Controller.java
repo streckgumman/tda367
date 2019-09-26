@@ -19,8 +19,9 @@ public abstract class Controller implements KeyListener {
         updaters = new ArrayList<Updater>();
     }
 
-    public void redrawView(){
+    protected abstract void updateModel();
 
+    protected void redrawView() {
         view.repaint();
     }
 
@@ -44,6 +45,14 @@ public abstract class Controller implements KeyListener {
 
     public void addUpdater(Updater u) {
         updaters.add(u);
+    }
+
+    /**
+     * Updates and displays the model once (one frame)
+     */
+    public void update() {
+        updateModel();
+        redrawView();
     }
 
 }
