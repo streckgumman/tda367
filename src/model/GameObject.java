@@ -2,7 +2,7 @@ package model;
 
 import java.awt.*;
 
-public class GameObject {
+public abstract class GameObject {
 
     private Point point;
 
@@ -10,24 +10,24 @@ public class GameObject {
         this.point = point;
     }
 
-    private void setPosition(int x, int y){
+    protected void setPosition(int x, int y){
         point = new Point(x, y);
     }
 
-    private void setXPosition(int x){
+    protected void setXPosition(int x){
         int y = (int)point.getY();
         point = new Point(x, y);
     }
 
-    private void setYPosition(int y){
+    protected void setYPosition(int y){
         int x = (int)point.getX();
         point = new Point(x, y);
     }
 
-    private Point getPosition(){
+    public Point getPosition(){
         return new Point(point);
     }
 
-    private void move(){}
+    public abstract void move(String string);
 
 }
