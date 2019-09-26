@@ -9,4 +9,9 @@ public class Game {
         player = new Player("Duckoo");
 
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
 }
