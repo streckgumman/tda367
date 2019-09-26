@@ -18,5 +18,7 @@ public abstract class Updater<T extends GameObject> {
     public abstract void keyReleased(KeyEvent event);
     public abstract void keyTyped(KeyEvent event);
 
-
+    public T getGameObject() {
+        return gameObject;
+    }
 }
