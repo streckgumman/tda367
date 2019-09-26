@@ -1,5 +1,7 @@
 package view;
 
+import model.Game;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,7 +12,7 @@ import java.util.Random;
 public class StartMenuView extends View {
 
     public StartMenuView() {
-        super(1920, 1080);
+        super(1920, 1080, null);
     }
 
     void draw(Graphics g) {
