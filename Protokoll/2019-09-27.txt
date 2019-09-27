@@ -15,6 +15,8 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
     det separat, vi ska merga deras lösningar för att få Johannes lösning för att få det smooth och Samuels kod för att
     få karaktärens bild att byta håll när vi byter direction
 
+    Hur byter man scen?
+
 ##Gjorts sen sist
     Amanda och Linnea har fått karaktären att röra på sig, Johannes har optimerat så att den rör sig smidigare
 
@@ -28,6 +30,8 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
 
     För att göra klart de övriga User Stories som ska fixas den här veckan ska Anna och Johannes parprogrammera att
     startmenyn kommer upp först och följs av själva spelet.
+
+    Att byta scen försöktes göra igår, men det gick inte. Vi tar vidare frågan till handledningen
 
 ##Beslut
     Johannes och Anna parprogrammerar idag
