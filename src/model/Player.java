@@ -13,18 +13,23 @@ public class Player extends Charakter {
         if(string.equals("left")){
             this.setXPosition((int)this.getPosition().getX()-10);
             System.out.println(this.getPosition().toString());
+    @Override
+    public void update() {
+        int dx = 0;
+        int dy = 0;
+        if (movingRight) {
+            dx += 10;
         }
-        if(string.equals("right")){
-            this.setXPosition((int)this.getPosition().getX()+10);
-            System.out.println(this.getPosition().toString());
+        if (movingLeft) {
+            dx -= 10;
         }
-        if(string.equals("up")){
-            this.setYPosition((int)this.getPosition().getY()-10);
-            System.out.println(this.getPosition().toString());
+        if (movingUp) {
+            dy -= 10;
         }
-        if(string.equals("down")){
-            this.setYPosition((int)this.getPosition().getY()+10);
-            System.out.println(this.getPosition().toString());
+        if (movingDown) {
+            dy += 10;
         }
+        move(dx, dy);
+    }
     }
 }

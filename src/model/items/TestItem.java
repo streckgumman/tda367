@@ -9,6 +9,7 @@ public class TestItem extends Item {
     }
 
     public void move(String string) {
+    protected void update() {
 
     }
 }

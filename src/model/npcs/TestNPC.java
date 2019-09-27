@@ -10,6 +10,7 @@ public class TestNPC extends NPC {
     }
 
     public void move(String string) {
+    protected void update() {
 
     }
 }

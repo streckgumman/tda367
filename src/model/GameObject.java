@@ -29,5 +29,6 @@ public abstract class GameObject {
     }
 
     public abstract void move(String string);
+    protected abstract void update();
 
 }
