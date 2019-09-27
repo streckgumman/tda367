@@ -19,9 +19,17 @@ import java.io.IOException;
 
 public class InGameView extends View {
 
+    /**
+     * Images that represent the game.
+     */
     private BufferedImage background;
     private BufferedImage character;
 
+    /**
+     * Class constructor.
+     *
+     * @param game  the model's game.
+     */
     public InGameView(Game game) {
         super(1920, 1080, game);
 
@@ -36,6 +44,11 @@ public class InGameView extends View {
         }
     }
 
+    /**
+     * Draws the graphic of the game.
+     *
+     * @param g the graphic for the view to draw.
+     */
     void draw(Graphics g) {
         g.drawImage(background, 0, 0, 1920, 1080, null);
         int playerX = game.getPlayer().getX();
