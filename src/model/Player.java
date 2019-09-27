@@ -1,7 +1,9 @@
 package model;
 
 import java.awt.*;
-
+/**
+ * Represents the player that the user uses to play the game and can controll
+ */
 public class Player extends Charakter {
 
     private boolean movingRight = false;
