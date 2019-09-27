@@ -63,26 +63,40 @@ public class InGameView extends View {
      * @param g the graphic for the view to draw.
      */
     void draw(Graphics g) {
+        // Draws the background
         g.drawImage(background, 0, 0, 1920, 1080, null);
-        int playerX = game.getPlayer().getX();
-        int playerY = game.getPlayer().getY();
+
+        // Variables for where the player is moving, one for each arrow key being pressed
         boolean playerIsMovingRight = game.getPlayer().isMovingRight();
         boolean playerIsMovingLeft = game.getPlayer().isMovingLeft();
 
+        // The direction for having the character face the correct way
         HorizontalDirection currentDirection;
+
         if (playerIsMovingLeft) {
             if (playerIsMovingRight) {
+                // Both left and right arrow keys are pressed, player faces the same way as last frame
                 currentDirection = lastPlayerDirection;
             } else {
+                // Only left arrow key is pressed, player faces left
                 currentDirection = HorizontalDirection.LEFT;
             }
         } else if (playerIsMovingRight) {
+            // Only right arrow key is pressed, player faces right
             currentDirection = HorizontalDirection.RIGHT;
         } else {
+            // No keys are pressed, player faces the same way as last frame
             currentDirection = lastPlayerDirection;
         }
+
+        // Updates variable for use next frame
         lastPlayerDirection = currentDirection;
 
+        // Player position
+        int playerX = game.getPlayer().getX();
+        int playerY = game.getPlayer().getY();
+
+        // Draws the player facing the correct way
         if (currentDirection == HorizontalDirection.RIGHT) {
             g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
         } else {
