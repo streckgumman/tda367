@@ -11,6 +11,15 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * The class that presents the view while playing the game.
+ *
+ * Presents the player with graphics, such as the background, the character etc.
+ *
+ * @author Amanda Dehlén, Linnea Johansson
+ *
+ */
+
 public class InGameView extends View {
 
     private BufferedImage background;
