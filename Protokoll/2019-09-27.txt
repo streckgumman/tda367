@@ -36,7 +36,7 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
 ##Beslut
     Johannes och Anna parprogrammerar idag
 
-    Amanda och Linnea uppdaterar RAD- och SDD-dokumentet
+    Amanda och Linnea skriver kommentarer till koden vi skrev igår
 
     Samuel börjar skriva tester för det som gjorts senast
 
