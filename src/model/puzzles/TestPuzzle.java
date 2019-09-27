@@ -9,7 +9,6 @@ public class TestPuzzle extends Puzzle {
 
     }
 
-    public void move(String string) {
     protected void update() {
 
     }

@@ -28,7 +28,8 @@ public abstract class GameObject {
         return new Point(point);
     }
 
-    public abstract void move(String string);
+//    public abstract void move(String string);
+
     public int getX() {
         return (int) getPosition().getX();
     }
@@ -36,6 +37,7 @@ public abstract class GameObject {
     public int getY() {
         return (int) getPosition().getY();
     }
+
     protected abstract void update();
 
 }

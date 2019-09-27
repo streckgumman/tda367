@@ -8,7 +8,6 @@ public class TestItem extends Item {
         super(name);
     }
 
-    public void move(String string) {
     protected void update() {
 
     }

@@ -1,18 +1,18 @@
 package model;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class Player extends Charakter {
+
+    private boolean movingRight = false;
+    private boolean movingLeft = false;
+    private boolean movingUp = false;
+    private boolean movingDown = false;
 
     public Player(String name) {
         super(name, new Point(1920/2,1080/2));
     }
 
-    public void move(String string) {
-        if(string.equals("left")){
-            this.setXPosition((int)this.getPosition().getX()-10);
-            System.out.println(this.getPosition().toString());
     @Override
     public void update() {
         int dx = 0;
@@ -31,5 +31,27 @@ public class Player extends Charakter {
         }
         move(dx, dy);
     }
+
+    public void move(int dx, int dy) {
+        setPosition(getX() + dx, getY() + dy);
     }
+
+    public void setMovingRight(boolean movingRight) {
+        this.movingRight = movingRight;
+    }
+    public void setMovingLeft(boolean movingLeft) {
+        this.movingLeft = movingLeft;
+    }
+
+    public void setMovingUp(boolean movingUp) {
+        this.movingUp = movingUp;
+    }
+
+    public void setMovingDown(boolean movingDown) {
+        this.movingDown = movingDown;
+    }
+
+
+
+
 }

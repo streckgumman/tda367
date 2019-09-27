@@ -12,15 +12,13 @@ public class PlayerUpdater extends Updater<Player> {
 
     public void keyPressed(KeyEvent event) {
         if(event.getKeyCode() ==  KeyEvent.VK_LEFT){
-            this.getGameObject().move("left");
-            System.out.println("Move left");
+            getGameObject().setMovingLeft(true);
         }
         if(event.getKeyCode() ==  KeyEvent.VK_RIGHT){
-            this.getGameObject().move("right");
-            System.out.println("Move right");
+            getGameObject().setMovingRight(true);
         }
         if(event.getKeyCode() ==  KeyEvent.VK_UP){
-            this.getGameObject().move("up");
+            getGameObject().setMovingUp(true);
         }
         if(event.getKeyCode() ==  KeyEvent.VK_DOWN){
             getGameObject().setMovingDown(true);
