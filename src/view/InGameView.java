@@ -13,11 +13,10 @@ import java.io.IOException;
 
 /**
  * The class that presents the view while playing the game.
- *
+ * <p>
  * Presents the player with graphics, such as the background, the character etc.
  *
  * @author Amanda Dehlén, Linnea Johansson
- *
  */
 
 public class InGameView extends View {
@@ -25,7 +24,6 @@ public class InGameView extends View {
     private BufferedImage background;
     private BufferedImage character;
     private BufferedImage flippedCharacter;
-    private Point characterPos;
 
     public InGameView(Game game) {
         super(1920, 1080, game);
@@ -47,7 +45,6 @@ public class InGameView extends View {
         g.drawImage(background, 0, 0, 1920, 1080, null);
         int playerX = game.getPlayer().getX();
         int playerY = game.getPlayer().getY();
-        characterPos = game.getPlayer().getPosition();
         if (game.getPlayer().isMovingRight()) {
             g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
         } else {
