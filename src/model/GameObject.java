@@ -29,6 +29,13 @@ public abstract class GameObject {
     }
 
     public abstract void move(String string);
+    public int getX() {
+        return (int) getPosition().getX();
+    }
+
+    public int getY() {
+        return (int) getPosition().getY();
+    }
     protected abstract void update();
 
 }
