@@ -1,43 +1,57 @@
 package model;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class Player extends Charakter {
 
-    public enum Orientation {
-        RIGHT,
-        LEFT
-    }
-
-    private Orientation playerOrientation = Orientation.RIGHT;
+    private boolean movingRight = false;
+    private boolean movingLeft = false;
+    private boolean movingUp = false;
+    private boolean movingDown = false;
 
     public Player(String name) {
         super(name, new Point(1920 / 2, 1080 / 2));
     }
 
-    public void move(String string) {
-        if (string.equals("left")) {
-            this.setXPosition((int) this.getPosition().getX() - 10);
-            System.out.println(this.getPosition().toString());
-            playerOrientation = Orientation.LEFT;
+    @Override
+    public void update() {
+        int dx = 0;
+        int dy = 0;
+        if (movingRight) {
+            dx += 10;
         }
-        if (string.equals("right")) {
-            this.setXPosition((int) this.getPosition().getX() + 10);
-            System.out.println(this.getPosition().toString());
-            playerOrientation = Orientation.RIGHT;
+        if (movingLeft) {
+            dx -= 10;
         }
-        if (string.equals("up")) {
-            this.setYPosition((int) this.getPosition().getY() - 10);
-            System.out.println(this.getPosition().toString());
+        if (movingUp) {
+            dy -= 10;
         }
-        if (string.equals("down")) {
-            this.setYPosition((int) this.getPosition().getY() + 10);
-            System.out.println(this.getPosition().toString());
+        if (movingDown) {
+            dy += 10;
         }
+        move(dx, dy);
     }
 
-    public Orientation getPlayerOrientation() {
-        return playerOrientation;
+    public void move(int dx, int dy) {
+        setPosition(getX() + dx, getY() + dy);
     }
+
+    public void setMovingRight(boolean movingRight) {
+        this.movingRight = movingRight;
+    }
+    public void setMovingLeft(boolean movingLeft) {
+        this.movingLeft = movingLeft;
+    }
+
+    public void setMovingUp(boolean movingUp) {
+        this.movingUp = movingUp;
+    }
+
+    public void setMovingDown(boolean movingDown) {
+        this.movingDown = movingDown;
+    }
+
+
+
+
 }

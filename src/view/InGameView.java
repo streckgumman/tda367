@@ -36,13 +36,9 @@ public class InGameView extends View {
 
     void draw(Graphics g) {
         g.drawImage(background, 0, 0, 1920, 1080, null);
-        characterPos = game.getPlayer().getPosition();
-        if (game.getPlayer().getPlayerOrientation() == Player.Orientation.RIGHT) {
-            g.drawImage(character, (int) characterPos.getX(), (int) characterPos.getY(), character.getWidth() / 4, character.getHeight() / 4, null);
-        } else {
-            g.drawImage(flippedCharacter, (int) characterPos.getX(), (int) characterPos.getY(), flippedCharacter.getWidth() / 4, flippedCharacter.getHeight() / 4, null);
-        }
-    }
+        int playerX = game.getPlayer().getX();
+        int playerY = game.getPlayer().getY();
+        g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
 
     //TODO These (copyImage and horizontalFlip) methods might not belong in this class?
     private BufferedImage copyImage(BufferedImage source) {
