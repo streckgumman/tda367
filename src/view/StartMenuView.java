@@ -17,10 +17,10 @@ public class StartMenuView extends View {
         super(1920, 1080, null);
 
         try {
-            File backgroundPath = new File("./resources/Starting menu.png");
+            File backgroundPath = new File("./resources/start_menu.png");
             this.background = ImageIO.read(backgroundPath);
 
-            File pressEPath = new File("./resources/Press_e_to_start.png");
+            File pressEPath = new File("./resources/press_e.png");
             this.pressE = ImageIO.read(pressEPath);
 
             File characterPath = new File("./resources/player.png");
