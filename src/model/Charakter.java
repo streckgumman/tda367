@@ -2,9 +2,6 @@ package model;
 
 import java.awt.*;
 
-/**
- *
- */
 public abstract class Charakter extends GameObject{
 
     private String name;
