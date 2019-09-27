@@ -51,7 +51,11 @@ public class Player extends Charakter {
         this.movingDown = movingDown;
     }
 
+    public boolean isMovingRight() {
+        return movingRight;
+    }
 
-
-
+    public boolean isMovingLeft() {
+        return movingLeft;
+    }
 }
