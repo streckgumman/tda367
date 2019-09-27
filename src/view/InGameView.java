@@ -25,6 +25,13 @@ public class InGameView extends View {
     private BufferedImage character;
     private BufferedImage flippedCharacter;
 
+    private enum horizontalDirection {
+        RIGHT,
+        LEFT
+    }
+
+    private horizontalDirection lastPlayerDirection;
+
     public InGameView(Game game) {
         super(1920, 1080, game);
 
@@ -38,6 +45,8 @@ public class InGameView extends View {
             ex.printStackTrace();
         }
 
+        lastPlayerDirection = horizontalDirection.RIGHT;
+
         flippedCharacter = horizontalFlip(copyImage(character));
     }
 
@@ -45,7 +54,25 @@ public class InGameView extends View {
         g.drawImage(background, 0, 0, 1920, 1080, null);
         int playerX = game.getPlayer().getX();
         int playerY = game.getPlayer().getY();
-        if (game.getPlayer().isMovingRight()) {
+        boolean playerIsMovingRight = game.getPlayer().isMovingRight();
+        boolean playerIsMovingLeft = game.getPlayer().isMovingLeft();
+
+        horizontalDirection currentDirection;
+        if (playerIsMovingLeft) {
+            if (playerIsMovingRight) {
+                currentDirection = lastPlayerDirection;
+            } else {
+                currentDirection = horizontalDirection.LEFT;
+            }
+        } else if (playerIsMovingRight) {
+            currentDirection = horizontalDirection.RIGHT;
+        } else {
+            currentDirection = lastPlayerDirection;
+        }
+        lastPlayerDirection = currentDirection;
+
+
+        if (currentDirection == horizontalDirection.RIGHT) {
             g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
         } else {
             g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
