@@ -1,57 +1,37 @@
 package model;
 
+import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Represents the player that the user uses to play the game and can controll
+ */
 public class Player extends Charakter {
-
-    private boolean movingRight = false;
-    private boolean movingLeft = false;
-    private boolean movingUp = false;
-    private boolean movingDown = false;
 
     public Player(String name) {
         super(name, new Point(1920/2,1080/2));
     }
 
-    @Override
-    public void update() {
-        int dx = 0;
-        int dy = 0;
-        if (movingRight) {
-            dx += 10;
+    /**
+     *
+     * @param string the direction that the keyinput is
+     */
+    public void move(String string) {
+        if(string.equals("left")){
+            this.setXPosition((int)this.getPosition().getX()-10);
+            System.out.println(this.getPosition().toString());
         }
-        if (movingLeft) {
-            dx -= 10;
+        if(string.equals("right")){
+            this.setXPosition((int)this.getPosition().getX()+10);
+            System.out.println(this.getPosition().toString());
         }
-        if (movingUp) {
-            dy -= 10;
+        if(string.equals("up")){
+            this.setYPosition((int)this.getPosition().getY()-10);
+            System.out.println(this.getPosition().toString());
         }
-        if (movingDown) {
-            dy += 10;
+        if(string.equals("down")){
+            this.setYPosition((int)this.getPosition().getY()+10);
+            System.out.println(this.getPosition().toString());
         }
-        move(dx, dy);
     }
-
-    public void move(int dx, int dy) {
-        setPosition(getX() + dx, getY() + dy);
-    }
-
-    public void setMovingRight(boolean movingRight) {
-        this.movingRight = movingRight;
-    }
-    public void setMovingLeft(boolean movingLeft) {
-        this.movingLeft = movingLeft;
-    }
-
-    public void setMovingUp(boolean movingUp) {
-        this.movingUp = movingUp;
-    }
-
-    public void setMovingDown(boolean movingDown) {
-        this.movingDown = movingDown;
-    }
-
-
-
-
 }
