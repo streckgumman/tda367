@@ -2,7 +2,7 @@
 
 Grupp: Duckoo
 Datum: 2019-09-25
-Antecknare: Linnea
+Antecknare: Amanda
 Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén
 
 ##Uppkomna problem
