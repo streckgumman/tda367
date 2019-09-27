@@ -2,7 +2,7 @@ package model;
 
 import java.awt.*;
 
-public abstract class Charakter extends GameObject{
+public abstract class Charakter extends GameObject {
 
     private String name;
 
@@ -10,5 +10,4 @@ public abstract class Charakter extends GameObject{
         super(point);
         this.name = name;
     }
-
 }

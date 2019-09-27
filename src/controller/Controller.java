@@ -1,7 +1,6 @@
 package controller;
 
 import model.Game;
-import model.Level;
 import view.View;
 
 import java.awt.event.KeyEvent;
@@ -15,8 +14,7 @@ public abstract class Controller implements KeyListener {
     private View view;
     private List<Updater> updaters;
 
-
-    public Controller(View view, Game game){
+    public Controller(View view, Game game) {
         this.view = view;
         this.game = game;
         updaters = new ArrayList<Updater>();

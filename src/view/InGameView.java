@@ -21,6 +21,11 @@ import java.io.IOException;
 
 public class InGameView extends View {
 
+    private enum HorizontalDirection {
+        RIGHT,
+        LEFT
+    }
+
     /**
      * Images that represent the game.
      */
@@ -28,17 +33,12 @@ public class InGameView extends View {
     private BufferedImage character;
     private BufferedImage flippedCharacter;
 
-    private enum horizontalDirection {
-        RIGHT,
-        LEFT
-    }
-
-    private horizontalDirection lastPlayerDirection;
+    private HorizontalDirection lastPlayerDirection;
 
     /**
      * Class constructor.
      *
-     * @param game  the model's game.
+     * @param game the model's game.
      */
     public InGameView(Game game) {
         super(1920, 1080, game);
@@ -53,8 +53,7 @@ public class InGameView extends View {
             ex.printStackTrace();
         }
 
-        lastPlayerDirection = horizontalDirection.RIGHT;
-
+        lastPlayerDirection = HorizontalDirection.RIGHT;
         flippedCharacter = horizontalFlip(copyImage(character));
     }
 
@@ -70,22 +69,21 @@ public class InGameView extends View {
         boolean playerIsMovingRight = game.getPlayer().isMovingRight();
         boolean playerIsMovingLeft = game.getPlayer().isMovingLeft();
 
-        horizontalDirection currentDirection;
+        HorizontalDirection currentDirection;
         if (playerIsMovingLeft) {
             if (playerIsMovingRight) {
                 currentDirection = lastPlayerDirection;
             } else {
-                currentDirection = horizontalDirection.LEFT;
+                currentDirection = HorizontalDirection.LEFT;
             }
         } else if (playerIsMovingRight) {
-            currentDirection = horizontalDirection.RIGHT;
+            currentDirection = HorizontalDirection.RIGHT;
         } else {
             currentDirection = lastPlayerDirection;
         }
         lastPlayerDirection = currentDirection;
 
-
-        if (currentDirection == horizontalDirection.RIGHT) {
+        if (currentDirection == HorizontalDirection.RIGHT) {
             g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
         } else {
             g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);

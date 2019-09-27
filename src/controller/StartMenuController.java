@@ -1,26 +1,30 @@
 package controller;
 
 import view.View;
+
 import java.awt.event.KeyEvent;
 
-public class StartMenuController extends Controller{
+public class StartMenuController extends Controller {
 
     @SuppressWarnings("unchecked")
-    public StartMenuController(View v){
+    public StartMenuController(View v) {
         super(v, null);
-        Updater u = new Updater(null) {
 
+        Updater u = new Updater(null) {
+            @Override
             public void keyPressed(KeyEvent event) {
-                if(event.getKeyCode() == java.awt.event.KeyEvent.VK_E){
+                if (event.getKeyCode() == java.awt.event.KeyEvent.VK_E) {
                     System.out.println("E-key pressed");//Nästa steg så ska vi starta InGameView
 
                 }
             }
 
+            @Override
             public void keyReleased(KeyEvent event) {
 
             }
 
+            @Override
             public void keyTyped(KeyEvent event) {
 
             }
@@ -33,5 +37,4 @@ public class StartMenuController extends Controller{
     public void updateModel() {
 
     }
-
 }

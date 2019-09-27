@@ -35,7 +35,7 @@ public class StartMenuView extends View {
         g.drawImage(background, 0, 0, 1920, 1080, null);
 
         float alpha = (float) (Math.sin(Math.PI * frame / 120d) + 3) / 4; //draw half transparent
-        AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER,alpha);
+        AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setComposite(ac);
 

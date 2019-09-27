@@ -26,6 +26,4 @@ public abstract class View extends JPanel {
     }
 
     abstract void draw(Graphics g);
-
-
 }
