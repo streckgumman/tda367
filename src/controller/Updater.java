@@ -6,9 +6,9 @@ import java.awt.event.KeyEvent;
 
 public abstract class Updater<T extends GameObject> {
 
-    T gameObject;
+    private T gameObject;
 
-    public Updater(T gameObject){
+    protected Updater(T gameObject){
         this.gameObject = gameObject;
     }
 
@@ -18,7 +18,7 @@ public abstract class Updater<T extends GameObject> {
     public abstract void keyReleased(KeyEvent event);
     public abstract void keyTyped(KeyEvent event);
 
-    public T getGameObject() {
+    protected T getGameObject() {
         return gameObject;
     }
 }
