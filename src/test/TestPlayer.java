@@ -65,8 +65,40 @@ public class TestPlayer {
         assertEquals(player.getX(), 10);
         assertEquals(player.getY(), 10);
     }
-    
 
+
+
+    @Test
+    public void testUpdate(){
+        player.setMovingRight(true);
+        player.setMovingDown(true);
+        player.setPosition(0,0);
+
+        player.update();
+        assertEquals(player.getX(), 10);
+        assertEquals(player.getY(), 10);
+
+        player.update();
+        player.update();
+        assertEquals(player.getX(), 30);
+        assertEquals(player.getY(), 30);
+
+        player.setMovingRight(false);
+        player.update();
+        assertEquals(player.getX(), 30);
+        assertEquals(player.getY(), 40);
+
+        player.setMovingDown(false);
+        player.update();
+        assertEquals(player.getX(), 30);
+        assertEquals(player.getY(), 40);
+
+        player.setMovingUp(true);
+        player.update();
+        assertEquals(player.getX(), 30);
+        assertEquals(player.getY(), 30);
+
+    }
 
 
 }
