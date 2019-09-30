@@ -25,7 +25,7 @@ public abstract class GameObject {
      * @param x the x coordinate
      * @param y the y coordinate
      */
-    protected void setPosition(int x, int y) {
+    public void setPosition(int x, int y) {
         point = new Point(x, y);
     }
 
@@ -34,7 +34,7 @@ public abstract class GameObject {
      *
      * @param x the x coordinate
      */
-    protected void setXPosition(int x) {
+    public void setXPosition(int x) {
         int y = (int) point.getY();
         point = new Point(x, y);
     }
@@ -44,7 +44,7 @@ public abstract class GameObject {
      *
      * @param y the y coordinate
      */
-    protected void setYPosition(int y) {
+    public void setYPosition(int y) {
         int x = (int) point.getX();
         point = new Point(x, y);
     }
