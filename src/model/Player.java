@@ -62,4 +62,8 @@ public class Player extends Charakter {
     public boolean isMovingLeft() {
         return movingLeft;
     }
+
+    public boolean isMovingUp(){ return movingUp;}
+
+    public boolean isMovingDown(){return movingDown;}
 }
