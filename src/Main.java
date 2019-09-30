@@ -33,7 +33,6 @@ public class Main {
         frame.setVisible(true);
 
 
-
         //Controller c = new StartMenuController(view);
         Controller c2 = new InGameController(inGameView, game);                               //TODO Fel View
         //view.addKeyListener(c);
@@ -41,19 +40,5 @@ public class Main {
         //Controller c = new StartMenuController(view);
         //view.addKeyListener(c);
 
-        // calls the controller's update method 60 times per second (ideally)
-        while (true) {
-            long startTime = System.currentTimeMillis();
-            c2.update();
-            long totalTime = System.currentTimeMillis() - startTime;
-            if (totalTime < 16) {
-                try {
-                    Thread.sleep(16 - totalTime);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
     }
 }
