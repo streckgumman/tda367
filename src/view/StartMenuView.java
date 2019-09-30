@@ -58,4 +58,8 @@ public class StartMenuView extends View {
         // Increases frame variable to be used with alpha and character position
         frame += 1;
     }
+
+    protected void setItemImages() {
+
+    }
 }
