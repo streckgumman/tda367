@@ -11,6 +11,7 @@ public class Player extends Charakter {
     private boolean movingLeft = false;
     private boolean movingUp = false;
     private boolean movingDown = false;
+    private Item    item;
 
     public Player(String name) {
         super(name, new Point(1920 / 2, 1080 / 2));
@@ -20,16 +21,16 @@ public class Player extends Charakter {
     public void update() {
         int dx = 0;
         int dy = 0;
-        if (movingRight) {
+        if (movingRight && getX() < 1920 - 300) {
             dx += 10;
         }
-        if (movingLeft) {
+        if (movingLeft && getX() > 0) {
             dx -= 10;
         }
-        if (movingUp) {
+        if (movingUp && getY() > 0) {
             dy -= 10;
         }
-        if (movingDown) {
+        if (movingDown && getY() < 1080 - 250) {
             dy += 10;
         }
         move(dx, dy);
@@ -55,10 +56,19 @@ public class Player extends Charakter {
         this.movingDown = movingDown;
     }
 
+    public Item getItem() {
+        return item;
+    }
     public boolean isMovingRight() {
         return movingRight;
     }
 
+    public void pickUpItem(Item item){
+        if(this.item != null){
+            this.item.drop();
+        }
+        this.item = item;
+    }
     public boolean isMovingLeft() {
         return movingLeft;
     }
