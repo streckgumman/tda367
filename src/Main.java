@@ -11,10 +11,6 @@ import javax.swing.*;
 
 public class Main {
 
-    private static Main instance;
-    private Controller controller;
-
-
     public static void main(String[] args) {
         int w = 1920;
         int h = 1080;
@@ -60,5 +56,4 @@ public class Main {
 
         }
     }
-
 }

@@ -1,36 +1,28 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Level {
 
-    private Player player;
-    private NPC[] npcs;
-    private Puzzle[] puzzles;
-    private Trap[] traps;
-    private Item[] items;
+    Player player;
+    List<NPC> npcs;
+    List<Puzzle> puzzles;
+    List<Trap> traps;
+    List<Item> items;
 
     public Level() {
-
+        npcs = new ArrayList<NPC>();
+        puzzles = new ArrayList<Puzzle>();
+        traps = new ArrayList<Trap>();
+        items = new ArrayList<Item>();
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public NPC[] getPlayers() {
-        return npcs;
-    }
-
-    public Puzzle[] getPuzzles() {
-        return puzzles;
-    }
-
-    public Trap[] getTraps() {
-        return traps;
-    }
-
-    public Item[] getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
-
+    public void addItem(Item i) {
+        items.add(i);
+    }
 }

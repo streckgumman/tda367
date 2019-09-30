@@ -2,6 +2,9 @@ package model;
 
 import java.awt.*;
 
+/**
+ * Represents the player that the user uses to play the game and can controll
+ */
 public class Player extends Charakter {
 
     private boolean movingRight = false;
@@ -11,7 +14,7 @@ public class Player extends Charakter {
     private Item    item;
 
     public Player(String name) {
-        super(name, new Point(1920/2,1080/2));
+        super(name, new Point(1920 / 2, 1080 / 2));
     }
 
     @Override
@@ -40,6 +43,7 @@ public class Player extends Charakter {
     public void setMovingRight(boolean movingRight) {
         this.movingRight = movingRight;
     }
+
     public void setMovingLeft(boolean movingLeft) {
         this.movingLeft = movingLeft;
     }
@@ -55,6 +59,9 @@ public class Player extends Charakter {
     public Item getItem() {
         return item;
     }
+    public boolean isMovingRight() {
+        return movingRight;
+    }
 
     public void pickUpItem(Item item){
         if(this.item != null){
@@ -62,5 +69,11 @@ public class Player extends Charakter {
         }
         this.item = item;
     }
+    public boolean isMovingLeft() {
+        return movingLeft;
+    }
 
+    public boolean isMovingUp(){ return movingUp;}
+
+    public boolean isMovingDown(){return movingDown;}
 }
