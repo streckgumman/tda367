@@ -21,16 +21,16 @@ public class Player extends Charakter {
     public void update() {
         int dx = 0;
         int dy = 0;
-        if (movingRight) {
+        if (movingRight && getX() < 1920 - 300) {
             dx += 10;
         }
-        if (movingLeft) {
+        if (movingLeft && getX() > 0) {
             dx -= 10;
         }
-        if (movingUp) {
+        if (movingUp && getY() > 0) {
             dy -= 10;
         }
-        if (movingDown) {
+        if (movingDown && getY() < 1080 - 250) {
             dy += 10;
         }
         move(dx, dy);
