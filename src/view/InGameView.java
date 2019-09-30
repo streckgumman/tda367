@@ -1,6 +1,8 @@
 package view;
 
 import model.Game;
+import model.Item;
+import model.ItemType;
 import model.Player;
 
 import javax.imageio.ImageIO;
@@ -101,6 +103,20 @@ public class InGameView extends View {
             g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
         } else {
             g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
+        }
+
+
+        for (Item i : game.getLevel().getItems()) {
+            g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), null);
+        }
+    }
+
+    protected void setItemImages() {
+        try {
+            File backgroundPath = new File("./resources/scissors.png");
+            itemImages.put(ItemType.SCISSORS, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
