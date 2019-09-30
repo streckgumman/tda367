@@ -12,4 +12,8 @@ public class TestItem extends Item {
     protected void update() {
 
     }
+
+    public void use() {
+        
+    }
 }
