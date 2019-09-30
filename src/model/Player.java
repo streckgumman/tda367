@@ -8,6 +8,7 @@ public class Player extends Charakter {
     private boolean movingLeft = false;
     private boolean movingUp = false;
     private boolean movingDown = false;
+    private Item    item;
 
     public Player(String name) {
         super(name, new Point(1920/2,1080/2));
@@ -51,7 +52,15 @@ public class Player extends Charakter {
         this.movingDown = movingDown;
     }
 
+    public Item getItem() {
+        return item;
+    }
 
-
+    public void pickUpItem(Item item){
+        if(this.item != null){
+            this.item.drop();
+        }
+        this.item = item;
+    }
 
 }
