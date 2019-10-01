@@ -1,6 +1,7 @@
 package controller;
 
 import model.Game;
+import model.IntersectionDetector;
 import model.Level;
 import view.View;
 
@@ -27,6 +28,9 @@ public class InGameController extends Controller {
      */
     protected void updateModel() {
         game.getPlayer().update();
+        if (IntersectionDetector.intersects(game.getPlayer().getHitbox(), game.getLevel().getItems().get(0).getHitbox())){
+            System.out.println("IT WORKS");
+        }
     }
 
 
