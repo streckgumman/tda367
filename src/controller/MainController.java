@@ -10,6 +10,7 @@ import javax.swing.*;
 public class MainController {
 
     private JFrame frame;
+    private View view;
     private final Game game;
 
     private Controller c;
@@ -29,7 +30,6 @@ public class MainController {
     }
 
     public void startGame() {
-        final View view;
         frame.add(view = new StartMenuView());
 
 
@@ -62,4 +62,16 @@ public class MainController {
 
         }
     }
+
+    public void switchToIngame() {
+        frame.remove(view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
+        view = new InGameView(game);
+
+        c = new InGameController(view, game);
+        view.addKeyListener(c);
+
+        frame.add(view);
+        frame.validate();
+    }
+
 }
