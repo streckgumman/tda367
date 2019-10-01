@@ -33,6 +33,7 @@ public class InGameView extends View {
     private BufferedImage flippedCharacter;
 
     private HorizontalDirection lastPlayerDirection;
+    int frame = 0;
 
     /**
      * Class constructor.
@@ -94,12 +95,13 @@ public class InGameView extends View {
         // Player position
         int playerX = game.getPlayer().getX();
         int playerY = game.getPlayer().getY();
+        int playerYOffset = (int) (10 * Math.sin(Math.PI * frame / 90d));
 
         // Draws the player facing the correct way
         if (currentDirection == HorizontalDirection.RIGHT) {
-            g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
+            g.drawImage(character, playerX, playerY + playerYOffset, character.getWidth() / 4, character.getHeight() / 4, null);
         } else {
-            g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
+            g.drawImage(flippedCharacter, playerX, playerY + playerYOffset, character.getWidth() / 4, character.getHeight() / 4, null);
         }
 
 
@@ -110,6 +112,9 @@ public class InGameView extends View {
         for (NPC npc : game.getLevel().getNpcs()){
             g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), null);
         }
+
+
+        frame++;
     }
 
     protected void setItemImages() {
