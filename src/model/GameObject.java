@@ -8,7 +8,7 @@ import java.awt.*;
  * @author Amanda Dehlén, Linnea Johansson
  * @since 2019-09-26
  */
-public abstract class GameObject {
+public abstract class GameObject implements HitboxOwner{
 
     /**
      * The position of the GameObject in the game
@@ -65,4 +65,8 @@ public abstract class GameObject {
     }
 
     protected abstract void update();
+
+    public Hitbox getHitbox() {
+        return this.hitbox;
+    }
 }
