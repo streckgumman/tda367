@@ -1,9 +1,13 @@
 package model;
 
-import java.awt.*;
-
+/**
+ * Abstract class for any trap in the game
+ */
 public abstract class Trap extends GameObject implements Interactable{
 
+    /**
+     * Constructor
+     */
     public Trap() {
         super(new Point(0, 0));
 

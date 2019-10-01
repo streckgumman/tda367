@@ -3,14 +3,20 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for the level to play
+ */
 public abstract class Level {
 
-    Player player;
-    List<NPC> npcs;
-    List<Puzzle> puzzles;
-    List<Trap> traps;
-    List<Item> items;
+    private Player player;
+    private List<NPC> npcs;
+    private List<Puzzle> puzzles;
+    private List<Trap> traps;
+    private List<Item> items;
 
+    /**
+     * Constructor
+     */
     public Level() {
         npcs = new ArrayList<NPC>();
         puzzles = new ArrayList<Puzzle>();
@@ -18,10 +24,20 @@ public abstract class Level {
         items = new ArrayList<Item>();
     }
 
+    /**
+     * The list of items in the level
+     *
+     * @return the level's items
+     */
     public List<Item> getItems() {
         return items;
     }
 
+    /**
+     * Adds an item to the level
+     *
+     * @param i the item to be added
+     */
     public void addItem(Item i) {
         items.add(i);
     }
