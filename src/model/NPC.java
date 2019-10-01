@@ -1,11 +1,17 @@
 package model;
 
-import java.awt.*;
-
 public abstract class NPC extends Charakter implements Interactable{
 
-    public NPC(String name, int x, int y, int width, int height) {
+    private NPCType npcType;
+
+    /**
+     * Constructor
+     * @param name the NPC's name
+     * @param npcType the type of npc it is
+     */
+    public NPC(String name, NPCType npcType, int x, int y, int width, int height) {
         super(name, new Point(x, y), width, height);
+        this.npcType = npcType;
     }
 
     public void talk(){
@@ -16,5 +22,7 @@ public abstract class NPC extends Charakter implements Interactable{
         talk();
     }
 
-
+    public NPCType getNpcType() {
+        return npcType;
+    }
 }

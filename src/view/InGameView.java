@@ -1,9 +1,6 @@
 package view;
 
-import model.Game;
-import model.Item;
-import model.ItemType;
-import model.Player;
+import model.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -36,6 +33,7 @@ public class InGameView extends View {
     private BufferedImage flippedCharacter;
 
     private HorizontalDirection lastPlayerDirection;
+    int frame = 0;
 
     /**
      * Class constructor.
@@ -97,24 +95,41 @@ public class InGameView extends View {
         // Player position
         int playerX = game.getPlayer().getX();
         int playerY = game.getPlayer().getY();
+        int playerYOffset = (int) (10 * Math.sin(Math.PI * frame / 90d));
 
         // Draws the player facing the correct way
         if (currentDirection == HorizontalDirection.RIGHT) {
-            g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
+            g.drawImage(character, playerX, playerY + playerYOffset, character.getWidth() / 4, character.getHeight() / 4, null);
         } else {
-            g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
+            g.drawImage(flippedCharacter, playerX, playerY + playerYOffset, character.getWidth() / 4, character.getHeight() / 4, null);
         }
 
 
         for (Item i : game.getLevel().getItems()) {
             g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), null);
         }
+
+        for (NPC npc : game.getLevel().getNpcs()){
+            g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), null);
+        }
+
+
+        frame++;
     }
 
     protected void setItemImages() {
         try {
             File backgroundPath = new File("./resources/scissors.png");
             itemImages.put(ItemType.SCISSORS, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void setNPCImages() {
+        try {
+            File backgroundPath = new File("./resources/dog_with_gun.png");
+            npcImages.put(NPCType.DOGWITHGUN, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,10 +1,15 @@
 package model;
 
-import java.awt.*;
+/**
+ * Abstract class for any puzzle in the game
+ */
+public abstract class Puzzle extends GameObject implements Interactable {
 
-public abstract class Puzzle extends GameObject implements Interactable{
     private boolean solved = false;
 
+    /**
+     * Constructor
+     */
     public Puzzle(int x, int y, int width, int height) {
         super(new Point(x, y),width, height);
     }
