@@ -4,8 +4,11 @@ import java.awt.*;
 
 public abstract class NPC extends Charakter implements Interactable{
 
-    public NPC(String name) {
+    private NPCType npcType;
+
+    public NPC(String name, NPCType npcType) {
         super(name, new Point(0, 0));
+        this.npcType = npcType;
     }
 
     public void talk(){
@@ -16,5 +19,7 @@ public abstract class NPC extends Charakter implements Interactable{
         talk();
     }
 
-
+    public NPCType getNpcType() {
+        return npcType;
+    }
 }
