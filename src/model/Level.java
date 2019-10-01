@@ -25,4 +25,12 @@ public abstract class Level {
     public void addItem(Item i) {
         items.add(i);
     }
+
+    public void addNPC(NPC npc){
+        npcs.add(npc);
+    }
+
+    public List<NPC> getNpcs(){
+        return npcs;
+    }
 }
