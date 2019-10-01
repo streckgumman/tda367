@@ -13,8 +13,9 @@ public class Player extends Charakter {
     private boolean movingDown = false;
     private Item    item;
 
+
     public Player(String name) {
-        super(name, new Point(1920 / 2, 1080 / 2));
+        super(name, new Point(1920 / 2, 1080 / 2), 804/4, 1074/4);
     }
 
     @Override
@@ -76,4 +77,5 @@ public class Player extends Charakter {
     public boolean isMovingUp(){ return movingUp;}
 
     public boolean isMovingDown(){return movingDown;}
+
 }

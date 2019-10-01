@@ -5,8 +5,8 @@ import java.awt.*;
 public abstract class Puzzle extends GameObject implements Interactable{
     private boolean solved = false;
 
-    public Puzzle() {
-        super(new Point(0, 0));
+    public Puzzle(int x, int y, int width, int height) {
+        super(new Point(x, y),width, height);
     }
 
 

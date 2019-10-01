@@ -6,7 +6,7 @@ import model.ItemType;
 public class TestItem extends Item {
 
     public TestItem(String name) {
-        super(name, ItemType.SCISSORS);
+        super(name, ItemType.SCISSORS, 80, 80);
     }
 
     protected void update() {
@@ -14,6 +14,6 @@ public class TestItem extends Item {
     }
 
     public void use() {
-        
+
     }
 }

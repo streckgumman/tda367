@@ -4,8 +4,8 @@ import java.awt.*;
 
 public abstract class NPC extends Charakter implements Interactable{
 
-    public NPC(String name) {
-        super(name, new Point(0, 0));
+    public NPC(String name, int x, int y, int width, int height) {
+        super(name, new Point(x, y), width, height);
     }
 
     public void talk(){

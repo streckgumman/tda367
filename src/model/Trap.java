@@ -4,8 +4,8 @@ import java.awt.*;
 
 public abstract class Trap extends GameObject implements Interactable{
 
-    public Trap() {
-        super(new Point(0, 0));
+    public Trap(int width, int height) {
+        super(new Point(0, 0), width, height);
 
     }
 

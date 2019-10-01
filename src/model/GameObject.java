@@ -5,19 +5,18 @@ import java.awt.*;
 /**
  * GameObject represent a object that can exist in the game
  *
- * @author Amanda Dehlén, Linnea Johansson
- * @since 2019-09-26
+ * @author Amanda Dehlén, Linnea Johansson, Anna Nilsson
+ * @since 2019-10-01
+ *
  */
 public abstract class GameObject implements HitboxOwner{
 
-    /**
-     * The position of the GameObject in the game
-     */
-    private Point point;
+    private Hitbox hitbox;
 
-    public GameObject(Point point) {
-        this.point = point;
+    public GameObject(Point point, int width, int height) {
+        this.hitbox = new Hitbox(point, width, height);
     }
+
 
     /**
      * Sets the position of the GameObject to the x and y coordinates
@@ -26,7 +25,8 @@ public abstract class GameObject implements HitboxOwner{
      * @param y the y coordinate
      */
     public void setPosition(int x, int y) {
-        point = new Point(x, y);
+        setXPosition(x);
+        setYPosition(y);
     }
 
     /**
@@ -35,8 +35,7 @@ public abstract class GameObject implements HitboxOwner{
      * @param x the x coordinate
      */
     public void setXPosition(int x) {
-        int y = (int) point.getY();
-        point = new Point(x, y);
+        getHitbox().getPosition().setX(x);
     }
 
     /**
@@ -45,15 +44,14 @@ public abstract class GameObject implements HitboxOwner{
      * @param y the y coordinate
      */
     public void setYPosition(int y) {
-        int x = (int) point.getX();
-        point = new Point(x, y);
+        getHitbox().getPosition().setY(y);
     }
 
     /**
-     * @return a copy of the Point that GameObject holds
+     * @return a copy of the position that GameObject holds
      */
     public Point getPosition() {
-        return new Point(point);
+        return new Point(getHitbox().getPosition());
     }
 
     public int getX() {
