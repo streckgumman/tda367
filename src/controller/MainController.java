@@ -39,7 +39,7 @@ public class MainController {
         frame.pack();
         frame.setVisible(true);
 
-        c = new StartMenuController(view);
+        c = new StartMenuController(view, this);
         view.addKeyListener(c);
 
         runGame();
