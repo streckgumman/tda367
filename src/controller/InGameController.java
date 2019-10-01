@@ -18,9 +18,28 @@ public class InGameController extends Controller {
      * Class constructor taking a view and a game as parameters.
      * Adds the player to the list of updaters.
      */
-    public InGameController(View view, Game game) {
+    @SuppressWarnings("unchecked")
+    public InGameController(View view, Game game, final MainController mainController) {
         super(view, game);
         addUpdater(new PlayerUpdater(game.getPlayer()));
+        addUpdater(new Updater(null) {
+            @Override
+            public void keyPressed(KeyEvent event) {
+                if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    mainController.exitGame();
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent event) {
+
+            }
+
+            @Override
+            public void keyTyped(KeyEvent event) {
+
+            }
+        });
     }
 
     /**

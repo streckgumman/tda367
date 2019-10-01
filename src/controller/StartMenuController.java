@@ -31,6 +31,25 @@ public class StartMenuController extends Controller {
         };
 
         addUpdater(u);
+
+        addUpdater(new Updater(null) {
+            @Override
+            public void keyPressed(KeyEvent event) {
+                if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    mainController.exitGame();
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent event) {
+
+            }
+
+            @Override
+            public void keyTyped(KeyEvent event) {
+
+            }
+        });
     }
 
     @Override

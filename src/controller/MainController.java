@@ -85,10 +85,16 @@ public class MainController {
         frame.add(view);
         frame.validate(); //Removing the view invalidates the frame, so we need to validate it in order to display it again.
 
-        c = new InGameController(view, game);
+        c = new InGameController(view, game, this);
         view.addKeyListener(c);
         view.requestFocus(); //This is required in order to register user input again.
 
+    }
+
+    public void exitGame() {
+        // save?
+        frame.dispose();
+        running = false;
     }
 
 }
