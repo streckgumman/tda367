@@ -1,9 +1,6 @@
 package view;
 
-import model.Game;
-import model.Item;
-import model.ItemType;
-import model.Player;
+import model.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -109,12 +106,25 @@ public class InGameView extends View {
         for (Item i : game.getLevel().getItems()) {
             g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), null);
         }
+
+        for (NPC npc : game.getLevel().getNpcs()){
+            g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), null);
+        }
     }
 
     protected void setItemImages() {
         try {
             File backgroundPath = new File("./resources/scissors.png");
             itemImages.put(ItemType.SCISSORS, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void setNPCImages() {
+        try {
+            File backgroundPath = new File("./resources/dog_with_gun.png");
+            npcImages.put(NPCType.DOGWITHGUN, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }

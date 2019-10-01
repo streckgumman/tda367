@@ -15,7 +15,8 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
     det separat, vi ska merga deras lösningar för att få Johannes lösning för att få det smooth och Samuels kod för att
     få karaktärens bild att byta håll när vi byter direction
 
-    Hur byter man scen?
+    Hur byter man scen? Från TitleScreen till själva spelet. Typ "press E to play" på titlescreen och sen hamnar man
+    i spelet.
 
 ##Gjorts sen sist
     Amanda och Linnea har fått karaktären att röra på sig, Johannes har optimerat så att den rör sig smidigare

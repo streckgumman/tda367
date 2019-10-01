@@ -1,17 +1,19 @@
 package model;
 
-/**
- * Abstract class for any NPC (non-player character) in the game.
- * An NPC is a character
- */
+import java.awt.*;
+
 public abstract class NPC extends Charakter implements Interactable{
+
+    private NPCType npcType;
 
     /**
      * Constructor
-     * @param name The NPC's name
+     * @param name the NPC's name
+     * @param npcType the type of npc it is
      */
-    public NPC(String name) {
+    public NPC(String name, NPCType npcType) {
         super(name, new Point(0, 0));
+        this.npcType = npcType;
     }
 
     public void talk(){
@@ -22,5 +24,7 @@ public abstract class NPC extends Charakter implements Interactable{
         talk();
     }
 
-
+    public NPCType getNpcType() {
+        return npcType;
+    }
 }
