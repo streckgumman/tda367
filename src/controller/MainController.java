@@ -66,12 +66,13 @@ public class MainController {
     public void switchToIngame() {
         frame.remove(view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
         view = new InGameView(game);
+        frame.add(view);
+        frame.validate();
 
         c = new InGameController(view, game);
         view.addKeyListener(c);
+        view.requestFocus();
 
-        frame.add(view);
-        frame.validate();
     }
 
 }
