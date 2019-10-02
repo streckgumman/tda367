@@ -20,7 +20,9 @@ public abstract class Charakter extends GameObject {
      */
 
     public Charakter(String name, Point point, int width, int height) {
+
         super(point, width, height);
+        this.name = name;
     }
 
     /**
