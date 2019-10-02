@@ -13,8 +13,8 @@ public abstract class Item extends GameObject implements Interactable{
      * @param name the name of the item
      * @param type which type of item it is
      */
-    public Item(String name, ItemType type, int width, int height) {
-        super(new Point(0, 0), 80, 80);
+    public Item(String name, ItemType type, int x, int y, int width, int height) {
+        super(new Point(x, y), 80, 80);
         this.name = name;
         this.type = type;
     }
