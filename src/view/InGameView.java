@@ -124,6 +124,13 @@ public class InGameView extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            File backgroundPath = new File("./resources/key.png");
+            itemImages.put(ItemType.KEY, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void setNPCImages() {

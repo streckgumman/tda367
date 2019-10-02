@@ -11,6 +11,7 @@ public class TestLevel extends Level {
 
     public TestLevel() {
         addItem(new TestItem("Scissors", 200, 300));
+        addItem(new Key(1920 / 2, 1080 / 2));
         addNPC(new DogWithGun("Dog with gun"));
     }
 
