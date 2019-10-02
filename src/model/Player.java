@@ -106,9 +106,6 @@ public class Player extends Charakter {
     }
 
     public void pickUpItem(Item item){
-        if(this.item != null){
-            this.item.drop();
-        }
         this.item = item;
     }
 
