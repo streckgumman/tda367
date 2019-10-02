@@ -40,6 +40,7 @@ public class InGameController extends Controller {
 
             }
         });
+        addUpdater(new ItemInteractionUpdater(game.getPlayer(), game.getLevel()));
     }
 
     /**
@@ -47,9 +48,6 @@ public class InGameController extends Controller {
      */
     protected void updateModel() {
         game.getPlayer().update();
-        if (IntersectionDetector.intersects(game.getPlayer().getHitbox(), game.getLevel().getItems().get(0).getHitbox())){
-            System.out.println("IT WORKS");
-        }
     }
 
 
