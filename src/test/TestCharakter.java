@@ -12,7 +12,7 @@ public class TestCharakter {
     public void charaktersNameCanBeAskedAfter(){
         Charakter player = new Player("Duckoo");
 
-        assertEquals(player.getName().toString(), "Duckoo");
+        assertEquals(player.getName(), "Duckoo");
     }
 
     @Test
