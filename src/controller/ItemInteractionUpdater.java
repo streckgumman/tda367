@@ -1,5 +1,6 @@
 package controller;
 
+import model.IntersectionDetector;
 import model.Item;
 import model.Level;
 import model.Player;
@@ -16,13 +17,16 @@ public class ItemInteractionUpdater extends Updater<Player> {
     }
 
     public void keyPressed(KeyEvent event) {
-        double interactionDistance = 50;
         if (event.getKeyCode() == KeyEvent.VK_E) {
-            for (Item i : level.getItems()) {
-                if (distance(getGameObject().getX(), getGameObject().getY(), i.getX(), i.getY()) < interactionDistance) {
+            for (int j = level.getItems().size() - 1; j >= 0; j--) {
+                Item i = level.getItems().get(j);
+                if (IntersectionDetector.intersects(getGameObject().getHitbox(), i.getHitbox())) {
                     if (getGameObject().getItem() != null) {
-                        getGameObject().pickUpItem(i);
+                        getGameObject().getItem().setPosition(getGameObject().getX(), getGameObject().getY());
+                        level.addItem(getGameObject().getItem());
                     }
+                    getGameObject().pickUpItem(i);
+                    level.getItems().remove(i);
                 }
             }
         }
@@ -34,9 +38,5 @@ public class ItemInteractionUpdater extends Updater<Player> {
 
     public void keyTyped(KeyEvent event) {
 
-    }
-
-    private double distance(double x1, double y1, double x2, double y2) {
-        return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
 }
