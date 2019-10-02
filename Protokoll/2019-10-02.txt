@@ -23,6 +23,8 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
 
     Amanda och Linnea: Skapat NPCs, skrivit kommentarer och tester
 
+    Amanda: abstraherat Point så att vi inte är beroende av Java.awt.point
+
     Samuel: Skapat en mainController och abstraherat main. Fixat så vi kan byta view (och jobbat med en dum bugg)
 
     Johannes: Skrivit massa dokumentation, gjort så att man kan stänga programmet och gjort att karaktären svävar
