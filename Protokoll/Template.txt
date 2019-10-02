@@ -1,7 +1,7 @@
 #Mötesprotokoll
 
 Grupp: Duckoo
-Datum: 2019-09-xx
+Datum: 2019-10-xx
 Antecknare: Linnea
 Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
 
