@@ -20,11 +20,7 @@ import java.io.IOException;
 
 public class InGameView extends View {
 
-    private enum HorizontalDirection {
-        RIGHT,
-        LEFT
-    }
-
+    int frame = 0;
     /**
      * Images that represent the game.
      */
@@ -33,7 +29,6 @@ public class InGameView extends View {
     private BufferedImage flippedCharacter;
 
     private HorizontalDirection lastPlayerDirection;
-    int frame = 0;
 
     /**
      * Class constructor.
@@ -65,29 +60,21 @@ public class InGameView extends View {
     void draw(Graphics g) {
         // Draws the background
         g.drawImage(background, 0, 0, 1920, 1080, null);
+        drawPlayer(g);
+        drawItems(g);
+        drawNPCs(g);
 
-        // Variables for where the player is moving, one for each arrow key being pressed
-        boolean playerIsMovingRight = game.getPlayer().isMovingRight();
-        boolean playerIsMovingLeft = game.getPlayer().isMovingLeft();
+        frame++;
+    }
 
+    /**
+     * Draws the player model.
+     *
+     * @param g the Graphics object to draw on.
+     */
+    private void drawPlayer(Graphics g) {
         // The direction for having the character face the correct way
-        HorizontalDirection currentDirection;
-
-        if (playerIsMovingLeft) {
-            if (playerIsMovingRight) {
-                // Both left and right arrow keys are pressed, player faces the same way as last frame
-                currentDirection = lastPlayerDirection;
-            } else {
-                // Only left arrow key is pressed, player faces left
-                currentDirection = HorizontalDirection.LEFT;
-            }
-        } else if (playerIsMovingRight) {
-            // Only right arrow key is pressed, player faces right
-            currentDirection = HorizontalDirection.RIGHT;
-        } else {
-            // No keys are pressed, player faces the same way as last frame
-            currentDirection = lastPlayerDirection;
-        }
+        HorizontalDirection currentDirection = getPlayerDirection();
 
         // Updates variable for use next frame
         lastPlayerDirection = currentDirection;
@@ -99,23 +86,68 @@ public class InGameView extends View {
 
         // Draws the player facing the correct way
         if (currentDirection == HorizontalDirection.RIGHT) {
-            g.drawImage(character, playerX, playerY + playerYOffset, character.getWidth() / 4, character.getHeight() / 4, null);
+            drawPlayerFacingRight(g, playerX, playerY + playerYOffset);
         } else {
-            g.drawImage(flippedCharacter, playerX, playerY + playerYOffset, character.getWidth() / 4, character.getHeight() / 4, null);
+            drawPlayerFacingLeft(g, playerX, playerY + playerYOffset);
         }
+    }
 
+    private HorizontalDirection getPlayerDirection() {
+        // Variables for where the player is moving, one for each arrow key being pressed
+        boolean playerIsMovingRight = game.getPlayer().isMovingRight();
+        boolean playerIsMovingLeft = game.getPlayer().isMovingLeft();
 
+        if (playerIsMovingLeft) {
+            if (playerIsMovingRight) {
+                // Both left and right arrow keys are pressed, player faces the same way as last frame
+                return (lastPlayerDirection);
+            } else {
+                // Only left arrow key is pressed, player faces left
+                return (HorizontalDirection.LEFT);
+            }
+        } else if (playerIsMovingRight) {
+            // Only right arrow key is pressed, player faces right
+            return (HorizontalDirection.RIGHT);
+        } else {
+            // No keys are pressed, player faces the same way as last frame
+            return (lastPlayerDirection);
+        }
+    }
+
+    /**
+     * Draws the player model facing right.
+     *
+     * @param g       the Graphics object to draw on.
+     * @param playerX where on the X-axis to draw the player model.
+     * @param playerY where on the Y-axis to draw the player model.
+     */
+    private void drawPlayerFacingRight(Graphics g, int playerX, int playerY) {
+        g.drawImage(character, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
+    }
+
+    /**
+     * Draws the player model facing left.
+     *
+     * @param g       the Graphics object to draw on.
+     * @param playerX where on the X-axis to draw the player model.
+     * @param playerY where on the Y-axis to draw the player model.
+     */
+    private void drawPlayerFacingLeft(Graphics g, int playerX, int playerY) {
+        g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
+    }
+
+    private void drawItems(Graphics g) {
         for (Item i : game.getLevel().getItems()) {
             g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), i.getHitbox().getWidth(), i.getHitbox().getHeight(), null);
         }
+    }
 
-        for (NPC npc : game.getLevel().getNpcs()){
+    private void drawNPCs(Graphics g) {
+        for (NPC npc : game.getLevel().getNpcs()) {
             g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), npc.getHitbox().getWidth(), npc.getHitbox().getHeight(), null);
         }
-
-
-        frame++;
     }
+
 
     protected void setItemImages() {
         try {
@@ -158,5 +190,10 @@ public class InGameView extends View {
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
         image = op.filter(image, null);
         return image;
+    }
+
+    private enum HorizontalDirection {
+        RIGHT,
+        LEFT
     }
 }
