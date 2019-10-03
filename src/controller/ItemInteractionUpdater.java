@@ -39,6 +39,13 @@ public class ItemInteractionUpdater extends Updater<Player> {
         }
     }
 
+    private void pickUpItem(Item i) {
+        dropItem();
+        getGameObject().pickUpItem(i);
+        level.getItems().remove(i);
+    }
+
+
     public void keyReleased(KeyEvent event) {
 
     }
