@@ -15,7 +15,8 @@ public class DogWithGun extends NPC {
 
     @Override
     public void talk(){
-        String welcome = "Welcome to the game";
+        String welcome = "BA";
+        System.out.println(welcome);
     }
 
 }
