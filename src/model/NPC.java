@@ -14,9 +14,9 @@ public abstract class NPC extends Charakter implements Interactable{
         this.npcType = npcType;
     }
 
-    public void talk(){
-        //npc'n ska starta en dialog med spelaren
-    }
+    //Shall print out text on the screen when fully implemented
+    //For now it just prints to the terminal
+    public abstract void talk();
 
     public void interact(GameObject go){
         talk();
