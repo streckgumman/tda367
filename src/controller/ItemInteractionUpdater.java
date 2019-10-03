@@ -19,6 +19,11 @@ public class ItemInteractionUpdater extends Updater<Player> {
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_E) {
             itemDetector();
+        } else if (event.getKeyCode() == KeyEvent.VK_Q) {
+            dropItem();
+        }
+    }
+
     private void dropItem() {
         if (getGameObject().getItem() != null) {
             getGameObject().getItem().setPosition(getGameObject().getX(), getGameObject().getY());
