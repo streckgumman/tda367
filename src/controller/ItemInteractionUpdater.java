@@ -28,6 +28,13 @@ public class ItemInteractionUpdater extends Updater<Player> {
                     getGameObject().pickUpItem(i);
                     level.getItems().remove(i);
                 }
+    private void dropItem() {
+        if (getGameObject().getItem() != null) {
+            getGameObject().getItem().setPosition(getGameObject().getX(), getGameObject().getY());
+            level.addItem(getGameObject().getItem());
+            getGameObject().pickUpItem(null);
+        }
+    }
             }
         }
     }
