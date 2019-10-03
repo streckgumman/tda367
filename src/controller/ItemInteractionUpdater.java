@@ -35,6 +35,13 @@ public class ItemInteractionUpdater extends Updater<Player> {
             getGameObject().pickUpItem(null);
         }
     }
+
+    private void itemDetector() {
+        for (int j = level.getItems().size() - 1; j >= 0; j--) {
+            Item i = level.getItems().get(j);
+            if (IntersectionDetector.intersects(getGameObject().getHitbox(), i.getHitbox())) {
+                pickUpItem(i);
+                break;
             }
         }
     }
