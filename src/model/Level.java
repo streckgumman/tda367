@@ -49,4 +49,12 @@ public abstract class Level {
     public List<NPC> getNpcs(){
         return npcs;
     }
+
+    public List<Puzzle> getPuzzles() {
+        return puzzles;
+    }
+
+    public void addPuzzle(Puzzle p){
+        puzzles.add(p);
+    }
 }
