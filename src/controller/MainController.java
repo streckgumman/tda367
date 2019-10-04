@@ -107,4 +107,8 @@ public class MainController {
         running = false;
     }
 
+    Game getGame(){
+        return game;
+    }
+
 }
