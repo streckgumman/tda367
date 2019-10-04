@@ -14,8 +14,9 @@ public class StartMenuController extends Controller {
             @Override
             public void keyPressed(KeyEvent event) {
                 if (event.getKeyCode() == java.awt.event.KeyEvent.VK_E) {
-                    //System.out.println("E-key pressed");//Nästa steg så ska vi starta InGameView
                     mainController.switchToIngame();
+                } else if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    mainController.exitGame();
                 }
             }
 
@@ -31,25 +32,6 @@ public class StartMenuController extends Controller {
         };
 
         addUpdater(u);
-
-        addUpdater(new Updater(null) {
-            @Override
-            public void keyPressed(KeyEvent event) {
-                if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    mainController.exitGame();
-                }
-            }
-
-            @Override
-            public void keyReleased(KeyEvent event) {
-
-            }
-
-            @Override
-            public void keyTyped(KeyEvent event) {
-
-            }
-        });
     }
 
     @Override
