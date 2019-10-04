@@ -6,12 +6,15 @@ package model;
 public abstract class Puzzle extends GameObject implements Interactable {
 
     private boolean solved = false;
+    private PuzzleType puzzleType;
 
     /**
      * Constructor
      */
-    public Puzzle(int x, int y, int width, int height) {
+    public Puzzle(int x, int y, int width, int height, PuzzleType puzzleType)
+    {
         super(new Point(x, y),width, height);
+        this.puzzleType = puzzleType;
     }
 
 
@@ -25,4 +28,16 @@ public abstract class Puzzle extends GameObject implements Interactable {
     }
 
 
+    public boolean isSolved() {
+        return solved;
+    }
+
+    protected void setSolved(boolean solved) {
+        this.solved = solved;
+    }
+
+
+    public PuzzleType getPuzzleType() {
+        return puzzleType;
+    }
 }
