@@ -16,6 +16,9 @@ public class NameInputView extends View {
         Graphics2D g2 = (Graphics2D)g;
         Font font = new Font("Serif", Font.PLAIN, 96);
         g2.setFont(font);
+        g2.setRenderingHint(
+                RenderingHints.KEY_TEXT_ANTIALIASING,
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         g2.drawString("Testing is $300", (1920 - g.getFontMetrics().stringWidth("Testing is $300"))/2, 120);
     }
