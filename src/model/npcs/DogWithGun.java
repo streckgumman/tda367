@@ -18,15 +18,15 @@ public class DogWithGun extends NPC {
     @Override
     public void talk(){
         String[] dialogues = {"BA", "woof!", "Wan"};
-        String welcome = "";
+        String bark = "";
         Random r = new Random();
         int randInt = r.nextInt(dialogues.length);
         for (int i = 0; i < dialogues.length; i++) {
             if (i == randInt) {
-                welcome = dialogues[i];
+                bark = dialogues[i];
             }
         }
-        System.out.println(welcome);
+        System.out.println(bark);
     }
 
 }

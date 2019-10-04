@@ -1,9 +1,9 @@
 package view;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
 import model.Game;
 import model.ItemType;
 import model.NPCType;
+import model.PuzzleType;
 import model.Point;
 
 import javax.imageio.ImageIO;
@@ -23,6 +23,7 @@ public abstract class View extends JPanel {
 
     protected Map<ItemType, BufferedImage> itemImages;
     protected Map<NPCType, BufferedImage> npcImages;
+    protected Map<PuzzleType, BufferedImage> puzzleImages;
 
     public View(int w, int h, Game game) {
         this.w = w;
@@ -30,11 +31,13 @@ public abstract class View extends JPanel {
         this.game = game;
         this.itemImages = new HashMap<ItemType, BufferedImage>();
         this.npcImages = new HashMap<NPCType, BufferedImage>();
+        this.puzzleImages = new HashMap<PuzzleType, BufferedImage>();
         setFocusable(true);
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(w, h));
         setItemImages();
         setNPCImages();
+        setPuzzleImages();
     }
 
     @Override
@@ -46,7 +49,7 @@ public abstract class View extends JPanel {
     abstract void draw(Graphics g);
 
     protected abstract void setItemImages();
-
+    protected abstract void setPuzzleImages();
     protected abstract void setNPCImages();
 
     protected BufferedImage getItemImage(ItemType itemType) {
@@ -74,6 +77,20 @@ public abstract class View extends JPanel {
         }
         return npcImage;
     }
+
+    protected BufferedImage getPuzzleImage(PuzzleType puzzleType) {
+        BufferedImage puzzleImage = puzzleImages.get(puzzleType);
+        if (puzzleImage == null) {
+            try {
+                File backgroundPath = new File("./resources/background_1.png");
+                puzzleImage = ImageIO.read(backgroundPath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return puzzleImage;
+    }
+
 
     /**
      * Draws a string a§t a given point using a given Font.

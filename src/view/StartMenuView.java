@@ -66,4 +66,8 @@ public class StartMenuView extends View {
     protected void setNPCImages() {
 
     }
+
+    protected void setPuzzleImages() {
+
+    }
 }

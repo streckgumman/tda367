@@ -80,15 +80,19 @@ public class MainController {
      * Switches view to the in-game view, and makes InGameController the active controller. (Changes to the screen where you play the game)
      */
     public void switchToIngame() {
-        frame.remove(view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
         view = new InGameView(game);
+        switchView(view, new InGameController(view, game, this));
+    }
+
+    private void switchView(View view, Controller c) {
+        frame.remove(view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
+        this.view = view;
         frame.add(view);
         frame.validate(); //Removing the view invalidates the frame, so we need to validate it in order to display it again.
 
-        c = new InGameController(view, game, this);
+        this.c = c;
         view.addKeyListener(c);
         view.requestFocus(); //This is required in order to register user input again.
-
     }
 
     public void exitGame() {

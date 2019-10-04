@@ -6,12 +6,15 @@ package model;
 public abstract class Puzzle extends GameObject {
 
     private boolean solved = false;
+    private PuzzleType puzzleType;
 
     /**
      * Constructor
      */
-    public Puzzle(int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Puzzle(int x, int y, int width, int height, PuzzleType puzzleType)
+    {
+        super(x, y,width, height);
+        this.puzzleType = puzzleType;
     }
 
 
@@ -25,4 +28,16 @@ public abstract class Puzzle extends GameObject {
     }
 
 
+    public boolean isSolved() {
+        return solved;
+    }
+
+    protected void setSolved(boolean solved) {
+        this.solved = solved;
+    }
+
+
+    public PuzzleType getPuzzleType() {
+        return puzzleType;
+    }
 }
