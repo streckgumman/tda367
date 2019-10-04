@@ -97,7 +97,7 @@ public class MainController {
     }
 
     public void switchToNameInput() {
-        view = new NameInputView();
+        view = new NameInputView(game);
         switchView(view, new NameInputController(view, this));
     }
 

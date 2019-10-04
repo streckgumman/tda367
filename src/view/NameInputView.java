@@ -1,6 +1,6 @@
 package view;
 
-import javax.imageio.ImageIO;
+import model.Game;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,6 +10,8 @@ public class NameInputView extends View {
 
     public NameInputView() {
         super(1920, 1080, null);
+    public NameInputView(Game game) {
+        super(1920, 1080, game);
     }
 
     void draw(Graphics g) {
