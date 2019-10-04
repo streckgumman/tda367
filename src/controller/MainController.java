@@ -2,6 +2,7 @@ package controller;
 
 import model.Game;
 import view.InGameView;
+import view.NameInputView;
 import view.StartMenuView;
 import view.View;
 
@@ -93,6 +94,11 @@ public class MainController {
         this.c = c;
         view.addKeyListener(c);
         view.requestFocus(); //This is required in order to register user input again.
+    }
+
+    public void switchToNameInput() {
+        view = new NameInputView();
+        switchView(view, new NameInputController(view, this));
     }
 
     public void exitGame() {
