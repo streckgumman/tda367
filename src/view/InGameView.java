@@ -60,10 +60,10 @@ public class InGameView extends View {
     void draw(Graphics g) {
         // Draws the background
         g.drawImage(background, 0, 0, 1920, 1080, null);
-        drawPlayer(g);
         drawItems(g);
         drawNPCs(g);
         drawPuzzles(g);
+        drawPlayer(g);
 
         frame++;
     }
