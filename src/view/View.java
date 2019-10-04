@@ -3,6 +3,7 @@ package view;
 import model.Game;
 import model.ItemType;
 import model.NPCType;
+import model.PuzzleType;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -21,6 +22,7 @@ public abstract class View extends JPanel {
 
     protected Map<ItemType, BufferedImage> itemImages;
     protected Map<NPCType, BufferedImage> npcImages;
+    protected Map<PuzzleType, BufferedImage> puzzleImages;
 
     public View(int w, int h, Game game) {
         this.w = w;
@@ -28,11 +30,13 @@ public abstract class View extends JPanel {
         this.game = game;
         this.itemImages = new HashMap<ItemType, BufferedImage>();
         this.npcImages = new HashMap<NPCType, BufferedImage>();
+        this.puzzleImages = new HashMap<PuzzleType, BufferedImage>();
         setFocusable(true);
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(w, h));
         setItemImages();
         setNPCImages();
+        setPuzzleImages();
     }
 
     @Override
@@ -45,6 +49,7 @@ public abstract class View extends JPanel {
 
     protected abstract void setItemImages();
     protected abstract void setNPCImages();
+    protected abstract void setPuzzleImages();
 
     protected BufferedImage getItemImage(ItemType itemType) {
         BufferedImage itemImage = itemImages.get(itemType);
@@ -70,6 +75,19 @@ public abstract class View extends JPanel {
             }
         }
         return npcImage;
+    }
+
+    protected BufferedImage getPuzzleImage(PuzzleType puzzleType) {
+        BufferedImage puzzleImage = puzzleImages.get(puzzleType);
+        if (puzzleImage == null) {
+            try {
+                File backgroundPath = new File("./resources/background_1.png");
+                puzzleImage = ImageIO.read(backgroundPath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return puzzleImage;
     }
 
 }

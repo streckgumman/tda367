@@ -113,6 +113,10 @@ public class InGameView extends View {
             g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), npc.getHitbox().getWidth(), npc.getHitbox().getHeight(), null);
         }
 
+        for (Puzzle puzzle : game.getLevel().getPuzzles()){
+            g.drawImage(puzzleImages.get(puzzle.getPuzzleType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
+        }
+
 
         frame++;
     }
@@ -141,6 +145,16 @@ public class InGameView extends View {
             e.printStackTrace();
         }
     }
+
+    protected void setPuzzleImages(){
+        try {
+            File backgroundPath = new File("./resources/door.png");
+            puzzleImages.put(PuzzleType.DOOR, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     //TODO These (copyImage and horizontalFlip) methods might not belong in this class?
     private BufferedImage copyImage(BufferedImage source) {
