@@ -1,6 +1,5 @@
 package view;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
 import model.Game;
 import model.ItemType;
 import model.NPCType;
@@ -91,6 +90,7 @@ public abstract class View extends JPanel {
         }
         return puzzleImage;
     }
+
 
     /**
      * Draws a string a§t a given point using a given Font.

@@ -63,6 +63,7 @@ public class InGameView extends View {
         drawPlayer(g);
         drawItems(g);
         drawNPCs(g);
+        drawPuzzles(g);
 
         frame++;
     }
@@ -146,9 +147,12 @@ public class InGameView extends View {
         for (NPC npc : game.getLevel().getNpcs()) {
             g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), npc.getHitbox().getWidth(), npc.getHitbox().getHeight(), null);
         }
+    }
 
-
-
+    private void drawPuzzles(Graphics g) {
+        for (Puzzle puzzle : game.getLevel().getPuzzles()) {
+            g.drawImage(puzzleImages.get(puzzle.getPuzzleType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
+        }
     }
 
 
@@ -209,4 +213,6 @@ public class InGameView extends View {
         RIGHT,
         LEFT
     }
+
+
 }
