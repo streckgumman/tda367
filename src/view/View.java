@@ -1,9 +1,11 @@
 package view;
 
+import com.sun.corba.se.impl.orbutil.graph.Graph;
 import model.Game;
 import model.ItemType;
 import model.NPCType;
 import model.PuzzleType;
+import model.Point;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -48,8 +50,8 @@ public abstract class View extends JPanel {
     abstract void draw(Graphics g);
 
     protected abstract void setItemImages();
-    protected abstract void setNPCImages();
     protected abstract void setPuzzleImages();
+    protected abstract void setNPCImages();
 
     protected BufferedImage getItemImage(ItemType itemType) {
         BufferedImage itemImage = itemImages.get(itemType);
@@ -89,5 +91,21 @@ public abstract class View extends JPanel {
         }
         return puzzleImage;
     }
+
+    /**
+     * Draws a string a§t a given point using a given Font.
+     *
+     * @param g        the Graphics object to draw on.
+     * @param text     the string to draw.
+     * @param font     the font to use.
+     * @param location where to draw the text.
+     */
+    protected void drawText(Graphics g, String text, Font font, Point location) {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setFont(font);
+
+        g2.drawString(text, location.getX(), location.getY());
+    }
+
 
 }

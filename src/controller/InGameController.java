@@ -41,6 +41,7 @@ public class InGameController extends Controller {
             }
         });
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game.getLevel()));
+        addUpdater(new NPCInteractionUpdater(game.getPlayer(), game.getLevel()));
     }
 
     /**

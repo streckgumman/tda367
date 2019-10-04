@@ -1,0 +1,65 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-10-04
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+    RAD och SDD är oklara, vi har svårt att veta exakt vad vi ska skriva.
+
+
+##Gjorts sen sist
+    Anna och Johannes har fixat interactions så att det fungerar felfritt. Man kan ta upp samt släppa items
+
+    Amanda och Linnea har skrivit/tänkt på SDD/RAD
+
+    Samuel har fixat text-metoden som skriver text och gjort koden i flera funktioner läslig / bättre
+
+##Diskussion
+    SDD och RAD
+        Gå igenom RAD och SDD tillsammans i grupp nästa vecka
+
+    Fokusera på att börja göra ett pussel, vänta med att implementera traps
+
+    Vart ska Door vara i koden?
+        Det är inte ett item, man ska inte kunna plocka upp den
+        En door borde vara del av / vara ett pussel, för att det är den som tar en vidare
+        Vi lägger Door i puzzles.
+
+    Hur ska vi interagera med hunden i spelet?
+        "pet"
+        "talk"
+        Vår karaktär har inte utsträckta armar, hur ska hen kunna klappa hunden?????
+
+    För att få mer kod:
+        Kunna spara spelet
+        Traps i andra hand
+
+
+    Frågor till handledare
+        Hur exakt räknas raderna? Är det överlevande rader eller inte?
+        Model smart, View dumb, Controller slim, i vårt pusselspel
+        Ligger vi i lagom takt?
+
+##Beslut
+    Text på skärmen ska fixas idag av Nil & Johannes
+
+    Amanda och Linnea ska lägga till en dörr så att man kan ta sig vidare i spelet
+
+    Samuel ska fixa så att man kan välja namn
+
+    Johannes ska ta bort massa dependencies
+
+##Skvaller
+    Hemligt och väldigt spännande
+
+##Wrap up
+    Vi ses nästa vecka:
+        Måndag 10-12
+        Tisdag 10-12
+        Onsdag 10-12
+        Torsdag 13-15
+        Fredag 10-15
+
+    Handledning?? Vi kollar med handledaren om tid.

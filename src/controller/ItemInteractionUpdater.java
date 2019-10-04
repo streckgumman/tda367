@@ -18,19 +18,36 @@ public class ItemInteractionUpdater extends Updater<Player> {
 
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_E) {
-            for (int j = level.getItems().size() - 1; j >= 0; j--) {
-                Item i = level.getItems().get(j);
-                if (IntersectionDetector.intersects(getGameObject().getHitbox(), i.getHitbox())) {
-                    if (getGameObject().getItem() != null) {
-                        getGameObject().getItem().setPosition(getGameObject().getX(), getGameObject().getY());
-                        level.addItem(getGameObject().getItem());
-                    }
-                    getGameObject().pickUpItem(i);
-                    level.getItems().remove(i);
-                }
+            itemDetector();
+        } else if (event.getKeyCode() == KeyEvent.VK_Q) {
+            dropItem();
+        }
+    }
+
+    private void dropItem() {
+        if (getGameObject().getItem() != null) {
+            getGameObject().getItem().setPosition(getGameObject().getX(), getGameObject().getY());
+            level.addItem(getGameObject().getItem());
+            getGameObject().pickUpItem(null);
+        }
+    }
+
+    private void itemDetector() {
+        for (int j = level.getItems().size() - 1; j >= 0; j--) {
+            Item i = level.getItems().get(j);
+            if (IntersectionDetector.intersects(getGameObject().getHitbox(), i.getHitbox())) {
+                pickUpItem(i);
+                break;
             }
         }
     }
+
+    private void pickUpItem(Item i) {
+        dropItem();
+        getGameObject().pickUpItem(i);
+        level.getItems().remove(i);
+    }
+
 
     public void keyReleased(KeyEvent event) {
 

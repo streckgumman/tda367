@@ -13,4 +13,8 @@ public class TestNPC extends NPC {
     protected void update() {
 
     }
+
+    public void talk() {
+
+    }
 }
