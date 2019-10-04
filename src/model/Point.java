@@ -1,4 +1,5 @@
 package model;
+
 /**
     Player represents the character that the user are able to controll
 

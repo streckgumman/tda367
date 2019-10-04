@@ -1,6 +1,6 @@
 package model;
 
-public abstract class NPC extends Charakter implements Interactable{
+public abstract class NPC extends Charakter {
 
     private NPCType npcType;
 
@@ -10,7 +10,7 @@ public abstract class NPC extends Charakter implements Interactable{
      * @param npcType the type of npc it is
      */
     public NPC(String name, NPCType npcType, int x, int y, int width, int height) {
-        super(name, new Point(x, y), width, height);
+        super(name, x, y, width, height);
         this.npcType = npcType;
     }
 

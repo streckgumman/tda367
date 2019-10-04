@@ -3,13 +3,13 @@ package model;
 /**
  * Abstract class for any trap in the game
  */
-public abstract class Trap extends GameObject implements Interactable{
+public abstract class Trap extends GameObject {
 
     /**
      * Constructor
      */
-    public Trap(int width, int height) {
-        super(new Point(0, 0), width, height);
+    public Trap(int x, int y, int width, int height) {
+        super(x, y, width, height);
 
     }
 

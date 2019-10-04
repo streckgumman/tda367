@@ -5,14 +5,10 @@ public class Hitbox {
     private Point point;
     private int width, height;
 
-    public Hitbox(Point point, int width, int height){
-        this.point = point;
+    public Hitbox(int x, int y, int width, int height) {
+        this.point = new Point(x, y);
         this.width = width;
         this.height = height;
-    }
-
-    public Point getPosition() {
-        return point;
     }
 
     public int getX(){
@@ -21,6 +17,14 @@ public class Hitbox {
 
     public int getY(){
         return point.getY();
+    }
+
+    public void setX(int x) {
+        point.setX(x);
+    }
+
+    public void setY(int y) {
+        point.setY(y);
     }
 
     public int getWidth() {

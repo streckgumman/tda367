@@ -5,7 +5,7 @@ import model.Trap;
 public class TestTrap extends Trap {
 
     public TestTrap() {
-        super(80, 80);
+        super(200, 200, 80, 80);
 
     }
 

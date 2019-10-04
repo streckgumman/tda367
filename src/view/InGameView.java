@@ -138,13 +138,13 @@ public class InGameView extends View {
 
     private void drawItems(Graphics g) {
         for (Item i : game.getLevel().getItems()) {
-            g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), i.getHitbox().getWidth(), i.getHitbox().getHeight(), null);
+            g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), i.getWidth(), i.getHeight(), null);
         }
     }
 
     private void drawNPCs(Graphics g) {
         for (NPC npc : game.getLevel().getNpcs()) {
-            g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), npc.getHitbox().getWidth(), npc.getHitbox().getHeight(), null);
+            g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), npc.getWidth(), npc.getHeight(), null);
         }
     }
 

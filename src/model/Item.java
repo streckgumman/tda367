@@ -3,7 +3,7 @@ package model;
 /**
  * Abstract class for any item in the game.
  */
-public abstract class Item extends GameObject implements Interactable{
+public abstract class Item extends GameObject {
     private String name;
     private ItemType type;
 
@@ -14,7 +14,7 @@ public abstract class Item extends GameObject implements Interactable{
      * @param type which type of item it is
      */
     public Item(String name, ItemType type, int x, int y, int width, int height) {
-        super(new Point(x, y), 80, 80);
+        super(x, y, 80, 80);
         this.name = name;
         this.type = type;
     }

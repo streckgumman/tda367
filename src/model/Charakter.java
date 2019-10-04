@@ -16,12 +16,13 @@ public abstract class Charakter extends GameObject {
      * Constructor
      *
      * @param name  the character's name
-     * @param point the character's initial position
+     * @param x the character's initial x-position
+     * @param y the character's initial y-position
+     * @param width the character's width
+     * @param height the character's height
      */
-
-    public Charakter(String name, Point point, int width, int height) {
-
-        super(point, width, height);
+    public Charakter(String name, int x, int y, int width, int height) {
+        super(x, y, width, height);
         this.name = name;
     }
 

@@ -9,7 +9,7 @@ public class Player extends Charakter {
     private boolean movingLeft = false;
     private boolean movingUp = false;
     private boolean movingDown = false;
-    private Item    item;
+    private Item item;
 
     /**
      * Constructor
@@ -17,7 +17,7 @@ public class Player extends Charakter {
      * @param name the player's name
      */
     public Player(String name) {
-        super(name, new Point(1920 / 2, 1080 / 2), 804/4, 1074/4);
+        super(name, 1920 / 2, 1080 / 2, 804 / 4, 1074 / 4);
     }
 
     /**
@@ -44,6 +44,7 @@ public class Player extends Charakter {
 
     /**
      * Moves the player in both axis
+     *
      * @param dx amount of pixels the player moves along the x-axis
      * @param dy amount of pixels the player moves along the y-axis
      */
@@ -105,7 +106,7 @@ public class Player extends Charakter {
         return movingRight;
     }
 
-    public void pickUpItem(Item item){
+    public void pickUpItem(Item item) {
         this.item = item;
     }
 
@@ -123,12 +124,16 @@ public class Player extends Charakter {
      *
      * @return whether or not the player is moving up
      */
-    public boolean isMovingUp(){ return movingUp;}
+    public boolean isMovingUp() {
+        return movingUp;
+    }
 
     /**
      * Returns whether or not the player is moving down
      *
      * @return whether or not the player is moving down
      */
-    public boolean isMovingDown(){return movingDown;}
+    public boolean isMovingDown() {
+        return movingDown;
+    }
 }

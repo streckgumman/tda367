@@ -1,7 +1,5 @@
 package model;
 
-import java.awt.*;
-
 /**
  * GameObject represent a object that can exist in the game
  *
@@ -13,8 +11,8 @@ public abstract class GameObject implements HitboxOwner{
 
     private Hitbox hitbox;
 
-    public GameObject(Point point, int width, int height) {
-        this.hitbox = new Hitbox(point, width, height);
+    public GameObject(int x, int y, int width, int height) {
+        this.hitbox = new Hitbox(x, y, width, height);
     }
 
 
@@ -35,7 +33,7 @@ public abstract class GameObject implements HitboxOwner{
      * @param x the x coordinate
      */
     public void setXPosition(int x) {
-        getHitbox().getPosition().setX(x);
+        hitbox.setX(x);
     }
 
     /**
@@ -44,22 +42,23 @@ public abstract class GameObject implements HitboxOwner{
      * @param y the y coordinate
      */
     public void setYPosition(int y) {
-        getHitbox().getPosition().setY(y);
-    }
-
-    /**
-     * @return a copy of the position that GameObject holds
-     */
-    public Point getPosition() {
-        return new Point(getHitbox().getPosition());
+        hitbox.setY(y);
     }
 
     public int getX() {
-        return (int) getPosition().getX();
+        return hitbox.getX();
     }
 
     public int getY() {
-        return (int) getPosition().getY();
+        return hitbox.getY();
+    }
+
+    public int getWidth() {
+        return hitbox.getWidth();
+    }
+
+    public int getHeight() {
+        return hitbox.getHeight();
     }
 
     protected abstract void update();

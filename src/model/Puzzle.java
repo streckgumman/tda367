@@ -3,7 +3,7 @@ package model;
 /**
  * Abstract class for any puzzle in the game
  */
-public abstract class Puzzle extends GameObject implements Interactable {
+public abstract class Puzzle extends GameObject {
 
     private boolean solved = false;
 
@@ -11,7 +11,7 @@ public abstract class Puzzle extends GameObject implements Interactable {
      * Constructor
      */
     public Puzzle(int x, int y, int width, int height) {
-        super(new Point(x, y),width, height);
+        super(x, y, width, height);
     }
 
 
