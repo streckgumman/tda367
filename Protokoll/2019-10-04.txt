@@ -22,6 +22,11 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
 
     Fokusera på att börja göra ett pussel, vänta med att implementera traps
 
+    Vart ska Door vara i koden?
+        Det är inte ett item, man ska inte kunna plocka upp den
+        En door borde vara del av / vara ett pussel, för att det är den som tar en vidare
+        Vi lägger Door i puzzles.
+
     Hur ska vi interagera med hunden i spelet?
         "pet"
         "talk"
@@ -44,7 +49,7 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
 
     Samuel ska fixa så att man kan välja namn
 
-    Johannes ska ta bort massa dependencies 
+    Johannes ska ta bort massa dependencies
 
 ##Skvaller
     Hemligt och väldigt spännande
