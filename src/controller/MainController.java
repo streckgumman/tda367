@@ -2,6 +2,7 @@ package controller;
 
 import model.Game;
 import view.InGameView;
+import view.NameInputView;
 import view.StartMenuView;
 import view.View;
 
@@ -95,10 +96,19 @@ public class MainController {
         view.requestFocus(); //This is required in order to register user input again.
     }
 
+    public void switchToNameInput() {
+        view = new NameInputView(game);
+        switchView(view, new NameInputController(view, this));
+    }
+
     public void exitGame() {
         // save?
         frame.dispose();
         running = false;
+    }
+
+    Game getGame(){
+        return game;
     }
 
 }

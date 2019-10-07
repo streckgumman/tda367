@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -90,22 +89,4 @@ public abstract class View extends JPanel {
         }
         return puzzleImage;
     }
-
-
-    /**
-     * Draws a string a§t a given point using a given Font.
-     *
-     * @param g        the Graphics object to draw on.
-     * @param text     the string to draw.
-     * @param font     the font to use.
-     * @param location where to draw the text.
-     */
-    protected void drawText(Graphics g, String text, Font font, Point location) {
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setFont(font);
-
-        g2.drawString(text, location.getX(), location.getY());
-    }
-
-
 }

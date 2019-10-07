@@ -14,7 +14,7 @@ public class StartMenuController extends Controller {
             @Override
             public void keyPressed(KeyEvent event) {
                 if (event.getKeyCode() == java.awt.event.KeyEvent.VK_E) {
-                    mainController.switchToIngame();
+                    mainController.switchToNameInput();
                 } else if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     mainController.exitGame();
                 }
