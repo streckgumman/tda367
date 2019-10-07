@@ -73,19 +73,4 @@ public abstract class View extends JPanel {
         return npcImage;
     }
 
-    /**
-     * Draws a string a String a given point using a given Font.
-     *  @param text     the string to draw.
-     * @param font     the font to use.
-     * @param location where to draw the text.
-     */
-    public void drawText(String text, Font font, Point location) {
-        Graphics g = getGraphics();
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setFont(font);
-
-        g2.drawString(text, location.getX(), location.getY());
-    }
-
-
 }
