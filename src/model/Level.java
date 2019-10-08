@@ -13,15 +13,17 @@ public abstract class Level {
     private List<Puzzle> puzzles;
     private List<Trap> traps;
     private List<Item> items;
+    private int nrInLine;
 
     /**
      * Constructor
      */
-    public Level() {
+    public Level(int nrInLine) {
         npcs = new ArrayList<NPC>();
         puzzles = new ArrayList<Puzzle>();
         traps = new ArrayList<Trap>();
         items = new ArrayList<Item>();
+        this.nrInLine = nrInLine;
     }
 
     /**
@@ -57,4 +59,9 @@ public abstract class Level {
     public void addPuzzle(Puzzle p){
         puzzles.add(p);
     }
+
+    public int getNrInLine() {
+        return nrInLine;
+    }
 }
+
