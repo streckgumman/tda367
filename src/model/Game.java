@@ -35,4 +35,9 @@ public class Game {
     public Level getLevel() {
         return currentLevel;
     }
+
+    public void addObserver(TextObserver observer){
+        player.addObserver(observer);
+        currentLevel.addObserver(observer);
+    }
 }

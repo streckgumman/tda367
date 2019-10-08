@@ -57,4 +57,22 @@ public abstract class Level {
     public void addPuzzle(Puzzle p){
         puzzles.add(p);
     }
+
+    public void addObserver(TextObserver observer){
+        List<GameObject> gameObjects = getGameObjects();
+        for(GameObject gameObject : gameObjects){
+            gameObject.addObserver(observer);
+        }
+    }
+
+    public List<GameObject> getGameObjects(){
+        List<GameObject> gameObjects = new ArrayList<>();
+        gameObjects.add(player);
+        gameObjects.addAll(npcs);
+        gameObjects.addAll(puzzles);
+        gameObjects.addAll(traps);
+        gameObjects.addAll(items);
+
+        return gameObjects;
+    }
 }

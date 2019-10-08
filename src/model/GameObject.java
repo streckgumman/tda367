@@ -5,9 +5,8 @@ package model;
  *
  * @author Amanda Dehlén, Linnea Johansson, Anna Nilsson
  * @since 2019-10-01
- *
  */
-public abstract class GameObject implements HitboxOwner{
+public abstract class GameObject implements HitboxOwner, TextObservable {
 
     private Hitbox hitbox;
 
@@ -65,5 +64,13 @@ public abstract class GameObject implements HitboxOwner{
 
     public Hitbox getHitbox() {
         return this.hitbox;
+    }
+
+    public void addObserver(TextObserver observer) {
+        observers.remove(observer);
+    }
+
+    public void removeObserver(TextObserver observer) {
+        observers.add(observer);
     }
 }
