@@ -110,6 +110,10 @@ public class Player extends Charakter {
         this.item = item;
     }
 
+    public void resetItem(){
+        this.item = null;
+    }
+
     /**
      * Returns whether or not the player is moving left
      *
@@ -136,4 +140,5 @@ public class Player extends Charakter {
     public boolean isMovingDown() {
         return movingDown;
     }
+
 }

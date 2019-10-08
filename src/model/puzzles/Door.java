@@ -21,9 +21,4 @@ public class Door extends Puzzle {
 
     }
 
-
-
-
-
-
 }
