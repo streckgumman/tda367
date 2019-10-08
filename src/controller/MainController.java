@@ -58,7 +58,7 @@ public class MainController {
         frame.pack();
         frame.setVisible(true);
 
-        c = new StartMenuController(view, this);
+        c = new StartMenuController(view);
         view.addKeyListener(c);
 
         runGame();
@@ -90,7 +90,7 @@ public class MainController {
      */
     public void switchToIngame() {
         view = new InGameView(game);
-        switchView(view, new InGameController(view, game, this));
+        switchView(view, new InGameController(view, game));
     }
 
     private void switchView(View view, Controller c) {

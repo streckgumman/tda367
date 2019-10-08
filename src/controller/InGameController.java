@@ -19,7 +19,7 @@ public class InGameController extends Controller {
      * Adds the player to the list of updaters.
      */
     @SuppressWarnings("unchecked")
-    public InGameController(View view, Game game, final MainController mainController) {
+    public InGameController(View view, Game game) {
         super(view, game);
         addUpdater(new PlayerUpdater(game.getPlayer()));
         addUpdater(new Updater(null) {

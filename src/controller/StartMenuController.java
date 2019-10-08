@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 public class StartMenuController extends Controller {
 
     @SuppressWarnings("unchecked")
-    public StartMenuController(View v, MainController mainController) {
+    public StartMenuController(View v) {
         super(v, null);
 
         Updater u = new Updater(null) {
