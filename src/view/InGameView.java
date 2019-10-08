@@ -18,7 +18,7 @@ import java.io.IOException;
  * @author Amanda Dehlén, Linnea Johansson
  */
 
-public class InGameView extends View {
+public class InGameView extends View implements TextObserver{
 
     int frame = 0;
     /**
@@ -207,6 +207,11 @@ public class InGameView extends View {
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
         image = op.filter(image, null);
         return image;
+    }
+
+    @Override
+    public void actOnText(String text) {
+
     }
 
     private enum HorizontalDirection {
