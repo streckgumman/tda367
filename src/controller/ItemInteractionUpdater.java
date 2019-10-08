@@ -1,19 +1,16 @@
 package controller;
 
-import model.IntersectionDetector;
-import model.Item;
-import model.Level;
-import model.Player;
+import model.*;
 
 import java.awt.event.KeyEvent;
 
 public class ItemInteractionUpdater extends Updater<Player> {
 
-    private Level level;
+    private Game game;
 
-    protected ItemInteractionUpdater(Player player, Level level) {
+    protected ItemInteractionUpdater(Player player, Game game) {
         super(player);
-        this.level = level;
+        this.game = game;
     }
 
     public void keyPressed(KeyEvent event) {
@@ -27,14 +24,14 @@ public class ItemInteractionUpdater extends Updater<Player> {
     private void dropItem() {
         if (getGameObject().getItem() != null) {
             getGameObject().getItem().setPosition(getGameObject().getX(), getGameObject().getY());
-            level.addItem(getGameObject().getItem());
+            game.getLevel().addItem(getGameObject().getItem());
             getGameObject().pickUpItem(null);
         }
     }
 
     private void itemDetector() {
-        for (int j = level.getItems().size() - 1; j >= 0; j--) {
-            Item i = level.getItems().get(j);
+        for (int j = game.getLevel().getItems().size() - 1; j >= 0; j--) {
+            Item i = game.getLevel().getItems().get(j);
             if (IntersectionDetector.intersects(getGameObject().getHitbox(), i.getHitbox())) {
                 pickUpItem(i);
                 break;
@@ -45,9 +42,8 @@ public class ItemInteractionUpdater extends Updater<Player> {
     private void pickUpItem(Item i) {
         dropItem();
         getGameObject().pickUpItem(i);
-        level.getItems().remove(i);
+        game.getLevel().getItems().remove(i);
     }
-
 
     public void keyReleased(KeyEvent event) {
 
