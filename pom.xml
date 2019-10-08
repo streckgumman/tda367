@@ -10,8 +10,8 @@
     <packaging>jar</packaging>
     <name>UpsideDownAndDead</name> <!-- @TODO Not sure what the value of this is supposed to be. Context: Was "ProjectTemplate" in the template.-->
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.9</maven.compiler.source>
+        <maven.compiler.target>1.9</maven.compiler.target>
     </properties>
 
     <build>
