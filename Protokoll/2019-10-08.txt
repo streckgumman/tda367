@@ -10,7 +10,6 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
 
     Vi borde dela upp model, view och controller i mindre paket för att få bättre organisation
 
-
     Hur man skriver text på skärmen är trasigt typ.
 
 
@@ -20,6 +19,7 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
     Samuel: Börjat fixa den trasiga koden för att skriva text
 
     Johannes och Anna: Gjort en paus-meny. Fungerar men behöver fixas
+
 
 ##Diskussion
 	Att skriva ut text på skärmen
@@ -34,6 +34,13 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
         --> facade pattern
         Vi kan skissa på hur strukturen för det nya, och kolla med Robert om vi har oklarheter
 
+    InGameView
+        Ha ny view för varje level?
+        I så fall i ett view-paket
+        Abstrahera allt gemensamt till InGameView
+        Undersöka hur annars byta bakgrund till olika levels
+
+
 ##Beslut
     Amanda och Linnea parprogrammerar vidare levels
 
@@ -41,8 +48,12 @@ Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Sam
 
     Johannes och Anna ska fortsätta med pausmeny, och merga sin branch
 
+    Imorgon ska vi tillsammans kolla på RAD- och SDD- dokumenten
+
+
 ##Skvaller
     Hemligt och väldigt spännande
+
 
 ##Wrap up
 	Vi ses imorgon vid 10! <3
