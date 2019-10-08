@@ -12,6 +12,8 @@ import javax.swing.*;
  */
 public class MainController {
 
+    static MainController instance;
+
     private final Game game;
     private JFrame frame;
     private View view;
@@ -27,7 +29,7 @@ public class MainController {
     /**
      * Constructor
      */
-    public MainController() {
+    private MainController() {
         game = new Game();
         frame = new JFrame();
 
@@ -35,6 +37,13 @@ public class MainController {
         windowHeight = 1080;
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static MainController getInstance(){
+        if (instance == null){
+            instance = new MainController();
+        }
+        return instance;
     }
 
     /**

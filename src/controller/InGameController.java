@@ -26,7 +26,6 @@ public class InGameController extends Controller {
             @Override
             public void keyPressed(KeyEvent event) {
                 if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    mainController.exitGame();
                 }
             }
 

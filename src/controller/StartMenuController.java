@@ -13,6 +13,7 @@ public class StartMenuController extends Controller {
         Updater u = new Updater(null) {
             @Override
             public void keyPressed(KeyEvent event) {
+                MainController mainController = MainController.getInstance();
                 if (event.getKeyCode() == java.awt.event.KeyEvent.VK_E) {
                     mainController.switchToIngame();
                 } else if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
