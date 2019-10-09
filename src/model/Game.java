@@ -1,6 +1,7 @@
 package model;
 
 import model.levels.Level2;
+import model.levels.Level3;
 import model.levels.TestLevel;
 
 import java.util.*;
@@ -22,6 +23,7 @@ public class Game {
         levels = new ArrayList<>();
         levels.add(new TestLevel(0));
         levels.add(new Level2(1));
+        levels.add(new Level3(2));
         currentLevel = levels.get(0);
     }
 

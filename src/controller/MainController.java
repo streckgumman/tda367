@@ -82,10 +82,13 @@ public class MainController {
         switchView(view, new InGameController(view, game, this));
     }
 
-    public void switchToNextLevelView(int level){
-        switch(level){
+    public void switchToNextLevelView(int level) {
+        switch (level) {
             case 1:
                 view = new InLevel2View(game);
+                break;
+            case 2:
+                view = new InLevel3View(game);
                 break;
             default:
                 view = null;
@@ -115,7 +118,7 @@ public class MainController {
         running = false;
     }
 
-    Game getGame(){
+    Game getGame() {
         return game;
     }
 
