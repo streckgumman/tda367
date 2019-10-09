@@ -1,7 +1,7 @@
 package model.puzzles;
 
+import model.GameObjectType;
 import model.Puzzle;
-import model.PuzzleType;
 
 public class Door extends Puzzle {
     /**
@@ -13,7 +13,7 @@ public class Door extends Puzzle {
      * @param height
      */
     public Door(int x, int y, int width, int height) {
-        super(x, y, width, height, PuzzleType.DOOR);
+        super(x, y, width, height, GameObjectType.DOOR);
     }
 
     @Override

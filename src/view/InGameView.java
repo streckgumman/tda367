@@ -136,19 +136,19 @@ public abstract class InGameView extends View {
 
     private void drawItems(Graphics g) {
         for (Item i : game.getLevel().getItems()) {
-            g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), i.getWidth(), i.getHeight(), null);
+            g.drawImage(gameObjectImages.get(i.getType()), i.getX(), i.getY(), i.getWidth(), i.getHeight(), null);
         }
     }
 
     private void drawNPCs(Graphics g) {
         for (NPC npc : game.getLevel().getNpcs()) {
-            g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), npc.getWidth(), npc.getHeight(), null);
+            g.drawImage(gameObjectImages.get(npc.getType()), npc.getX(), npc.getY(), npc.getWidth(), npc.getHeight(), null);
         }
     }
 
     private void drawPuzzles(Graphics g) {
         for (Puzzle puzzle : game.getLevel().getPuzzles()) {
-            g.drawImage(puzzleImages.get(puzzle.getPuzzleType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
+            g.drawImage(gameObjectImages.get(puzzle.getType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
         }
     }
 
@@ -156,14 +156,14 @@ public abstract class InGameView extends View {
     protected void setItemImages() {
         try {
             File backgroundPath = new File("./resources/scissors.png");
-            itemImages.put(ItemType.SCISSORS, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.SCISSORS, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
             File backgroundPath = new File("./resources/key.png");
-            itemImages.put(ItemType.KEY, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.KEY, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -172,16 +172,16 @@ public abstract class InGameView extends View {
     protected void setNPCImages() {
         try {
             File backgroundPath = new File("./resources/dog_with_gun.png");
-            npcImages.put(NPCType.DOGWITHGUN, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.DOGWITHGUN, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    protected void setPuzzleImages(){
+    protected void setPuzzleImages() {
         try {
             File backgroundPath = new File("./resources/door.png");
-            puzzleImages.put(PuzzleType.DOOR, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.DOOR, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }

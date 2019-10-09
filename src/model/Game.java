@@ -45,9 +45,9 @@ public class Game {
         return currentLevel;
     }
 
-    public void nextLevel(){
+    public void nextLevel() {//@TODO Index out of bounds, implement factory pattern.
         player.resetItem();
-        if(levels.get(currentLevel.getNrInLine() + 1) != null) {
+        if (levels.get(currentLevel.getNrInLine() + 1) != null) {
             currentLevel = levels.get(currentLevel.getNrInLine() + 1);
         }
     }

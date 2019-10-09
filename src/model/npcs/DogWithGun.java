@@ -1,14 +1,14 @@
 package model.npcs;
 
+import model.GameObjectType;
 import model.NPC;
-import model.NPCType;
 
 import java.util.Random;
 
 public class DogWithGun extends NPC {
 
     public DogWithGun(String name) {
-        super(name, NPCType.DOGWITHGUN, 0, 0, 625 / 4, 532 / 4);
+        super(name, GameObjectType.DOGWITHGUN, 0, 0, 625 / 4, 532 / 4);
     }
 
     protected void update() {
@@ -16,7 +16,7 @@ public class DogWithGun extends NPC {
     }
 
     @Override
-    public void talk(){
+    public void talk() {
         String[] dialogues = {"BA", "woof!", "Wan"};
         String bark = "";
         Random r = new Random();
