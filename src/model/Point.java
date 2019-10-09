@@ -13,7 +13,7 @@ public class Point {
     private int y;
 
     /**
-     * The constructor that takes in the coordinates in x and y axis and sets the x and y coordinates to it
+     * The public constructor that takes in the coordinates in x and y axis and sets the x and y coordinates to it
      *
      * @param x coordinate ín x axis
      * @param y coordinate in y axis
