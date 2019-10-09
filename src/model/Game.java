@@ -49,4 +49,6 @@ public class Game {
             currentLevel = levels.get(currentLevel.getNrInLine() + 1);
         }
     }
+
+    public int getCurrentLevelsNrInLine(){return currentLevel.getNrInLine();}
 }
