@@ -42,7 +42,7 @@ public class InGameController extends Controller {
         });
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game));
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
-        addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game));
+        addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, mainController));
     }
 
     /**
