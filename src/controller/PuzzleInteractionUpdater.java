@@ -7,10 +7,12 @@ import java.awt.event.KeyEvent;
 public class PuzzleInteractionUpdater extends Updater <Player>{
 
     private Game game;
+    private MainController mc;
 
-    protected PuzzleInteractionUpdater(Player gameObject, Game game) {
+    protected PuzzleInteractionUpdater(Player gameObject, Game game, MainController mc) {
         super(gameObject);
         this.game = game;
+        this.mc = mc;
     }
 
     @Override
@@ -20,6 +22,7 @@ public class PuzzleInteractionUpdater extends Updater <Player>{
             if (IntersectionDetector.intersects(getGameObject().getHitbox(), puzzle.getHitbox())){
                 if(checkIfHoldingKey()){
                     game.nextLevel();
+                    mc.switchToNextLevelView(game.getCurrentLevelsNrInLine());
                 }
             }
         }
