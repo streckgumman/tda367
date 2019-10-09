@@ -18,7 +18,7 @@ import java.io.IOException;
  * @author Amanda Dehlén, Linnea Johansson
  */
 
-public class InGameView extends View {
+public abstract class InGameView extends View {
 
     int frame = 0;
     /**
@@ -39,15 +39,12 @@ public class InGameView extends View {
         super(1920, 1080, game);
 
         try {
-            File backgroundPath = new File("./resources/background_1.png");
-            this.background = ImageIO.read(backgroundPath);
-
             File characterPath = new File("./resources/player.png");
             this.character = ImageIO.read(characterPath);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+        this.background = setBackground("");
         lastPlayerDirection = HorizontalDirection.RIGHT;
         flippedCharacter = horizontalFlip(copyImage(character));
     }
@@ -212,6 +209,17 @@ public class InGameView extends View {
     private enum HorizontalDirection {
         RIGHT,
         LEFT
+    }
+
+    protected BufferedImage setBackground(String background){
+        try {
+            File backgroundPath = new File(background);
+            return ImageIO.read(backgroundPath);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
 
