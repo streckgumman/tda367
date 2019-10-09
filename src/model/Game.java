@@ -7,6 +7,11 @@ import model.levels.TestLevel;
 import java.util.*;
 
 /**
+ * @author Amanda Dehlén
+ * @author Samuel Widén
+ * @author Linnea Johansson
+ * @author Johannes Kvernes
+ *
  * The game instance containing a player and a level.
  */
 public class Game {
@@ -16,7 +21,7 @@ public class Game {
     private List<Level> levels;
 
     /**
-     * Constructor
+     * The public constructor for the class Game
      */
     public Game() {
         player = new Player("Duckoo");

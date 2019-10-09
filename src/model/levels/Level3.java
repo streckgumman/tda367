@@ -5,8 +5,20 @@ import model.items.Key;
 import model.items.Scissors;
 import model.puzzles.Door;
 
+/**
+ * @author Amanda Dehlén, Samuel Widèn, Johannes Kvernes, Linnea Johansson'
+ *
+ * Level3 represents the level 3 in the game and extends the clss Level
+ *
+ * */
 public class Level3 extends Level {
 
+    /**
+     * The public constructor of the class Level3
+     * 
+     * Adds the items "Scissors" and "Key" to the game and the puzzle "Door".
+     * @param nrInLine which position in the order of levels the level has
+     */
     public Level3(int nrInLine) {
         super(nrInLine);
         addItem(new Scissors("Scissors", 200, 300));
