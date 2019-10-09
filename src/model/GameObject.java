@@ -5,16 +5,15 @@ package model;
  *
  * @author Amanda Dehlén, Linnea Johansson, Anna Nilsson
  * @since 2019-10-01
- *
  */
-public abstract class GameObject implements HitboxOwner{
+public abstract class GameObject implements HitboxOwner {
 
+    protected GameObjectType type;
     private Hitbox hitbox;
 
     public GameObject(int x, int y, int width, int height) {
         this.hitbox = new Hitbox(x, y, width, height);
     }
-
 
     /**
      * Sets the position of the GameObject to the x and y coordinates
@@ -65,5 +64,9 @@ public abstract class GameObject implements HitboxOwner{
 
     public Hitbox getHitbox() {
         return this.hitbox;
+    }
+
+    public GameObjectType getType() {
+        return type;
     }
 }
