@@ -7,6 +7,7 @@ package model;
  * @author Samuel Widén
  * @author Linnea Johansson
  * @author Johannes Kvernes
+ * @author Anna Nilson
  *
  * @since 2019-10-01
  */

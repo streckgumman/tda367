@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author Amanda Dehlén
+ * @author Samuel Widén
+ * @author Linnea Johansson
+ * @author Johannes Kvernes
+ * @author Anna Nilson
+ *
  * Class for the level to play
  */
 public abstract class Level {
@@ -16,7 +22,8 @@ public abstract class Level {
     private int nrInLine;
 
     /**
-     * Constructor
+     * The public constructor for the class Level
+     *
      */
     public Level(int nrInLine) {
         npcs = new ArrayList<NPC>();

@@ -5,12 +5,14 @@ import model.Puzzle;
 
 public class Door extends Puzzle {
     /**
-     * Constructor
+     * The public constructor for the class Door
      *
-     * @param x
-     * @param y
-     * @param width
-     * @param height
+     * The class Door extends the class Puzzle
+     *
+     * @param x the position of the Door in x axis
+     * @param y the position of the Door in y axis
+     * @param width the width of the Door's hitbox
+     * @param height the height of the Door's hitbox
      */
     public Door(int x, int y, int width, int height) {
         super(x, y, width, height, GameObjectType.DOOR);

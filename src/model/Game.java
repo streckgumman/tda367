@@ -2,7 +2,7 @@ package model;
 
 import model.levels.Level2;
 import model.levels.Level3;
-import model.levels.TestLevel;
+import model.levels.Level1;
 
 import java.util.*;
 
@@ -11,6 +11,7 @@ import java.util.*;
  * @author Samuel Widén
  * @author Linnea Johansson
  * @author Johannes Kvernes
+ * @author Anna Nilson
  *
  * The game instance containing a player and a level.
  */
@@ -26,7 +27,7 @@ public class Game {
     public Game() {
         player = new Player("Duckoo");
         levels = new ArrayList<>();
-        levels.add(new TestLevel(0));
+        levels.add(new Level1(0));
         levels.add(new Level2(1));
         levels.add(new Level3(2));
         currentLevel = levels.get(0);
