@@ -6,17 +6,17 @@ import model.Level;
  * @author Amanda Dehlén
  * @author Linnea Johansson
  *
- * TestLevel exists to test the methods of the class Level and extends Level
+ * TrialLevel exists to test the methods of the class Level and extends Level
  *
  * */
-public class TestLevel extends Level {
+public class TrialLevel extends Level {
 
     /**
-     * The public constructor of the class TestLevel
+     * The public constructor of the class TrialLevel
      *
      * @param nrInLine which position in the order of levels the level has
      */
-    public TestLevel(int nrInLine) {
+    public TrialLevel(int nrInLine) {
         super(nrInLine);
     }
 

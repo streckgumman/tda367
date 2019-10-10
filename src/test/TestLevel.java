@@ -6,9 +6,9 @@ import model.Puzzle;
 import model.items.Key;
 import model.items.Scissors;
 import model.npcs.DogWithGun;
-import model.npcs.TestNPC;
+import model.npcs.TrialNPC;
 import model.puzzles.Door;
-import model.puzzles.TestPuzzle;
+import model.puzzles.TrialPuzzle;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,7 +29,7 @@ public class TestLevel {
 
     @Test
     public void shouldGetAllItemsFromItemList(){
-        testLevel = new model.levels.TestLevel(0);
+        testLevel = new model.levels.TrialLevel(0);
         Key testItem = new Key(10, 10);
         Scissors testItem2 = new Scissors("sax", 2, 15);
         testLevel.addItem(testItem);
@@ -45,7 +45,7 @@ public class TestLevel {
 
     @Test
     public void shouldAddItemToItemList(){
-        testLevel = new model.levels.TestLevel(0);
+        testLevel = new model.levels.TrialLevel(0);
         Key testItem = new Key(10, 10);
         testLevel.addItem(testItem);
         assertEquals(testItem, testLevel.getItems().get(0));
@@ -57,9 +57,9 @@ public class TestLevel {
 
     @Test
     public void shouldGetAllNPCsFromNPCList(){
-        testLevel = new model.levels.TestLevel(0);
+        testLevel = new model.levels.TrialLevel(0);
         NPC testNPC = new DogWithGun("TestNPC1");
-        NPC testNPC2 = new TestNPC("TestNPC2");
+        NPC testNPC2 = new TrialNPC("TestNPC2");
         testLevel.addNPC(testNPC);
         testLevel.addNPC(testNPC2);
         assertEquals(testNPC, testLevel.getNpcs().get(0));
@@ -73,7 +73,7 @@ public class TestLevel {
 
     @Test
     public void shouldAddNPCToNPCList(){
-        testLevel = new model.levels.TestLevel(0);
+        testLevel = new model.levels.TrialLevel(0);
         NPC testNPC = new DogWithGun("Doggo");
         testLevel.addNPC(testNPC);
         assertEquals(testNPC, testLevel.getNpcs().get(0));
@@ -85,9 +85,9 @@ public class TestLevel {
 
     @Test
     public void shouldGetAllPuzzlesFromPuzzleList(){
-        testLevel = new model.levels.TestLevel(0);
+        testLevel = new model.levels.TrialLevel(0);
         Puzzle testPuzzle = new Door(10, 10, 10, 10);
-        Puzzle testPuzzle2 = new TestPuzzle(10, 10, 10, 10);
+        Puzzle testPuzzle2 = new TrialPuzzle(10, 10, 10, 10);
         testLevel.addPuzzle(testPuzzle);
         testLevel.addPuzzle(testPuzzle2);
         assertEquals(testPuzzle, testLevel.getPuzzles().get(0));
@@ -101,7 +101,7 @@ public class TestLevel {
 
     @Test
     public void shouldAddPuzzlesToPuzzleList(){
-        testLevel = new model.levels.TestLevel(0);
+        testLevel = new model.levels.TrialLevel(0);
         Puzzle testPuzzle = new Door(10, 10, 10, 10);
         testLevel.addPuzzle(testPuzzle);
         assertEquals(testPuzzle, testLevel.getPuzzles());

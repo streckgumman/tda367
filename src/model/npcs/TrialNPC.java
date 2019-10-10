@@ -2,9 +2,9 @@ package model.npcs;
 
 import model.NPC;
 
-public class TestNPC extends NPC {
+public class TrialNPC extends NPC {
 
-    public TestNPC(String name) {
+    public TrialNPC(String name) {
         super(name, null, 240, 367, 200, 300);
 
 
