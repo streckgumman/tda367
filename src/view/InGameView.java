@@ -15,7 +15,6 @@ import java.io.IOException;
  * <p>
  * Presents the player with graphics, such as the background, the character etc.
  *
- * @author Amanda Dehlén, Linnea Johansson
  */
 
 public abstract class InGameView extends View {
@@ -31,7 +30,7 @@ public abstract class InGameView extends View {
     private HorizontalDirection lastPlayerDirection;
 
     /**
-     * Class constructor.
+     * The public constructor creates an instance of InGameView
      *
      * @param game the model's game.
      */
@@ -186,7 +185,6 @@ public abstract class InGameView extends View {
             e.printStackTrace();
         }
     }
-
 
     //TODO These (copyImage and horizontalFlip) methods might not belong in this class?
     private BufferedImage copyImage(BufferedImage source) {

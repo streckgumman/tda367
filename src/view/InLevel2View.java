@@ -30,4 +30,5 @@ public class InLevel2View extends InGameView {
     }
 
 
+
 }
