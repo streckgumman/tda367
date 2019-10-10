@@ -19,11 +19,13 @@ public class InLevel3View extends InGameView{
     }
 
     /**
-     * Overrides the setBackground method in it's superclass InGameView and are used to set the right background
-     * @return the image that should be set as the background in level 3
+     * Gets the background image for level 3
+     *
+     * @return the background image for level 3
      */
-    protected BufferedImage setBackground(String dummy){
-        return super.setBackground("./resources/batman.jpg");
+    @Override
+    protected BufferedImage getBackgroundImage() {
+        return getImage("./resources/batman.jpg");
     }
 
 

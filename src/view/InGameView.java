@@ -44,7 +44,7 @@ public abstract class InGameView extends View {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        this.background = setBackground("");
+        background = getBackgroundImage();
         lastPlayerDirection = HorizontalDirection.RIGHT;
         flippedCharacter = horizontalFlip(copyImage(character));
     }
@@ -211,16 +211,12 @@ public abstract class InGameView extends View {
         LEFT
     }
 
-    protected BufferedImage setBackground(String background){
-        try {
-            File backgroundPath = new File(background);
-            return ImageIO.read(backgroundPath);
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
+    /**
+     * Abstract method to get the background image for subclasses
+     *
+     * @return the background image
+     */
+    protected abstract BufferedImage getBackgroundImage();
 
 
 }
