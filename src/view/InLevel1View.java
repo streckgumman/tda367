@@ -24,14 +24,14 @@ public class InLevel1View extends InGameView {
     }
 
     /**
+     * Gets the background image for level 1
      *
-     * @return the image that should be set as the background in level 1
+     * @return the background image for level 1
      */
-    protected BufferedImage setBackground(String dummy){
-        return super.setBackground("./resources/background_1.png");
+    @Override
+    protected BufferedImage getBackgroundImage() {
+        return getImage("./resources/background_1.png");
     }
-
-
 
 
 }
