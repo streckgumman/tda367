@@ -18,7 +18,7 @@ import java.io.IOException;
  * @author Amanda Dehlén, Linnea Johansson
  */
 
-public class InGameView extends View implements TextObserver{
+public class InGameView extends View implements TextObserver {
 
     int frame = 0;
     /**
@@ -181,7 +181,7 @@ public class InGameView extends View implements TextObserver{
         }
     }
 
-    protected void setPuzzleImages(){
+    protected void setPuzzleImages() {
         try {
             File backgroundPath = new File("./resources/door.png");
             puzzleImages.put(PuzzleType.DOOR, ImageIO.read(backgroundPath));
