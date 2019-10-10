@@ -210,7 +210,12 @@ public class InGameView extends View implements TextObserver{
     }
 
     @Override
-    public void actOnText(String text) {
+    public void actOnTextAdd(Text text) {
+
+    }
+
+    @Override
+    public void actOnTextRemove(Text text) {
 
     }
 

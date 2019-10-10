@@ -1,5 +1,6 @@
 package model;
 
 public interface TextObserver {
-    void actOnText(String text);
+    void actOnTextAdd(Text text);
+    void actOnTextRemove(Text text);
 }

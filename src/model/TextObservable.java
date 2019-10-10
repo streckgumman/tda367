@@ -7,9 +7,15 @@ public interface TextObservable {
 
     List<TextObserver> observers = new ArrayList<>();
 
-    private void notify(String text) {
+    private void notifyAdd(Text text) {
         for (TextObserver observer : observers) {
-            observer.actOnText(text);
+            observer.actOnTextAdd(text);
+        }
+    }
+
+    private void notifyRemove(Text text) {
+        for (TextObserver observer : observers){
+            observer.actOnTextRemove(text);
         }
     }
 
