@@ -15,7 +15,6 @@ import java.io.IOException;
  * <p>
  * Presents the player with graphics, such as the background, the character etc.
  *
- * @author Amanda Dehlén, Linnea Johansson
  */
 
 public abstract class InGameView extends View {
@@ -31,7 +30,7 @@ public abstract class InGameView extends View {
     private HorizontalDirection lastPlayerDirection;
 
     /**
-     * Class constructor.
+     * The public constructor creates an instance of InGameView
      *
      * @param game the model's game.
      */
@@ -187,7 +186,6 @@ public abstract class InGameView extends View {
         }
     }
 
-
     //TODO These (copyImage and horizontalFlip) methods might not belong in this class?
     private BufferedImage copyImage(BufferedImage source) {
         BufferedImage b = new BufferedImage(source.getWidth(), source.getHeight(), source.getType());
@@ -211,6 +209,13 @@ public abstract class InGameView extends View {
         LEFT
     }
 
+    /**
+     * Takes the string and creates an BufferedImage from it
+     * @param background what the background should be set to
+     * @return the image that the background should be set to
+     */
+
+    //TODO: Should this be in controller and not in view. Comments that view should only display and not set things??
     protected BufferedImage setBackground(String background){
         try {
             File backgroundPath = new File(background);

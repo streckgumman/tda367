@@ -20,6 +20,7 @@ public class InLevel2View extends InGameView {
     }
 
     /**
+     * Overrides the setBackground method in it's superclass InGameView and are used to set the right background
      * @return the image that should be set as the background in level 2
      */
     protected BufferedImage setBackground(String dummy){
