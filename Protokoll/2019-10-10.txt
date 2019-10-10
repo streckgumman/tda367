@@ -1,0 +1,63 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-10-xx
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+    Skulle få tag på en subklass metoder, det är inte bra
+
+    Vår view är inte dum nog
+
+    Lite problem med att fixa "states", men det kommer lösa andra problem
+
+    Vi behöver fortfarande dela upp koden i mindre paket
+
+    Måste skriva fler tester och kommentarer
+
+    Peer Review
+
+##Gjorts sen sist
+    Amanda: kommenterat
+    Linnea och Amanda: fixat så man kan klara en level
+    Anna och Johannes: Börjat fixa states
+    Samuel: implementerat observer-pattern och fått bort duplicate kod
+
+
+##Diskussion
+    Skulle få tag på en subklass metoder
+        Inte optimalt
+        Just nu: setBackground som gör olika saker i sub/super-klass, den får en tom sträng och skickar en tom sträng
+        Man skulle fixa det, Johannes fixar det
+
+    Vi behöver fortfarande dela upp koden i mindre paket
+        Om problem med rader så kan vi testa i en ny branch
+
+    Måste skriva fler tester och kommentarer
+        Kan skriva kommentarer direkt när man skrivit funktioner
+        Måste testa modellen mycket mer än vi redan gör
+
+    Att fixa states
+        Löser cirkulärt beroende mellan main controller och andra controller
+        Kanske gör view dummare
+
+    Imorgon Peer Review
+        Vi behöver fixa UML
+        Hur skickar vi in det? Som en zip-fil?
+            Ja, som en zip-fil på canvas.
+        Vi har inte utvecklat SDD så mycket, men det är svårt att göra innan vi är klara med koden.
+
+
+##Beslut
+    Johannes: fixar metod och sitter UML
+    Anna: sitter med states och UML
+    Samuel: kollar om vi kan skriva nåt i SDD
+    Amanda, Linnea: Skriver tester
+    Kommenterar koden vi skrivit
+
+##Skvaller
+    Hemligt, men väldigt spännande
+
+##Wrap up
+    Vi sitter nu, och ses imorgon!!
