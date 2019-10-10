@@ -5,6 +5,7 @@ package model;
  * specified by which GameObjectType it is.
  */
 public enum GameObjectType {
+    PLAYER,
     KEY,
     SCISSORS,
     DOGWITHGUN,

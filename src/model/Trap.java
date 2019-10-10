@@ -8,8 +8,8 @@ public abstract class Trap extends GameObject {
     /**
      * Constructor
      */
-    public Trap(int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Trap(int x, int y, int width, int height, GameObjectType type) {
+        super(x, y, width, height, type);
 
     }
 

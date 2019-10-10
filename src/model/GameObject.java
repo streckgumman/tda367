@@ -8,7 +8,6 @@ package model;
  * @author Linnea Johansson
  * @author Johannes Kvernes
  * @author Anna Nilson
- *
  * @since 2019-10-01
  */
 public abstract class GameObject implements HitboxOwner {
@@ -18,13 +17,15 @@ public abstract class GameObject implements HitboxOwner {
 
     /**
      * The public constructor for the class GameObject
-     * @param x the position of the GameObject in x axis
-     * @param y the position of the GameObject in y axis
-     * @param width the width of the GameObject's hitbox
+     *
+     * @param x      the position of the GameObject in x axis
+     * @param y      the position of the GameObject in y axis
+     * @param width  the width of the GameObject's hitbox
      * @param height the height of the GameObject's hitbox
      */
-    public GameObject(int x, int y, int width, int height) {
+    public GameObject(int x, int y, int width, int height, GameObjectType type) {
         this.hitbox = new Hitbox(x, y, width, height);
+        this.type = type;
     }
 
     /**
@@ -49,6 +50,7 @@ public abstract class GameObject implements HitboxOwner {
 
     /**
      * Sets the position of the GameObject to the y coordinate and the original x coordinate
+     *
      * @param y the y coordinate
      */
     public void setYPosition(int y) {

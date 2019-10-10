@@ -10,19 +10,17 @@ public abstract class Puzzle extends GameObject {
     /**
      * Constructor
      */
-    public Puzzle(int x, int y, int width, int height, GameObjectType puzzleType)
-    {
-        super(x, y,width, height);
-        this.type = puzzleType;
+    public Puzzle(int x, int y, int width, int height, GameObjectType type) {
+        super(x, y, width, height, type);
     }
 
 
     //PLACEHOLDER
-    public void something(){
+    public void something() {
         //Världen ska vända tillbaka sig rätt och dörren till nästa nivå ska öppnas
     }
 
-    public void interact(GameObject go){
+    public void interact(GameObject go) {
         something();
     }
 

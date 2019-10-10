@@ -15,14 +15,14 @@ public abstract class Charakter extends GameObject {
     /**
      * Constructor
      *
-     * @param name  the character's name
-     * @param x the character's initial x-position
-     * @param y the character's initial y-position
-     * @param width the character's width
+     * @param name   the character's name
+     * @param x      the character's initial x-position
+     * @param y      the character's initial y-position
+     * @param width  the character's width
      * @param height the character's height
      */
-    public Charakter(String name, int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Charakter(String name, int x, int y, int width, int height, GameObjectType type) {
+        super(x, y, width, height, type);
         this.name = name;
     }
 
@@ -40,7 +40,7 @@ public abstract class Charakter extends GameObject {
      *
      * @param name the character's new name
      */
-    public void setName (String name){
+    public void setName(String name) {
         this.name = name;
     }
 }
