@@ -51,12 +51,19 @@ public class Game {
         return currentLevel;
     }
 
+    /**
+     * Changes the level to the next one in the list of levels and resets the player's item so it holds no item
+     */
     public void nextLevel() {//@TODO Index out of bounds, implement factory pattern.
         player.resetItem();
         if (levels.get(currentLevel.getNrInLine() + 1) != null) {
             currentLevel = levels.get(currentLevel.getNrInLine() + 1);
         }
     }
+
+    /**
+     * @return which place in the list items that the current level is located at
+     */
 
     public int getCurrentLevelsNrInLine(){return currentLevel.getNrInLine();}
 }
