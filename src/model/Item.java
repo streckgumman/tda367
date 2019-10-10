@@ -13,7 +13,7 @@ public abstract class Item extends GameObject {
      * @param type which type of item it is
      */
     public Item(String name, GameObjectType type, int x, int y, int width, int height) {
-        super(x, y, 80, 80);
+        super(x, y, width, height);
         this.name = name;
         this.type = type;
     }

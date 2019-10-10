@@ -43,7 +43,7 @@ public abstract class InGameView extends View {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        this.background = setBackground("");
+        background = getBackgroundImage();
         lastPlayerDirection = HorizontalDirection.RIGHT;
         flippedCharacter = horizontalFlip(copyImage(character));
     }
@@ -210,22 +210,11 @@ public abstract class InGameView extends View {
     }
 
     /**
-     * Takes the string and creates an BufferedImage from it
-     * @param background what the background should be set to
-     * @return the image that the background should be set to
+     * Abstract method to get the background image for subclasses
+     *
+     * @return the background image
      */
-
-    //TODO: Should this be in controller and not in view. Comments that view should only display and not set things??
-    protected BufferedImage setBackground(String background){
-        try {
-            File backgroundPath = new File(background);
-            return ImageIO.read(backgroundPath);
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
+    protected abstract BufferedImage getBackgroundImage();
 
 
 }

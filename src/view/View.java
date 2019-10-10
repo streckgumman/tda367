@@ -57,4 +57,21 @@ public abstract class View extends JPanel {
         }
         return gameObjectImage;
     }
+
+    /**
+     * Finds an image with the given file path
+     *
+     * @param path the path to the image
+     * @return the image (or null if no image was found)
+     */
+    protected BufferedImage getImage(String path) {
+        try {
+            File file = new File(path);
+            return ImageIO.read(file);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }
