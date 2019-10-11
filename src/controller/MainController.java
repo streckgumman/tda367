@@ -1,10 +1,7 @@
 package controller;
 
 import model.Game;
-import view.InGameView;
-import view.NameInputView;
-import view.StartMenuView;
-import view.View;
+import view.*;
 
 import javax.swing.*;
 
@@ -81,12 +78,26 @@ public class MainController {
      * Switches view to the in-game view, and makes InGameController the active controller. (Changes to the screen where you play the game)
      */
     public void switchToIngame() {
-        view = new InGameView(game);
+        view = new InLevel1View(game);
+        switchView(view, new InGameController(view, game, this));
+    }
+
+    public void switchToNextLevelView(int level) {
+        switch (level) {
+            case 1:
+                view = new InLevel2View(game);
+                break;
+            case 2:
+                view = new InLevel3View(game);
+                break;
+            default:
+                view = null;
+        }
         switchView(view, new InGameController(view, game, this));
     }
 
     private void switchView(View view, Controller c) {
-        frame.remove(view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
+        frame.remove(this.view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
         this.view = view;
         frame.add(view);
         frame.validate(); //Removing the view invalidates the frame, so we need to validate it in order to display it again.
@@ -107,7 +118,7 @@ public class MainController {
         running = false;
     }
 
-    Game getGame(){
+    Game getGame() {
         return game;
     }
 

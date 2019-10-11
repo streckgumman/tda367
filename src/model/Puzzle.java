@@ -6,24 +6,21 @@ package model;
 public abstract class Puzzle extends GameObject {
 
     private boolean solved = false;
-    private PuzzleType puzzleType;
 
     /**
      * Constructor
      */
-    public Puzzle(int x, int y, int width, int height, PuzzleType puzzleType)
-    {
-        super(x, y,width, height);
-        this.puzzleType = puzzleType;
+    public Puzzle(int x, int y, int width, int height, GameObjectType type) {
+        super(x, y, width, height, type);
     }
 
 
     //PLACEHOLDER
-    public void something(){
+    public void something() {
         //Världen ska vända tillbaka sig rätt och dörren till nästa nivå ska öppnas
     }
 
-    public void interact(GameObject go){
+    public void interact(GameObject go) {
         something();
     }
 
@@ -36,8 +33,4 @@ public abstract class Puzzle extends GameObject {
         this.solved = solved;
     }
 
-
-    public PuzzleType getPuzzleType() {
-        return puzzleType;
-    }
 }

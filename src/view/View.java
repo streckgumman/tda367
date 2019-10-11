@@ -17,17 +17,13 @@ public abstract class View extends JPanel implements TextObserver {
     protected final int w, h;
     protected final Game game;
 
-    protected Map<ItemType, BufferedImage> itemImages;
-    protected Map<NPCType, BufferedImage> npcImages;
-    protected Map<PuzzleType, BufferedImage> puzzleImages;
+    protected Map<GameObjectType, BufferedImage> gameObjectImages;
 
     public View(int w, int h, Game game) {
         this.w = w;
         this.h = h;
         this.game = game;
-        this.itemImages = new HashMap<ItemType, BufferedImage>();
-        this.npcImages = new HashMap<NPCType, BufferedImage>();
-        this.puzzleImages = new HashMap<PuzzleType, BufferedImage>();
+        this.gameObjectImages = new HashMap<GameObjectType, BufferedImage>();
         setFocusable(true);
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(w, h));
@@ -50,42 +46,33 @@ public abstract class View extends JPanel implements TextObserver {
 
     protected abstract void setNPCImages();
 
-    protected BufferedImage getItemImage(ItemType itemType) {
-        BufferedImage itemImage = itemImages.get(itemType);
-        if (itemImage == null) {
+    protected BufferedImage getGameObjectImage(GameObjectType gameObjectType) {
+        BufferedImage gameObjectImage = gameObjectImages.get(gameObjectType);
+        if (gameObjectImage == null) {
             try {
                 File backgroundPath = new File("./resources/background_1.png");
-                itemImage = ImageIO.read(backgroundPath);
+                gameObjectImage = ImageIO.read(backgroundPath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return itemImage;
+        return gameObjectImage;
     }
 
-    protected BufferedImage getNPCImage(NPCType npcType) {
-        BufferedImage npcImage = npcImages.get(npcType);
-        if (npcImage == null) {
-            try {
-                File backgroundPath = new File("./resources/background_1.png");
-                npcImage = ImageIO.read(backgroundPath);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return npcImage;
-    }
+    /**
+     * Finds an image with the given file path
+     *
+     * @param path the path to the image
+     * @return the image (or null if no image was found)
+     */
+    protected BufferedImage getImage(String path) {
+        try {
+            File file = new File(path);
+            return ImageIO.read(file);
 
-    protected BufferedImage getPuzzleImage(PuzzleType puzzleType) {
-        BufferedImage puzzleImage = puzzleImages.get(puzzleType);
-        if (puzzleImage == null) {
-            try {
-                File backgroundPath = new File("./resources/background_1.png");
-                puzzleImage = ImageIO.read(backgroundPath);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
         }
-        return puzzleImage;
     }
 }

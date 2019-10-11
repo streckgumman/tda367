@@ -18,10 +18,9 @@ import java.util.List;
  * <p>
  * Presents the player with graphics, such as the background, the character etc.
  *
- * @author Amanda Dehlén, Linnea Johansson
  */
 
-public class InGameView extends View implements TextObserver {
+public abstract class InGameView extends View implements TextObserver {
 
     int frame = 0;
     /**
@@ -35,7 +34,7 @@ public class InGameView extends View implements TextObserver {
     private HorizontalDirection lastPlayerDirection;
 
     /**
-     * Class constructor.
+     * The public constructor creates an instance of InGameView
      *
      * @param game the model's game.
      */
@@ -43,15 +42,12 @@ public class InGameView extends View implements TextObserver {
         super(1920, 1080, game);
 
         try {
-            File backgroundPath = new File("./resources/background_1.png");
-            this.background = ImageIO.read(backgroundPath);
-
             File characterPath = new File("./resources/player.png");
             this.character = ImageIO.read(characterPath);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+        background = getBackgroundImage();
         lastPlayerDirection = HorizontalDirection.RIGHT;
         flippedCharacter = horizontalFlip(copyImage(character));
     }
@@ -144,19 +140,19 @@ public class InGameView extends View implements TextObserver {
 
     private void drawItems(Graphics g) {
         for (Item i : game.getLevel().getItems()) {
-            g.drawImage(itemImages.get(i.getType()), i.getX(), i.getY(), i.getWidth(), i.getHeight(), null);
+            g.drawImage(gameObjectImages.get(i.getType()), i.getX(), i.getY(), i.getWidth(), i.getHeight(), null);
         }
     }
 
     private void drawNPCs(Graphics g) {
         for (NPC npc : game.getLevel().getNpcs()) {
-            g.drawImage(npcImages.get(npc.getNpcType()), npc.getX(), npc.getY(), npc.getWidth(), npc.getHeight(), null);
+            g.drawImage(gameObjectImages.get(npc.getType()), npc.getX(), npc.getY(), npc.getWidth(), npc.getHeight(), null);
         }
     }
 
     private void drawPuzzles(Graphics g) {
         for (Puzzle puzzle : game.getLevel().getPuzzles()) {
-            g.drawImage(puzzleImages.get(puzzle.getPuzzleType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
+            g.drawImage(gameObjectImages.get(puzzle.getType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
         }
     }
 
@@ -178,14 +174,14 @@ public class InGameView extends View implements TextObserver {
     protected void setItemImages() {
         try {
             File backgroundPath = new File("./resources/scissors.png");
-            itemImages.put(ItemType.SCISSORS, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.SCISSORS, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
             File backgroundPath = new File("./resources/key.png");
-            itemImages.put(ItemType.KEY, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.KEY, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -194,7 +190,7 @@ public class InGameView extends View implements TextObserver {
     protected void setNPCImages() {
         try {
             File backgroundPath = new File("./resources/dog_with_gun.png");
-            npcImages.put(NPCType.DOGWITHGUN, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.DOGWITHGUN, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -203,12 +199,11 @@ public class InGameView extends View implements TextObserver {
     protected void setPuzzleImages() {
         try {
             File backgroundPath = new File("./resources/door.png");
-            puzzleImages.put(PuzzleType.DOOR, ImageIO.read(backgroundPath));
+            gameObjectImages.put(GameObjectType.DOOR, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
     //TODO These (copyImage and horizontalFlip) methods might not belong in this class?
     private BufferedImage copyImage(BufferedImage source) {
@@ -256,6 +251,13 @@ public class InGameView extends View implements TextObserver {
         RIGHT,
         LEFT
     }
+
+    /**
+     * Abstract method to get the background image for subclasses
+     *
+     * @return the background image
+     */
+    protected abstract BufferedImage getBackgroundImage();
 
 
 }

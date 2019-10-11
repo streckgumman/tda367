@@ -1,0 +1,59 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-10-08
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+    Man kan göra saker snabbt eller ordentligt --> saker tar längre tid
+
+    Vi borde dela upp model, view och controller i mindre paket för att få bättre organisation
+
+    Hur man skriver text på skärmen är trasigt typ.
+
+
+##Gjorts sen sist
+    Amanda och Linnea: suttit med att kunna lägga till levels och gå vidare från första leveln
+
+    Samuel: Börjat fixa den trasiga koden för att skriva text
+
+    Johannes och Anna: Gjort en paus-meny. Fungerar men behöver fixas
+
+
+##Diskussion
+	Att skriva ut text på skärmen
+	    In a nutshell: Det går att göra MEN borde vara omöjligt att göra via modellen
+	    Exempelvis kan inte hundar prata
+        Lägga en klass i model, som har hand om alla textgrejer, så kan allt som vill skriva ut text kalla på
+        en metod där i. Denna klass måste vara observable. Kan eventuellt vara en lösning.
+
+    Att dela upp koden i mindre paket
+        Vad händer med raderna?
+        Vill göra så snabbt som möjligt egentligen
+        --> facade pattern
+        Vi kan skissa på hur strukturen för det nya, och kolla med Robert om vi har oklarheter
+
+    InGameView
+        Ha ny view för varje level?
+        I så fall i ett view-paket
+        Abstrahera allt gemensamt till InGameView
+        Undersöka hur annars byta bakgrund till olika levels
+
+
+##Beslut
+    Amanda och Linnea parprogrammerar vidare levels
+
+    Samuel jobbar vidare på att skriva ut text
+
+    Johannes och Anna ska fortsätta med pausmeny, och merga sin branch
+
+    Imorgon ska vi tillsammans kolla på RAD- och SDD- dokumenten
+
+
+##Skvaller
+    Hemligt och väldigt spännande
+
+
+##Wrap up
+	Vi ses imorgon vid 10! <3

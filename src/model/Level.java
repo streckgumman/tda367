@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author Amanda Dehlén
+ * @author Samuel Widén
+ * @author Linnea Johansson
+ * @author Johannes Kvernes
+ * @author Anna Nilson
+ *
  * Class for the level to play
  */
 public abstract class Level {
@@ -13,15 +19,18 @@ public abstract class Level {
     private List<Puzzle> puzzles;
     private List<Trap> traps;
     private List<Item> items;
+    private int nrInLine;
 
     /**
-     * Constructor
+     * The public constructor for the class Level
+     *
      */
-    public Level() {
+    public Level(int nrInLine) {
         npcs = new ArrayList<NPC>();
         puzzles = new ArrayList<Puzzle>();
         traps = new ArrayList<Trap>();
         items = new ArrayList<Item>();
+        this.nrInLine = nrInLine;
     }
 
     /**
@@ -77,4 +86,9 @@ public abstract class Level {
 
         return gameObjects;
     }
+
+    public int getNrInLine() {
+        return nrInLine;
+    }
 }
+

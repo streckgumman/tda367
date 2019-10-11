@@ -1,12 +1,12 @@
 package model.items;
 
+import model.GameObjectType;
 import model.Item;
-import model.ItemType;
 
 public class Key extends Item {
 
     public Key(int x, int y) {
-        super("Key", ItemType.KEY, x, y, 80, 80);
+        super("Key", GameObjectType.KEY, x, y, 80, 80);
     }
 
     protected void update() {
