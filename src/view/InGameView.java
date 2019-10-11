@@ -1,6 +1,7 @@
 package view;
 
 import model.*;
+import model.Point;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,6 +10,8 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class that presents the view while playing the game.
@@ -27,6 +30,7 @@ public class InGameView extends View implements TextObserver {
     private BufferedImage background;
     private BufferedImage character;
     private BufferedImage flippedCharacter;
+    private List<Text> textToDraw = new ArrayList<>();
 
     private HorizontalDirection lastPlayerDirection;
 
@@ -64,6 +68,7 @@ public class InGameView extends View implements TextObserver {
         drawNPCs(g);
         drawPuzzles(g);
         drawPlayer(g);
+        drawAllText(g);
 
         frame++;
     }
@@ -155,6 +160,20 @@ public class InGameView extends View implements TextObserver {
         }
     }
 
+    private void drawAllText(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(
+                RenderingHints.KEY_TEXT_ANTIALIASING,
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        for (Text text : textToDraw) {
+            //System.out.println(text.getText());
+            Font font = determineFont(text.getType());
+            g2.setFont(font);
+            g2.drawString(text.getText(), text.getPosition().getX(), text.getPosition().getY());
+        }
+    }
+
 
     protected void setItemImages() {
         try {
@@ -211,12 +230,26 @@ public class InGameView extends View implements TextObserver {
 
     @Override
     public void actOnTextAdd(Text text) {
-
+        int size = determineFont(text.getType()).getSize();
+        //When you draw text at (x,y), the bottom left of the text will be placed at (x,y), unlike EVERYTHING ELSE, where the top left is placed at (x,y).
+        //This leads text effectively being offset by the height of the characters, therefore we have to counter that offset by adding the size of the text.
+        Text text2 = new Text(text.getText(), text.getType(), new Point(text.getPosition().getX(), text.getPosition().getY() + size));
+        textToDraw.add(text2);
     }
 
     @Override
     public void actOnTextRemove(Text text) {
 
+    }
+
+    private Font determineFont(Text.TextType type) {
+        switch (type) {
+            case DIALOGUE:
+                return new Font("SansSerif", Font.PLAIN, 48);
+            case INTERACTIONPROMPT:
+                return new Font("SansSerif", Font.ITALIC, 48);
+        }
+        return null; //If type didn't match, we have no font to return
     }
 
     private enum HorizontalDirection {
