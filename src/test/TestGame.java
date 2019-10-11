@@ -23,8 +23,9 @@ public class TestGame {
 
 
     /**
-     * Testing if the game knows to go to next level.
-     * In Game class, Level1, Level2 and Level3 is currently initialized.
+     * Testing if the game knows to go to next level
+     * In Game class, Level1, Level2 and Level3 is currently initialized
+     * Tests that the current level is not the same as the last level
      */
     @Test
     public void shouldGoToNextLevel(){

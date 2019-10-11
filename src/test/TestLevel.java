@@ -14,7 +14,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Linnea Johansson, Amanda Dehlén
+ * @author Linnea Johansson
+ * @author Amanda Dehlén
  *
  * A class to test the Level class
  */
@@ -24,6 +25,7 @@ public class TestLevel {
     private Level testLevel;
 
     /**
+     * Tests the method getItems in Level
      * Should return all items that the level carries
      */
 
@@ -40,6 +42,7 @@ public class TestLevel {
     }
 
     /**
+     * Tests the method addItem in Level
      * Should add items to Level's item list
      */
 
@@ -52,6 +55,7 @@ public class TestLevel {
     }
 
     /**
+     * Tests the method getNPCs in Level
      * Should return all NPCs that the level carries
      */
 
@@ -68,6 +72,7 @@ public class TestLevel {
     }
 
     /**
+     * Tests the method addNPC in Level
      * Should add NPCs to the level's NPC list
      */
 
@@ -80,6 +85,7 @@ public class TestLevel {
     }
 
     /**
+     * Tests the method getPyzzles in Level
      * Should return all puzzles from the level's puzzle list
      */
 
@@ -96,6 +102,7 @@ public class TestLevel {
     }
 
     /**
+     * Tests the method addPuzzle in Level
      * Should add puzzles to Levels's Puzzle list
      */
 
