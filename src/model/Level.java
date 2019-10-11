@@ -42,11 +42,11 @@ public abstract class Level {
         items.add(i);
     }
 
-    public void addNPC(NPC npc){
+    public void addNPC(NPC npc) {
         npcs.add(npc);
     }
 
-    public List<NPC> getNpcs(){
+    public List<NPC> getNpcs() {
         return npcs;
     }
 
@@ -54,20 +54,22 @@ public abstract class Level {
         return puzzles;
     }
 
-    public void addPuzzle(Puzzle p){
+    public void addPuzzle(Puzzle p) {
         puzzles.add(p);
     }
 
-    public void addObserver(TextObserver observer){
+    public void addObserver(TextObserver observer) {
         List<GameObject> gameObjects = getGameObjects();
-        for(GameObject gameObject : gameObjects){
+        for (GameObject gameObject : gameObjects) {
             gameObject.addObserver(observer);
         }
     }
 
-    public List<GameObject> getGameObjects(){
+    public List<GameObject> getGameObjects() {
         List<GameObject> gameObjects = new ArrayList<>();
-        gameObjects.add(player);
+        if (player != null) {
+            gameObjects.add(player);
+        }
         gameObjects.addAll(npcs);
         gameObjects.addAll(puzzles);
         gameObjects.addAll(traps);

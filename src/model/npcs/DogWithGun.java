@@ -2,6 +2,8 @@ package model.npcs;
 
 import model.NPC;
 import model.NPCType;
+import model.Point;
+import model.Text;
 
 import java.util.Random;
 
@@ -16,7 +18,7 @@ public class DogWithGun extends NPC {
     }
 
     @Override
-    public void talk(){
+    public void talk() {
         String[] dialogues = {"BA", "woof!", "Wan"};
         String bark = "";
         Random r = new Random();
@@ -26,7 +28,7 @@ public class DogWithGun extends NPC {
                 bark = dialogues[i];
             }
         }
-        System.out.println(bark);
+        notifyAdd(new Text(bark, Text.TextType.DIALOGUE, new Point(getX(), getY())));
     }
 
 }
