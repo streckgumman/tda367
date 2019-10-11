@@ -67,11 +67,11 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
     }
 
     public void addObserver(TextObserver observer) {
-        observers.remove(observer);
+        observers.add(observer);
     }
 
     public void removeObserver(TextObserver observer) {
-        observers.add(observer);
+        observers.remove(observer);
     }
 
     public void notifyAdd(Text text) {
