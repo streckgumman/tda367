@@ -1,9 +1,6 @@
 package view;
 
-import model.Game;
-import model.ItemType;
-import model.NPCType;
-import model.PuzzleType;
+import model.*;
 import model.Point;
 
 import javax.imageio.ImageIO;
@@ -15,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class View extends JPanel {
+public abstract class View extends JPanel implements TextObserver {
 
     protected final int w, h;
     protected final Game game;
@@ -48,7 +45,9 @@ public abstract class View extends JPanel {
     abstract void draw(Graphics g);
 
     protected abstract void setItemImages();
+
     protected abstract void setPuzzleImages();
+
     protected abstract void setNPCImages();
 
     protected BufferedImage getItemImage(ItemType itemType) {

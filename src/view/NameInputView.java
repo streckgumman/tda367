@@ -1,6 +1,7 @@
 package view;
 
 import model.Game;
+import model.Text;
 
 import java.awt.*;
 import java.awt.geom.Line2D;
@@ -47,6 +48,16 @@ public class NameInputView extends View {
     @Override
     protected void setNPCImages() {
 
+    }
+
+    @Override
+    public void actOnTextAdd(Text text) {
+        //Do stuff
+    }
+
+    @Override
+    public void actOnTextRemove(Text text) {
+        //Do stuff
     }
 }
 
