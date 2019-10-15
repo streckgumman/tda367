@@ -35,18 +35,13 @@ public abstract class Puzzle extends GameObject {
 
     public boolean checkIfDone(Player player){
         if (IntersectionDetector.intersects(player.getHitbox(), this.getHitbox())) {
-            if (checkIfHoldingKey(player)) {
+            if (checkIfHoldingItem(player)) {
                 return true;
             }
         }
         return false;
     }
 
-    private boolean checkIfHoldingKey(Player player) {
-        if (player.getItem() != null) {
-            return (player.getItem().getType() == GameObjectType.KEY);
-        }
-        return false;
-    }
+    protected abstract boolean checkIfHoldingItem(Player player);
 
 }

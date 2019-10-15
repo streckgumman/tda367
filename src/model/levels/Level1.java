@@ -4,6 +4,7 @@ import model.Level;
 import model.items.Key;
 import model.items.Scissors;
 import model.npcs.DogWithGun;
+import model.puzzles.Bush;
 import model.puzzles.Door;
 
 /**
@@ -24,6 +25,7 @@ public class Level1 extends Level {
         addItem(new Scissors("Scissors", 200, 300));
         addItem(new Key(1920 / 2, 1080 / 2));
         addNPC(new DogWithGun("Dog with gun"));
+        addPuzzle(new Bush(1000-300,1080-300,300,200));
         addPuzzle(new Door(1920-300,(1080-600)/2,300,600));
         super.setCurrentPuzzle(getPuzzles().get(0));
     }

@@ -1,6 +1,7 @@
 package model.puzzles;
 
 import model.GameObjectType;
+import model.Player;
 import model.Puzzle;
 
 public class Door extends Puzzle {
@@ -23,4 +24,11 @@ public class Door extends Puzzle {
 
     }
 
+    @Override
+    protected boolean checkIfHoldingItem(Player player) {
+        if (player.getItem() != null) {
+            return (player.getItem().getType() == GameObjectType.KEY);
+        }
+        return false;
+    }
 }

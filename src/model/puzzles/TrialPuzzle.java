@@ -1,5 +1,6 @@
 package model.puzzles;
 
+import model.Player;
 import model.Puzzle;
 
 public class TrialPuzzle extends Puzzle {
@@ -11,5 +12,9 @@ public class TrialPuzzle extends Puzzle {
 
     protected void update() {
 
+    }
+
+    protected boolean checkIfHoldingItem(Player player) {
+        return false;
     }
 }

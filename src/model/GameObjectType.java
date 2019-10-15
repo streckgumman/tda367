@@ -9,5 +9,6 @@ public enum GameObjectType {
     KEY,
     SCISSORS,
     DOGWITHGUN,
-    DOOR
+    DOOR,
+    BUSH
 }
