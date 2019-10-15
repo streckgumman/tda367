@@ -184,6 +184,13 @@ public abstract class InGameView extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            File backgroundPath = new File("./resources/bush.png");
+            gameObjectImages.put(GameObjectType.BUSH, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //TODO These (copyImage and horizontalFlip) methods might not belong in this class?
