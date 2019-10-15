@@ -28,5 +28,6 @@ public class Level1 extends Level {
         addPuzzle(new Bush(1000-300,1080-300,300,200));
         addPuzzle(new Door(1920-300,(1080-600)/2,300,600));
         super.setCurrentPuzzle(getPuzzles().get(0));
+        super.setNrPuzzle(0);
     }
 }

@@ -25,7 +25,10 @@ public class Bush extends Puzzle {
     @Override
     protected boolean checkIfHoldingItem(Player player) {
         if (player.getItem() != null) {
-            return (player.getItem().getType() == GameObjectType.SCISSORS);
+            if (player.getItem().getType() == GameObjectType.SCISSORS){
+                setSolved(true);
+                return true;
+            }
         }
         return false;
     }

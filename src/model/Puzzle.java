@@ -5,7 +5,7 @@ package model;
  */
 public abstract class Puzzle extends GameObject {
 
-    private boolean solved = false;
+    private boolean isSolved;
 
     /**
      * Constructor
@@ -25,14 +25,6 @@ public abstract class Puzzle extends GameObject {
     }
 
 
-    public boolean isSolved() {
-        return solved;
-    }
-
-    protected void setSolved(boolean solved) {
-        this.solved = solved;
-    }
-
     public boolean checkIfDone(Player player){
         if (IntersectionDetector.intersects(player.getHitbox(), this.getHitbox())) {
             if (checkIfHoldingItem(player)) {
@@ -44,4 +36,11 @@ public abstract class Puzzle extends GameObject {
 
     protected abstract boolean checkIfHoldingItem(Player player);
 
+    protected boolean isSolved() {
+        return isSolved;
+    }
+
+    protected void setSolved(boolean solved) {
+        isSolved = solved;
+    }
 }

@@ -27,8 +27,14 @@ public class Door extends Puzzle {
     @Override
     protected boolean checkIfHoldingItem(Player player) {
         if (player.getItem() != null) {
-            return (player.getItem().getType() == GameObjectType.KEY);
+            if(player.getItem().getType() == GameObjectType.KEY){
+                setSolved(true);
+                return true;
+            }
         }
         return false;
     }
+
+
+
 }

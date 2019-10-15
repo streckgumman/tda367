@@ -21,6 +21,8 @@ public abstract class Level {
     private List<Item> items;
     private int nrInLine;
     private Puzzle currentPuzzle;
+    private boolean levelSolved;
+    private int nrPuzzle;
 
     /**
      * The public constructor for the class Level
@@ -79,5 +81,35 @@ public abstract class Level {
     public void setCurrentPuzzle(Puzzle currentPuzzle) {
         this.currentPuzzle = currentPuzzle;
     }
+
+    protected boolean isLevelSolved() {
+        return levelSolved;
+    }
+
+    protected void setLevelSolved(boolean levelSolved) {
+        this.levelSolved = levelSolved;
+    }
+
+    public boolean areAllPuzzlesSolved(){
+        for(Puzzle p : puzzles){
+            if( !p.isSolved()){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    protected int getNrPuzzle() {
+        return nrPuzzle;
+    }
+
+    protected void setNrPuzzle(int nrPuzzle) {
+        this.nrPuzzle = nrPuzzle;
+    }
+
+    protected void startNextPuzzle(){
+        currentPuzzle = puzzles.get(nrPuzzle + 1);
+    }
+
 }
 
