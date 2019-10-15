@@ -33,4 +33,20 @@ public abstract class Puzzle extends GameObject {
         this.solved = solved;
     }
 
+    public boolean checkIfDone(Player player){
+        if (IntersectionDetector.intersects(player.getHitbox(), this.getHitbox())) {
+            if (checkIfHoldingKey(player)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean checkIfHoldingKey(Player player) {
+        if (player.getItem() != null) {
+            return (player.getItem().getType() == GameObjectType.KEY);
+        }
+        return false;
+    }
+
 }

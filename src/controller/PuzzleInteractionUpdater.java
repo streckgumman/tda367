@@ -18,22 +18,15 @@ public class PuzzleInteractionUpdater extends Updater<Player> {
     @Override
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_E) {
-            Puzzle puzzle = game.getLevel().getPuzzles().get(0);
-            if (IntersectionDetector.intersects(getGameObject().getHitbox(), puzzle.getHitbox())) {
-                if (checkIfHoldingKey()) {
-                    game.nextLevel();
-                    mc.switchToNextLevelView(game.getCurrentLevelsNrInLine());
-                }
+            if(game.getLevel().getCurrentPuzzle().checkIfDone(getGameObject())){
+                game.nextLevel();
+                mc.switchToNextLevelView(game.getCurrentLevelsNrInLine());
             }
+
         }
     }
 
-    private boolean checkIfHoldingKey() {
-        if (getGameObject().getItem() != null) {
-            return (getGameObject().getItem().getType() == GameObjectType.KEY);
-        }
-        return false;
-    }
+
 
 
     @Override

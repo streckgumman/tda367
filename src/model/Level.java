@@ -20,6 +20,7 @@ public abstract class Level {
     private List<Trap> traps;
     private List<Item> items;
     private int nrInLine;
+    private Puzzle currentPuzzle;
 
     /**
      * The public constructor for the class Level
@@ -69,6 +70,14 @@ public abstract class Level {
 
     public int getNrInLine() {
         return nrInLine;
+    }
+
+    public Puzzle getCurrentPuzzle() {
+        return currentPuzzle;
+    }
+
+    public void setCurrentPuzzle(Puzzle currentPuzzle) {
+        this.currentPuzzle = currentPuzzle;
     }
 }
 

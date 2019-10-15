@@ -24,5 +24,7 @@ public class Level3 extends Level {
         super(nrInLine);
         addItem(new Key(1920 / 2, 1080 / 2));
         addPuzzle(new Door(1920-300,(1080-600)/2,300,600));
+        super.setCurrentPuzzle(getPuzzles().get(0));
+
     }
 }
