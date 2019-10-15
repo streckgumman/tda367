@@ -25,11 +25,12 @@ public abstract class Level {
      * The public constructor for the class Level
      *
      */
-    public Level(int nrInLine) {
-        npcs = new ArrayList<NPC>();
-        puzzles = new ArrayList<Puzzle>();
-        traps = new ArrayList<Trap>();
-        items = new ArrayList<Item>();
+    public Level(int nrInLine, Player player) {
+        this.player = player;
+        npcs = new ArrayList<>();
+        puzzles = new ArrayList<>();
+        traps = new ArrayList<>();
+        items = new ArrayList<>();
         this.nrInLine = nrInLine;
     }
 

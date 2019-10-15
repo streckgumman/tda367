@@ -1,6 +1,7 @@
 package model.levels;
 
 import model.Level;
+import model.Player;
 import model.items.Key;
 import model.items.Scissors;
 import model.npcs.DogWithGun;
@@ -19,8 +20,8 @@ public class Level1 extends Level {
      * Adds the items "Scissors" and "Key", the puzzle "Door" and the NPC "Dog with gun" to the game
      * @param nrInLine which position in the order of levels the level has
      */
-    public Level1(int nrInLine) {
-        super(nrInLine);
+    public Level1(int nrInLine, Player player) {
+        super(nrInLine, player);
         addItem(new Scissors("Scissors", 200, 300));
         addItem(new Key(1920 / 2, 1080 / 2));
         addNPC(new DogWithGun("Dog with gun"));
