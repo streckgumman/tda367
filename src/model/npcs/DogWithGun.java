@@ -1,9 +1,6 @@
 package model.npcs;
 
-import model.GameObjectType;
-import model.NPC;
-import model.Point;
-import model.Text;
+import model.*;
 
 import java.util.Random;
 
@@ -13,8 +10,7 @@ public class DogWithGun extends NPC {
         super(name, GameObjectType.DOGWITHGUN, 0, 0, 625 / 4, 532 / 4);
     }
 
-    protected void update() {
-
+    public void update() {
     }
 
     @Override
@@ -30,5 +26,6 @@ public class DogWithGun extends NPC {
         }
         notifyAdd(new Text(bark, Text.TextType.DIALOGUE, new Point(getX(), getY())));
     }
+
 
 }

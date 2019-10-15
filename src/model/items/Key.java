@@ -9,7 +9,7 @@ public class Key extends Item {
         super("Key", GameObjectType.KEY, x, y, 80, 80);
     }
 
-    protected void update() {
+    public void update() {
 
     }
 

@@ -10,7 +10,7 @@ public class TrialNPC extends NPC {
 
     }
 
-    protected void update() {
+    public void update() {
 
     }
 

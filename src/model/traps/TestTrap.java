@@ -9,7 +9,7 @@ public class TestTrap extends Trap {
 
     }
 
-    protected void update() {
+    public void update() {
 
     }
 }

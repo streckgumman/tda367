@@ -19,7 +19,7 @@ public class Door extends Puzzle {
     }
 
     @Override
-    protected void update() {
+    public void update() {
 
     }
 

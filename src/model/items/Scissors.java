@@ -9,7 +9,7 @@ public class Scissors extends Item {
         super(name, GameObjectType.SCISSORS, x, y, 80, 80);
     }
 
-    protected void update() {
+    public void update() {
 
     }
 
