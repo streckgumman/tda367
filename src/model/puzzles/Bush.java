@@ -1,8 +1,10 @@
 package model.puzzles;
 
 import model.GameObjectType;
+import model.Item;
 import model.Player;
 import model.Puzzle;
+import model.items.Scissors;
 
 public class Bush extends Puzzle {
 
@@ -27,9 +29,14 @@ public class Bush extends Puzzle {
         if (player.getItem() != null) {
             if (player.getItem().getType() == GameObjectType.SCISSORS){
                 setSolved(true);
+                System.out.println("Bush is solved");
                 return true;
             }
         }
         return false;
+    }
+
+    protected Item getMyItem() {
+        return new Scissors("Scissors", 200, 300);
     }
 }

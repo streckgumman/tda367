@@ -6,6 +6,7 @@ package model;
 public abstract class Puzzle extends GameObject {
 
     private boolean isSolved;
+    private Item puzzleSolver;
 
     /**
      * Constructor
@@ -43,4 +44,6 @@ public abstract class Puzzle extends GameObject {
     protected void setSolved(boolean solved) {
         isSolved = solved;
     }
+
+    abstract protected Item getMyItem();
 }

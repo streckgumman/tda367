@@ -108,7 +108,10 @@ public abstract class Level {
     }
 
     public void startNextPuzzle(){
+        puzzles.remove(nrPuzzle);
+        nrPuzzle = nrPuzzle + 1;
         currentPuzzle = puzzles.get(nrPuzzle + 1);
+        addItem(currentPuzzle.getMyItem());
     }
 
 }
