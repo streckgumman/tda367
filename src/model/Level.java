@@ -107,7 +107,7 @@ public abstract class Level {
         this.nrPuzzle = nrPuzzle;
     }
 
-    protected void startNextPuzzle(){
+    public void startNextPuzzle(){
         currentPuzzle = puzzles.get(nrPuzzle + 1);
     }
 

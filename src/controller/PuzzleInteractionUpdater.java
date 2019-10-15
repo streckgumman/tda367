@@ -22,6 +22,9 @@ public class PuzzleInteractionUpdater extends Updater<Player> {
                 game.nextLevel();
                 mc.switchToNextLevelView(game.getCurrentLevelsNrInLine());
             }
+            if(game.getLevel().getCurrentPuzzle().checkIfDone(getGameObject())){
+                game.getLevel().startNextPuzzle();
+            }
 
         }
     }
