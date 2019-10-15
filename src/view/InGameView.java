@@ -234,7 +234,7 @@ public abstract class InGameView extends View implements TextObserver {
 
     @Override
     public void actOnTextRemove(Text text) {
-
+        textToDraw.remove(text);
     }
 
     private Font determineFont(Text.TextType type) {
