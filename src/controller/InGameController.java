@@ -8,9 +8,10 @@ import view.View;
 import java.awt.event.KeyEvent;
 
 /**
- * The in game controller that updates the model while playing.
+ * @author Amanda Dehlén
+ * @author Linnea Johansson
  *
- * @author Amanda Dehlén, Linnea Johansson
+ * The in game controller that updates the model while playing.
  */
 public class InGameController extends Controller {
 

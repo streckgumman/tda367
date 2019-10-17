@@ -6,6 +6,15 @@ import model.Player;
 import model.Puzzle;
 import model.items.Key;
 
+/**
+ * @author Amanda Dehlén
+ * @author Samuel Widén
+ * @author Johannes Kvernes
+ * @author Anna Nilsson
+ * @author Linnea Johansson
+ *
+ * Puzzle class for the Door you can open with a key
+ */
 public class Door extends Puzzle {
     /**
      * The public constructor for the class Door
@@ -26,12 +35,16 @@ public class Door extends Puzzle {
 
     }
 
+    /**
+     * Method checks if the player holds the item in their inventory to solve the puzzle
+     * @param player
+     * @return true if player holds Key
+     */
     @Override
     protected boolean checkIfHoldingItem(Player player) {
         if (player.getItem() != null) {
             if(player.getItem().getType() == GameObjectType.KEY){
                 setSolved(true);
-                System.out.println("Door is solved");
 
                 return true;
             }
@@ -39,6 +52,11 @@ public class Door extends Puzzle {
         return false;
     }
 
+    /**
+     * Method to return the item to solve the puzzle.
+     * In the puzzle "Dooor" you need to have "Key" to solve it
+     * @return key
+     */
     protected Item getMyItem() {
         return new Key(1920 / 2, 1080 / 2);
     }
