@@ -19,13 +19,16 @@ public class PuzzleInteractionUpdater extends Updater<Player> {
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_E) {
             if (game.getLevel().getCurrentPuzzle().checkIfDone(getGameObject())) {
-                game.nextLevel();
-                stateChanger.changeGameState();
+                if (game.getLevel().areAllPuzzlesSolved()) {
+                    game.nextLevel();
+                    stateChanger.changeGameState();
+                } else {
+                    game.getLevel().startNextPuzzle();
+                }
             }
 
         }
     }
-
 
     @Override
     public void keyReleased(KeyEvent event) {

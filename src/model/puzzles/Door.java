@@ -1,8 +1,10 @@
 package model.puzzles;
 
 import model.GameObjectType;
+import model.Item;
 import model.Player;
 import model.Puzzle;
+import model.items.Key;
 
 public class Door extends Puzzle {
     /**
@@ -27,8 +29,19 @@ public class Door extends Puzzle {
     @Override
     protected boolean checkIfHoldingItem(Player player) {
         if (player.getItem() != null) {
-            return (player.getItem().getType() == GameObjectType.KEY);
+            if(player.getItem().getType() == GameObjectType.KEY){
+                setSolved(true);
+                System.out.println("Door is solved");
+
+                return true;
+            }
         }
         return false;
     }
+
+    protected Item getMyItem() {
+        return new Key(1920 / 2, 1080 / 2);
+    }
+
+
 }
