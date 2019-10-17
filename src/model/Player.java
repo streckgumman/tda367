@@ -17,7 +17,7 @@ public class Player extends Charakter {
      * @param name the player's name
      */
     public Player(String name) {
-        super(name, 1920 / 2, 1080 / 2, 804 / 4, 1074 / 4);
+        super(name, 1920 / 2, 1080 / 2, 804 / 4, 1074 / 4, GameObjectType.PLAYER);
     }
 
     /**
@@ -110,6 +110,10 @@ public class Player extends Charakter {
         this.item = item;
     }
 
+    public void resetItem() {
+        this.item = null;
+    }
+
     /**
      * Returns whether or not the player is moving left
      *
@@ -136,4 +140,5 @@ public class Player extends Charakter {
     public boolean isMovingDown() {
         return movingDown;
     }
+
 }

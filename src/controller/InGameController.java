@@ -9,9 +9,10 @@ import view.View;
 import java.awt.event.KeyEvent;
 
 /**
- * The in game controller that updates the model while playing.
+ * @author Amanda Dehlén
+ * @author Linnea Johansson
  *
- * @author Amanda Dehlén, Linnea Johansson
+ * The in game controller that updates the model while playing.
  */
 public class InGameController extends Controller {
 
@@ -23,7 +24,8 @@ public class InGameController extends Controller {
      * Adds the player to the list of updaters.
      */
     @SuppressWarnings("unchecked")
-    public InGameController(View view, Game game, MainController mainController) {
+
+    public InGameController(View view, Game game, GameExiter gameExiter, GameStateChanger nextLevelChanger) {
         super(view, game);
         addUpdater(new PlayerUpdater(game.getPlayer()));
         addUpdater(new Updater(null) {
@@ -44,9 +46,10 @@ public class InGameController extends Controller {
 
             }
         });
-        addUpdater(new ItemInteractionUpdater(game.getPlayer(), game.getLevel()));
-        addUpdater(new NPCInteractionUpdater(game.getPlayer(), game.getLevel()));
-
+      
+        addUpdater(new ItemInteractionUpdater(game.getPlayer(), game));
+        addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
+        addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, nextLevelChanger));
         pauseMenuUpdater = new PauseMenuUpdater(this, mainController);
     }
 

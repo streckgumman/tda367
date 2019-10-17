@@ -1,25 +1,22 @@
 package controller;
 
-import model.IntersectionDetector;
-import model.Level;
-import model.NPC;
-import model.Player;
+import model.*;
 
 import java.awt.event.KeyEvent;
 
 public class NPCInteractionUpdater extends Updater<Player> {
 
-    private Level level;
+    private Game game;
 
-    protected NPCInteractionUpdater(Player player, Level level) {
+    protected NPCInteractionUpdater(Player player, Game game) {
         super(player);
-        this.level = level;
+        this.game = game;
     }
 
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_E) {
-            for (int j = level.getNpcs().size() - 1; j >= 0; j--) {
-                NPC npc = level.getNpcs().get(j);
+            for (int j = game.getLevel().getNpcs().size() - 1; j >= 0; j--) {
+                NPC npc = game.getLevel().getNpcs().get(j);
                 if (IntersectionDetector.intersects(getGameObject().getHitbox(), npc.getHitbox())) {
                     npc.talk();
                 }

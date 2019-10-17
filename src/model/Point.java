@@ -1,10 +1,9 @@
 package model;
 
 /**
-    Player represents the character that the user are able to controll
-
-    @author Amanda
-    @since 2019-09-28
+ *  The class represent an position on both the x and y axis
+ *  @author Amanda
+ *  @since 2019-09-28
  */
 public class Point {
 
@@ -13,7 +12,7 @@ public class Point {
     private int y;
 
     /**
-     * The constructor that takes in the coordinates in x and y axis and sets the x and y coordinates to it
+     * The public constructor that takes in the coordinates in x and y axis and sets the x and y coordinates to it
      *
      * @param x coordinate ín x axis
      * @param y coordinate in y axis

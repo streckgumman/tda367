@@ -3,18 +3,30 @@ package model;
 /**
  * GameObject represent a object that can exist in the game
  *
- * @author Amanda Dehlén, Linnea Johansson, Anna Nilsson
+ * @author Amanda Dehlén
+ * @author Samuel Widén
+ * @author Linnea Johansson
+ * @author Johannes Kvernes
+ * @author Anna Nilson
  * @since 2019-10-01
- *
  */
-public abstract class GameObject implements HitboxOwner{
+public abstract class GameObject implements HitboxOwner {
 
+    protected GameObjectType type;
     private Hitbox hitbox;
 
-    public GameObject(int x, int y, int width, int height) {
+    /**
+     * The public constructor for the class GameObject
+     *
+     * @param x      the position of the GameObject in x axis
+     * @param y      the position of the GameObject in y axis
+     * @param width  the width of the GameObject's hitbox
+     * @param height the height of the GameObject's hitbox
+     */
+    public GameObject(int x, int y, int width, int height, GameObjectType type) {
         this.hitbox = new Hitbox(x, y, width, height);
+        this.type = type;
     }
-
 
     /**
      * Sets the position of the GameObject to the x and y coordinates
@@ -61,9 +73,16 @@ public abstract class GameObject implements HitboxOwner{
         return hitbox.getHeight();
     }
 
+    /**
+     * The abstract protected method that are implemented in subclasses
+     */
     protected abstract void update();
 
     public Hitbox getHitbox() {
         return this.hitbox;
+    }
+
+    public GameObjectType getType() {
+        return type;
     }
 }
