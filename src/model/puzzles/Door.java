@@ -53,8 +53,8 @@ public class Door extends Puzzle {
     }
 
     /**
-     * Method to return the item to solve the puzzle.
-     * In the puzzle "Dooor" you need to have "Key" to solve it
+     * Method that returns an item that appears when you finish the puzzle
+     *
      * @return key
      */
     protected Item getMyItem() {
