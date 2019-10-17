@@ -80,14 +80,19 @@ public class Game {
     }
 
     public void updateModel() {
+
+
+        for (GameObject g : getLevel().getGameObjects()) {
+            g.update();
+            if (IntersectionDetector.intersects(g.getHitbox(), getPlayer().getHitbox())) {
+                g.promptInteraction();
+            }
+        }
+
         for (NPC npc : getLevel().getNpcs()) {
             if (!IntersectionDetector.intersects(npc.getHitbox(), getPlayer().getHitbox())) {
                 npc.stopTalking();
             }
-        }
-
-        for (GameObject g : getLevel().getGameObjects()) {
-            g.update();
         }
     }
 }
