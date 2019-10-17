@@ -133,25 +133,39 @@ public abstract class InGameView extends View {
         g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
     }
 
+    /**
+     * Method to graphically draw all Items in the game
+     * @param g
+     */
     private void drawItems(Graphics g) {
         for (Item i : game.getLevel().getItems()) {
             g.drawImage(gameObjectImages.get(i.getType()), i.getX(), i.getY(), i.getWidth(), i.getHeight(), null);
         }
     }
 
+    /**
+     * Method to graphically draw all NPCs in the game
+     * @param g
+     */
     private void drawNPCs(Graphics g) {
         for (NPC npc : game.getLevel().getNpcs()) {
             g.drawImage(gameObjectImages.get(npc.getType()), npc.getX(), npc.getY(), npc.getWidth(), npc.getHeight(), null);
         }
     }
 
+    /**
+     * Method to graphically draw all Puzzles in the game
+     * @param g
+     */
     private void drawPuzzles(Graphics g) {
         for (Puzzle puzzle : game.getLevel().getPuzzles()) {
             g.drawImage(gameObjectImages.get(puzzle.getType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
         }
     }
 
-
+    /**
+     * Method to set the images for the items in the game.
+     */
     protected void setItemImages() {
         try {
             File backgroundPath = new File("./resources/scissors.png");
@@ -168,6 +182,9 @@ public abstract class InGameView extends View {
         }
     }
 
+    /**
+     * Method to set the images for the NPCs in the game.
+     */
     protected void setNPCImages() {
         try {
             File backgroundPath = new File("./resources/dog_with_gun.png");
@@ -177,6 +194,9 @@ public abstract class InGameView extends View {
         }
     }
 
+    /**
+     * Method to set the images for the Puzzles in the game.
+     */
     protected void setPuzzleImages() {
         try {
             File backgroundPath = new File("./resources/door.png");

@@ -15,7 +15,7 @@ import model.puzzles.Door;
  */
 public class Level2 extends Level {
     /**
-     * The public constructor of the class Level3
+     * The public constructor of the class Level2
      *
      * Adds the items "Scissors" and "Key" to the game and the puzzle "Door".
      * @param nrInLine which position in the order of levels the level has
@@ -26,6 +26,7 @@ public class Level2 extends Level {
         addItem(new Key(1920 / 2, 1080 / 2));
         addPuzzle(new Door(1920-300,(1080-600)/2,300,600));
         super.setCurrentPuzzle(getPuzzles().get(0));
+        super.setNrPuzzle(0);
 
     }
 }
