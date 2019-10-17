@@ -82,9 +82,9 @@ public abstract class Puzzle extends GameObject {
 
     /**
      * An abstract method implemented by Puzzle's subclasses
-     * A getter for the item that solves the puzzle
+     * A getter for an item that appears when you solve a puzzle
      *
-     * @return
+     * @return the item you need for the next puzzle
      */
     abstract protected Item getMyItem();
 }
