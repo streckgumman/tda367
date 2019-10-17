@@ -56,4 +56,8 @@ public abstract class Controller implements KeyListener {
         redrawView();
     }
 
+    public View getView() {
+        return view;
+    }
+
 }

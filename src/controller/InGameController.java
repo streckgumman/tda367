@@ -3,6 +3,7 @@ package controller;
 import model.Game;
 import model.IntersectionDetector;
 import model.Level;
+import view.InGameView;
 import view.View;
 
 import java.awt.event.KeyEvent;
@@ -15,11 +16,15 @@ import java.awt.event.KeyEvent;
  */
 public class InGameController extends Controller {
 
+    private boolean paused = false;
+    PauseMenuUpdater pauseMenuUpdater;
+
     /**
      * Class constructor taking a view and a game as parameters.
      * Adds the player to the list of updaters.
      */
     @SuppressWarnings("unchecked")
+
     public InGameController(View view, Game game, GameExiter gameExiter, GameStateChanger nextLevelChanger) {
         super(view, game);
         addUpdater(new PlayerUpdater(game.getPlayer()));
@@ -27,7 +32,7 @@ public class InGameController extends Controller {
             @Override
             public void keyPressed(KeyEvent event) {
                 if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    gameExiter.exit();
+                    pause();
                 }
             }
 
@@ -41,16 +46,49 @@ public class InGameController extends Controller {
 
             }
         });
+      
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game));
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
         addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, nextLevelChanger));
+        pauseMenuUpdater = new PauseMenuUpdater(this, mainController);
     }
 
     /**
      * A method that updates the model through the game's player.
      */
     protected void updateModel() {
-        game.getPlayer().update();
+        if (!paused) {
+            game.getPlayer().update();
+        }
+    }
+
+    public void pause() {
+        paused = true;
+        ((InGameView) getView()).setPaused(true);
+        pauseMenuUpdater.alreadyClicked = true;
+    }
+
+    public void play() {
+        paused = false;
+        ((InGameView) getView()).setPaused(false);
+    }
+
+    @Override
+    public void keyPressed(KeyEvent event) {
+        if (!paused) {
+            super.keyPressed(event);
+        } else {
+            pauseMenuUpdater.keyPressed(event);
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent event) {
+        if (!paused) {
+            super.keyReleased(event);
+        } else {
+            pauseMenuUpdater.keyReleased(event);
+        }
     }
 
 

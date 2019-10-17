@@ -4,11 +4,13 @@ import model.Game;
 import view.*;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 /**
  * The "overlord" of controllers, responsible for switching which one is active, as well as which view is shown.
  */
-public class MainController {
+public class MainController  extends Updater {
+
 
     private final Game game;
     private JFrame frame;
@@ -26,6 +28,7 @@ public class MainController {
      * Constructor
      */
     public MainController() {
+        super(null);
         game = new Game();
         frame = new JFrame();
 
@@ -34,6 +37,7 @@ public class MainController {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 
     /**
      * Creates a window with the content of StartMenuView and makes StartMenuController the active controller. (shows the start menu)
@@ -47,7 +51,8 @@ public class MainController {
         frame.pack();
         frame.setVisible(true);
 
-        c = new StartMenuController(view, this::switchToNameInput, this::exitGame);
+        c = new StartMenuController(view, this::exitGame);
+        c.addUpdater(this);
         view.addKeyListener(c);
 
         runGame();
@@ -120,8 +125,21 @@ public class MainController {
         running = false;
     }
 
+    public void keyPressed(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            exitGame();
+        }
+    }
+
+    public void keyReleased(KeyEvent event) {
+
+    }
+
+    public void keyTyped(KeyEvent event) {
+
+    }
+  
     Game getGame() {
         return game;
     }
-
 }

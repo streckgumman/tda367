@@ -27,6 +27,7 @@ public class DogWithGun extends NPC {
             }
         }
         System.out.println(bark);
+        //Här ska vi lägga till så att någon vet att de ska skriva text i spelet....
     }
 
 }
