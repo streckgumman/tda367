@@ -51,8 +51,8 @@ public class Bush extends Puzzle {
     }
 
     /**
-     * Method to return the item to solve the puzzle.
-     * In the puzzle "Bush" you need to have "Scissors" to solve it
+     * Method that returns an item that appears when you finish the puzzle
+     *
      * @return Scissors
      */
     protected Item getMyItem() {

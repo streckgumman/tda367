@@ -219,6 +219,13 @@ public abstract class InGameView extends View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            File backgroundPath = new File("./resources/hammer.png");
+            gameObjectImages.put(GameObjectType.HAMMER, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -247,6 +254,13 @@ public abstract class InGameView extends View {
         try {
             File backgroundPath = new File("./resources/bush.png");
             gameObjectImages.put(GameObjectType.BUSH, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            File backgroundPath = new File("./resources/rock.png");
+            gameObjectImages.put(GameObjectType.ROCK, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
