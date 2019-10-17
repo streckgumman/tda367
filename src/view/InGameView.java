@@ -261,6 +261,9 @@ public abstract class InGameView extends View {
         return b;
     }
 
+    /**
+     * Method to flip the images for the Puzzles in the game.
+     */
     private BufferedImage horizontalFlip(BufferedImage image) {
         AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
         tx.translate(-image.getWidth(null), 0);
