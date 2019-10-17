@@ -102,6 +102,9 @@ public class MainController  extends Updater {
         switchView(view, new InGameController(view, game, this::exitGame, this::switchToNextLevelView));
     }
 
+    /**
+     *General method for switching views
+     */
     private void switchView(View view, Controller c) {
         frame.remove(this.view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
         this.view = view;
