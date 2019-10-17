@@ -15,7 +15,7 @@ import model.puzzles.Door;
  */
 public class Level2 extends Level {
     /**
-     * The public constructor of the class Level3
+     * The public constructor of the class Level2
      *
      * Adds the items "Scissors" and "Key" to the game and the puzzle "Door".
      * @param nrInLine which position in the order of levels the level has
