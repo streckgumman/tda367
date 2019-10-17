@@ -20,14 +20,20 @@ import java.io.IOException;
 public abstract class InGameView extends View {
 
     int frame = 0;
+    boolean paused = false;
+
     /**
      * Images that represent the game.
      */
     private BufferedImage background;
     private BufferedImage character;
     private BufferedImage flippedCharacter;
+    private BufferedImage pauseMenuImage;
+    private BufferedImage flame;
 
     private HorizontalDirection lastPlayerDirection;
+
+    public int buttonIndex = 0;
 
     /**
      * The public constructor creates an instance of InGameView
@@ -40,6 +46,13 @@ public abstract class InGameView extends View {
         try {
             File characterPath = new File("./resources/player.png");
             this.character = ImageIO.read(characterPath);
+
+            File pauseMenuPath = new File("./resources/pause_menu.png");
+            this.pauseMenuImage = ImageIO.read(pauseMenuPath);
+
+            File flamePath = new File("./resources/flame.png");
+            this.flame = ImageIO.read(flamePath);
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -60,6 +73,10 @@ public abstract class InGameView extends View {
         drawNPCs(g);
         drawPuzzles(g);
         drawPlayer(g);
+
+        if (paused) {
+            drawPauseMenu(g);
+        }
 
         frame++;
     }
@@ -163,9 +180,26 @@ public abstract class InGameView extends View {
         }
     }
 
+    private void drawPauseMenu(Graphics g) {
+        g.drawImage(pauseMenuImage, (1920 - pauseMenuImage.getWidth()) / 2, (1080 - pauseMenuImage.getHeight()) / 2, null);
+
+        int flameY = 0;
+        switch (buttonIndex) {
+            case 0:
+                flameY = 1080 / 2 - 200;
+                break;
+            case 1:
+                flameY = 1080 / 2 + 100;
+                break;
+        }
+        g.drawImage(flame, 1920 / 2 + 300, flameY, null);
+    }
+
+
     /**
      * Method to set the images for the items in the game.
      */
+  
     protected void setItemImages() {
         try {
             File backgroundPath = new File("./resources/scissors.png");
@@ -229,6 +263,10 @@ public abstract class InGameView extends View {
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
         image = op.filter(image, null);
         return image;
+    }
+
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 
     private enum HorizontalDirection {
