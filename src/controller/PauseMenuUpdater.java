@@ -10,9 +10,16 @@ public class PauseMenuUpdater extends Updater {
     private Button[] buttons;
     private int buttonIndex = 0;
 
-    public boolean alreadyClicked = false;
 
-    protected PauseMenuUpdater(InGameController c) {
+    boolean alreadyClicked = false;
+
+
+    /**
+     * Constructor
+     *
+     * @param c the inGameController
+     */
+    protected PauseMenuUpdater(final InGameController c, MainController mainController) {
         super(null);
         this.c = c;
         this.buttons = new Button[2];
@@ -27,25 +34,44 @@ public class PauseMenuUpdater extends Updater {
         buttons[1] = new Button() {
             @Override
             public void onClick() {
-                MainController.getInstance().exitGame();
+                mainController.exitGame();
             }
         };
     }
 
+
+    /**
+     * Handles key input
+     */
     public void keyPressed(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.VK_UP && buttonIndex != 0) {
-            buttonIndex--;
-            ((InGameView) c.getView()).buttonIndex = buttonIndex;
-        } else if (event.getKeyCode() == KeyEvent.VK_DOWN && buttonIndex != buttons.length - 1) {
-            buttonIndex++;
-            ((InGameView) c.getView()).buttonIndex = buttonIndex;
-        } else if (event.getKeyCode() == KeyEvent.VK_ENTER) {
-            buttons[buttonIndex].onClick();
-        } else if (event.getKeyCode() == KeyEvent.VK_ESCAPE && !alreadyClicked) {
-            c.play();
+        switch (event.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                if (buttonIndex != 0) {
+                    buttonIndex--;
+                    ((InGameView) c.getView()).buttonIndex = buttonIndex;
+                }
+                break;
+            case KeyEvent.VK_DOWN:
+                if (buttonIndex != buttons.length - 1) {
+                    buttonIndex++;
+                    ((InGameView) c.getView()).buttonIndex = buttonIndex;
+                }
+                break;
+            case KeyEvent.VK_ENTER:
+                buttons[buttonIndex].onClick();
+                break;
+            case KeyEvent.VK_ESCAPE:
+                if (!alreadyClicked) {
+                    c.play();
+                }
+                break;
         }
     }
 
+
+    /**
+     * Handles key input
+     */
     public void keyReleased(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
             alreadyClicked = false;

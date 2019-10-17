@@ -4,7 +4,7 @@ import controller.MainController;
 public class Main {
 
     public static void main(String[] args) {
-        MainController mainController = MainController.getInstance();
+        MainController mainController = new MainController();
         mainController.startGame();
     }
 }

@@ -6,13 +6,13 @@ import view.StartMenuView;
 import view.View;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 /**
  * The "overlord" of controllers, responsible for switching which one is active, as well as which view is shown.
  */
-public class MainController {
+public class MainController  extends Updater {
 
-    static MainController instance;
 
     private final Game game;
     private JFrame frame;
@@ -29,7 +29,8 @@ public class MainController {
     /**
      * Constructor
      */
-    private MainController() {
+    public MainController() {
+        super(null);
         game = new Game();
         frame = new JFrame();
 
@@ -39,12 +40,6 @@ public class MainController {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static MainController getInstance(){
-        if (instance == null){
-            instance = new MainController();
-        }
-        return instance;
-    }
 
     /**
      * Creates a window with the content of StartMenuView and makes StartMenuController the active controller. (shows the start menu)
@@ -58,7 +53,8 @@ public class MainController {
         frame.pack();
         frame.setVisible(true);
 
-        c = new StartMenuController(view);
+        c = new StartMenuController(view, this);
+        c.addUpdater(this);
         view.addKeyListener(c);
 
         runGame();
@@ -90,7 +86,7 @@ public class MainController {
      */
     public void switchToIngame() {
         view = new InGameView(game);
-        switchView(view, new InGameController(view, game));
+        switchView(view, new InGameController(view, game, this));
     }
 
     private void switchView(View view, Controller c) {
@@ -110,4 +106,17 @@ public class MainController {
         running = false;
     }
 
+    public void keyPressed(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            exitGame();
+        }
+    }
+
+    public void keyReleased(KeyEvent event) {
+
+    }
+
+    public void keyTyped(KeyEvent event) {
+
+    }
 }

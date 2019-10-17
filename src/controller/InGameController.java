@@ -23,7 +23,7 @@ public class InGameController extends Controller {
      * Adds the player to the list of updaters.
      */
     @SuppressWarnings("unchecked")
-    public InGameController(View view, Game game) {
+    public InGameController(View view, Game game, MainController mainController) {
         super(view, game);
         addUpdater(new PlayerUpdater(game.getPlayer()));
         addUpdater(new Updater(null) {
@@ -47,7 +47,7 @@ public class InGameController extends Controller {
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game.getLevel()));
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game.getLevel()));
 
-        pauseMenuUpdater = new PauseMenuUpdater(this);
+        pauseMenuUpdater = new PauseMenuUpdater(this, mainController);
     }
 
     /**

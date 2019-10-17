@@ -7,13 +7,12 @@ import java.awt.event.KeyEvent;
 public class StartMenuController extends Controller {
 
     @SuppressWarnings("unchecked")
-    public StartMenuController(View v) {
+    public StartMenuController(View v, MainController mainController) {
         super(v, null);
 
         Updater u = new Updater(null) {
             @Override
             public void keyPressed(KeyEvent event) {
-                MainController mainController = MainController.getInstance();
                 if (event.getKeyCode() == java.awt.event.KeyEvent.VK_E) {
                     mainController.switchToIngame();
                 } else if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
