@@ -10,18 +10,18 @@ public class NameInputController extends Controller {
     private Game game;
 
     @SuppressWarnings("unchecked")
-    public NameInputController(View v, MainController mainController) {
-        super(v, mainController.getGame());
+    public NameInputController(View v, Game game, GameStateChanger stateChanger, GameExiter gameExiter) {
+        super(v, game);
         v.setFocusTraversalKeysEnabled(false); //Don't let Tab bork the entire thing.
-        this.game = mainController.getGame();
+        this.game = game;
 
         Updater u = new Updater(null) {
             @Override
             public void keyPressed(KeyEvent event) {
                 if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    mainController.exitGame();
+                    gameExiter.exit();
                 } else if (event.getKeyCode() == KeyEvent.VK_ENTER) {
-                    mainController.switchToIngame();
+                    stateChanger.changeGameState();
                 }
             }
 

@@ -7,26 +7,24 @@ import java.awt.event.KeyEvent;
 public class PuzzleInteractionUpdater extends Updater<Player> {
 
     private Game game;
-    private MainController mc;
+    private GameStateChanger stateChanger;
 
-    protected PuzzleInteractionUpdater(Player gameObject, Game game, MainController mc) {
+    protected PuzzleInteractionUpdater(Player gameObject, Game game, GameStateChanger stateChanger) {
         super(gameObject);
         this.game = game;
-        this.mc = mc;
+        this.stateChanger = stateChanger;
     }
 
     @Override
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_E) {
-            if(game.getLevel().getCurrentPuzzle().checkIfDone(getGameObject())){
+            if (game.getLevel().getCurrentPuzzle().checkIfDone(getGameObject())) {
                 game.nextLevel();
-                mc.switchToNextLevelView(game.getCurrentLevelsNrInLine());
+                stateChanger.changeGameState();
             }
 
         }
     }
-
-
 
 
     @Override

@@ -19,14 +19,14 @@ public class InGameController extends Controller {
      * Adds the player to the list of updaters.
      */
     @SuppressWarnings("unchecked")
-    public InGameController(View view, Game game, final MainController mainController) {
+    public InGameController(View view, Game game, GameExiter gameExiter, GameStateChanger nextLevelChanger) {
         super(view, game);
         addUpdater(new PlayerUpdater(game.getPlayer()));
         addUpdater(new Updater(null) {
             @Override
             public void keyPressed(KeyEvent event) {
                 if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    mainController.exitGame();
+                    gameExiter.exit();
                 }
             }
 
@@ -42,7 +42,7 @@ public class InGameController extends Controller {
         });
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game));
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
-        addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, mainController));
+        addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, nextLevelChanger));
     }
 
     /**

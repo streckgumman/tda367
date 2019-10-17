@@ -47,7 +47,7 @@ public class MainController {
         frame.pack();
         frame.setVisible(true);
 
-        c = new StartMenuController(view, this);
+        c = new StartMenuController(view, this::switchToNameInput, this::exitGame);
         view.addKeyListener(c);
 
         runGame();
@@ -79,10 +79,11 @@ public class MainController {
      */
     public void switchToIngame() {
         view = new InLevel1View(game);
-        switchView(view, new InGameController(view, game, this));
+        switchView(view, new InGameController(view, game, this::exitGame, this::switchToNextLevelView));
     }
 
-    public void switchToNextLevelView(int level) {
+    public void switchToNextLevelView() {
+        int level = game.getCurrentLevelsNrInLine();
         switch (level) {
             case 1:
                 view = new InLevel2View(game);
@@ -93,7 +94,7 @@ public class MainController {
             default:
                 view = null;
         }
-        switchView(view, new InGameController(view, game, this));
+        switchView(view, new InGameController(view, game, this::exitGame, this::switchToNextLevelView));
     }
 
     private void switchView(View view, Controller c) {
@@ -102,6 +103,7 @@ public class MainController {
         frame.add(view);
         frame.validate(); //Removing the view invalidates the frame, so we need to validate it in order to display it again.
 
+        view.removeKeyListener(this.c);
         this.c = c;
         view.addKeyListener(c);
         view.requestFocus(); //This is required in order to register user input again.
@@ -109,7 +111,7 @@ public class MainController {
 
     public void switchToNameInput() {
         view = new NameInputView(game);
-        switchView(view, new NameInputController(view, this));
+        switchView(view, new NameInputController(view, getGame(), this::switchToIngame, this::exitGame));
     }
 
     public void exitGame() {
