@@ -10,6 +10,14 @@ public class NameInputController extends Controller {
     private Game game;
 
     @SuppressWarnings("unchecked")
+    /**
+     * Constructor
+     *
+     * @param v the view
+     * @param game the View
+     * @param stateChanger the GameStateChanger
+     * @param gameExiter the GameExiter
+     */
     public NameInputController(View v, Game game, GameStateChanger stateChanger, GameExiter gameExiter) {
         super(v, game);
         v.setFocusTraversalKeysEnabled(false); //Don't let Tab bork the entire thing.
