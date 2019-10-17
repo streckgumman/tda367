@@ -106,6 +106,9 @@ public abstract class InGameView extends View {
         }
     }
 
+    /**
+     * Method to get the players direction
+     */
     private HorizontalDirection getPlayerDirection() {
         // Variables for where the player is moving, one for each arrow key being pressed
         boolean playerIsMovingRight = game.getPlayer().isMovingRight();

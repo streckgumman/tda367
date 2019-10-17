@@ -2,7 +2,7 @@ package model;
 
 //Was not fully implemented
 //Almost all the groundwork exists
-//so the class was left in the code 
+//so the class was left in the code
 
 /**
  * Abstract class for any trap in the game
