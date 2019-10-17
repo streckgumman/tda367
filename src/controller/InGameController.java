@@ -45,7 +45,7 @@ public class InGameController extends Controller {
     }
 
     /**
-     * A method that updates the model through the game's player.
+     * Updates the model every frame. @TODO This logic should reasonably not be done by a controller.
      */
     protected void updateModel() {
         for (NPC npc : game.getLevel().getNpcs()) {
