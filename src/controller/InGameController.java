@@ -82,6 +82,13 @@ public class InGameController extends Controller {
         }
     }
 
+
+    // When the player holds in a key and then press escape
+    //the player will never reach the keyReleased method.
+    //This means if the player does the above and resumes
+    // the game the player will be moving in the direction
+    // that the key represents.
+
     @Override
     public void keyReleased(KeyEvent event) {
         if (!paused) {
