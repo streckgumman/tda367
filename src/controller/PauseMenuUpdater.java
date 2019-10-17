@@ -6,7 +6,8 @@ import java.awt.event.KeyEvent;
 
 public class PauseMenuUpdater extends Updater {
 
-    private InGameController c;
+    private GameStateChanger stateChanger;
+    private InGameView v;
     private Button[] buttons;
     private int buttonIndex = 0;
 
@@ -17,17 +18,20 @@ public class PauseMenuUpdater extends Updater {
     /**
      * Constructor
      *
-     * @param c the inGameController
+     * @param stateChanger an interface containing the InGameController's play() method
+     * @param gameExiter an interface containing the games exit() method
+     * @param v the current InGameView which will display the pause menu
      */
-    protected PauseMenuUpdater(final InGameController c, GameExiter gameExiter) {
+    protected PauseMenuUpdater(GameStateChanger stateChanger, GameExiter gameExiter, InGameView v) {
         super(null);
-        this.c = c;
+        this.stateChanger = stateChanger;
+        this.v = v;
         this.buttons = new Button[2];
 
         buttons[0] = new Button() {
             @Override
             public void onClick() {
-                c.play();
+                stateChanger.changeGameState();
             }
         };
 
@@ -48,21 +52,22 @@ public class PauseMenuUpdater extends Updater {
             case KeyEvent.VK_UP:
                 if (buttonIndex != 0) {
                     buttonIndex--;
-                    ((InGameView) c.getView()).buttonIndex = buttonIndex;
+                    v.buttonIndex = buttonIndex;
                 }
                 break;
             case KeyEvent.VK_DOWN:
                 if (buttonIndex != buttons.length - 1) {
                     buttonIndex++;
-                    ((InGameView) c.getView()).buttonIndex = buttonIndex;
+                    v.buttonIndex = buttonIndex;
                 }
                 break;
             case KeyEvent.VK_ENTER:
+            case KeyEvent.VK_E:
                 buttons[buttonIndex].onClick();
                 break;
             case KeyEvent.VK_ESCAPE:
                 if (!alreadyClicked) {
-                    c.play();
+                    stateChanger.changeGameState();
                 }
                 break;
         }
