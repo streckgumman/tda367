@@ -240,7 +240,7 @@ public abstract class InGameView extends View implements TextObserver {
         switch (type) {
             case DIALOGUE:
                 return new Font("SansSerif", Font.PLAIN, 48);
-            case INTERACTIONPROMPT:
+            case INTERACTION_PROMPT:
                 return new Font("SansSerif", Font.ITALIC, 48);
         }
         return null; //If type didn't match, we have no font to return

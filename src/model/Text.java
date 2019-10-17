@@ -33,6 +33,6 @@ public class Text {
 
     public enum TextType {
         DIALOGUE,
-        INTERACTIONPROMPT
+        INTERACTION_PROMPT
     }
 }
