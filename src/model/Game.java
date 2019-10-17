@@ -12,7 +12,7 @@ import java.util.*;
  * @author Linnea Johansson
  * @author Johannes Kvernes
  * @author Anna Nilson
- *
+ * <p>
  * The game instance containing a player and a level.
  */
 public class Game {
@@ -53,9 +53,10 @@ public class Game {
 
     /**
      * Adds an observer to all GameObjects in the current level.
+     *
      * @param observer The observer that shall be added.
      */
-    public void addObserver(TextObserver observer){
+    public void addObserver(TextObserver observer) {
         player.addObserver(observer);
         currentLevel.addObserver(observer);
     }
@@ -74,5 +75,19 @@ public class Game {
      * @return which place in the list items that the current level is located at
      */
 
-    public int getCurrentLevelsNrInLine(){return currentLevel.getNrInLine();}
+    public int getCurrentLevelsNrInLine() {
+        return currentLevel.getNrInLine();
+    }
+
+    public void updateModel() {
+        for (NPC npc : getLevel().getNpcs()) {
+            if (!IntersectionDetector.intersects(npc.getHitbox(), getPlayer().getHitbox())) {
+                npc.stopTalking();
+            }
+        }
+
+        for (GameObject g : getLevel().getGameObjects()) {
+            g.update();
+        }
+    }
 }

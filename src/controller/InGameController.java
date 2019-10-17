@@ -45,18 +45,10 @@ public class InGameController extends Controller {
     }
 
     /**
-     * Updates the model every frame. @TODO This logic should reasonably not be done by a controller.
+     * Updates the model every frame.
      */
     protected void updateModel() {
-        for (NPC npc : game.getLevel().getNpcs()) {
-            if (!IntersectionDetector.intersects(npc.getHitbox(), game.getPlayer().getHitbox())) {
-                npc.stopTalking();
-            }
-        }
-
-        for (GameObject g : game.getLevel().getGameObjects()) {
-            g.update();
-        }
+        game.updateModel();
     }
 
 
