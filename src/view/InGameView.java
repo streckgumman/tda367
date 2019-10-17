@@ -180,6 +180,11 @@ public abstract class InGameView extends View {
         }
     }
 
+    /**
+     * Method to graphically draw the Pause menu
+     * and the indicator that shows which option is selected
+     * @param g
+     */
     private void drawPauseMenu(Graphics g) {
         g.drawImage(pauseMenuImage, (1920 - pauseMenuImage.getWidth()) / 2, (1080 - pauseMenuImage.getHeight()) / 2, null);
 
