@@ -1,8 +1,6 @@
 package controller;
 
-import model.Game;
-import model.IntersectionDetector;
-import model.Level;
+import model.*;
 import view.View;
 
 import java.awt.event.KeyEvent;
@@ -50,7 +48,15 @@ public class InGameController extends Controller {
      * A method that updates the model through the game's player.
      */
     protected void updateModel() {
-        game.getPlayer().update();
+        for (NPC npc : game.getLevel().getNpcs()) {
+            if (!IntersectionDetector.intersects(npc.getHitbox(), game.getPlayer().getHitbox())) {
+                npc.stopTalking();
+            }
+        }
+
+        for (GameObject g : game.getLevel().getGameObjects()) {
+            g.update();
+        }
     }
 
 

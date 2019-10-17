@@ -7,7 +7,7 @@ public class Text {
 
     private final String text;
     private final TextType type;
-    private final Point position;
+    private Point position;
 
     public Text(String text, TextType type, Point position) {
         this.text = text;
@@ -25,6 +25,10 @@ public class Text {
 
     public Point getPosition() {
         return position;
+    }
+
+    public void setPosition(Point position) {
+        this.position = position;
     }
 
     public enum TextType {

@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * GameObject represent a object that can exist in the game
  *
@@ -14,6 +17,8 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
 
     protected GameObjectType type;
     private Hitbox hitbox;
+    private List<TextObserver> observers = new ArrayList<>();
+
 
     /**
      * The public constructor for the class GameObject
@@ -94,6 +99,10 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
         observers.remove(observer);
     }
 
+    /**
+     * Calls the Observers' methods for adding text.
+     * @param text The text to be acted upon.
+     */
     public void notifyAdd(Text text) {
         for (TextObserver observer : observers) {
             observer.actOnTextAdd(text);
@@ -105,4 +114,5 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
             observer.actOnTextRemove(text);
         }
     }
+
 }

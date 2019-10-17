@@ -1,11 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public interface TextObservable {
-
-    List<TextObserver> observers = new ArrayList<>();
 
     public void notifyAdd(Text text);
 

@@ -69,8 +69,7 @@ public abstract class Level {
     }
 
     public void addObserver(TextObserver observer) {
-        List<GameObject> gameObjects = getGameObjects();
-        for (GameObject gameObject : gameObjects) {
+        for (GameObject gameObject : getGameObjects()) {
             gameObject.addObserver(observer);
         }
     }

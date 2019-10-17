@@ -17,7 +17,6 @@ import java.util.List;
  * The class that presents the view while playing the game.
  * <p>
  * Presents the player with graphics, such as the background, the character etc.
- *
  */
 
 public abstract class InGameView extends View implements TextObserver {
@@ -227,9 +226,9 @@ public abstract class InGameView extends View implements TextObserver {
     public void actOnTextAdd(Text text) {
         int size = determineFont(text.getType()).getSize();
         //When you draw text at (x,y), the bottom left of the text will be placed at (x,y), unlike EVERYTHING ELSE, where the top left is placed at (x,y).
-        //This leads text effectively being offset by the height of the characters, therefore we have to counter that offset by adding the size of the text.
-        Text text2 = new Text(text.getText(), text.getType(), new Point(text.getPosition().getX(), text.getPosition().getY() + size));
-        textToDraw.add(text2);
+        //This leads to text effectively being offset by the height of the characters, therefore we have to counter that offset by adding the size of the text.
+        text.setPosition(new Point(text.getPosition().getX(), text.getPosition().getY() + size));
+        textToDraw.add(text);
     }
 
     @Override
@@ -247,17 +246,17 @@ public abstract class InGameView extends View implements TextObserver {
         return null; //If type didn't match, we have no font to return
     }
 
-    private enum HorizontalDirection {
-        RIGHT,
-        LEFT
-    }
-
     /**
      * Abstract method to get the background image for subclasses
      *
      * @return the background image
      */
     protected abstract BufferedImage getBackgroundImage();
+
+    private enum HorizontalDirection {
+        RIGHT,
+        LEFT
+    }
 
 
 }
