@@ -22,6 +22,7 @@ public abstract class NPC extends Charakter {
 
     /**
      * Call actOnTextAdd for all observers, with text as the argument.
+     *
      * @param text The Text that is passed as the argument to the observers.
      */
     @Override

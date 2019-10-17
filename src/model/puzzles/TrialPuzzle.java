@@ -12,4 +12,9 @@ public class TrialPuzzle extends Puzzle {
     public void update() {
 
     }
+
+    @Override
+    public void promptInteraction() {
+
+    }
 }

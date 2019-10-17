@@ -115,4 +115,9 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
         }
     }
 
+    /**
+     * Details what should be done when a GameObject intersects the player @TODO Method name is not very extensible
+     */
+    public abstract void promptInteraction();
+
 }

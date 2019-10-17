@@ -27,5 +27,10 @@ public class DogWithGun extends NPC {
         notifyAdd(new Text(bark, Text.TextType.DIALOGUE, new Point(getX(), getY())));
     }
 
+    @Override
+    public void promptInteraction() {
+        notifyAdd(new Text("Pet (E)", Text.TextType.INTERACTION_PROMPT, new Point(getX(), getY())));
+    }
+
 
 }

@@ -42,6 +42,10 @@ public class Player extends Charakter {
         move(dx, dy);
     }
 
+    @Override
+    public void promptInteraction() {
+    }
+
     /**
      * Moves the player in both axis
      *
@@ -50,42 +54,6 @@ public class Player extends Charakter {
      */
     public void move(int dx, int dy) {
         setPosition(getX() + dx, getY() + dy);
-    }
-
-    /**
-     * Sets whether the player moves right or not
-     *
-     * @param movingRight whether the player moves right or not
-     */
-    public void setMovingRight(boolean movingRight) {
-        this.movingRight = movingRight;
-    }
-
-    /**
-     * Sets whether the player moves left or not
-     *
-     * @param movingLeft whether the player moves left or not
-     */
-    public void setMovingLeft(boolean movingLeft) {
-        this.movingLeft = movingLeft;
-    }
-
-    /**
-     * Sets whether the player moves up or not
-     *
-     * @param movingUp whether the player moves up or not
-     */
-    public void setMovingUp(boolean movingUp) {
-        this.movingUp = movingUp;
-    }
-
-    /**
-     * Sets whether the player moves down or not
-     *
-     * @param movingDown whether the player moves down or not
-     */
-    public void setMovingDown(boolean movingDown) {
-        this.movingDown = movingDown;
     }
 
     /**
@@ -106,6 +74,15 @@ public class Player extends Charakter {
         return movingRight;
     }
 
+    /**
+     * Sets whether the player moves right or not
+     *
+     * @param movingRight whether the player moves right or not
+     */
+    public void setMovingRight(boolean movingRight) {
+        this.movingRight = movingRight;
+    }
+
     public void pickUpItem(Item item) {
         this.item = item;
     }
@@ -124,6 +101,15 @@ public class Player extends Charakter {
     }
 
     /**
+     * Sets whether the player moves left or not
+     *
+     * @param movingLeft whether the player moves left or not
+     */
+    public void setMovingLeft(boolean movingLeft) {
+        this.movingLeft = movingLeft;
+    }
+
+    /**
      * Returns whether or not the player is moving up
      *
      * @return whether or not the player is moving up
@@ -133,12 +119,30 @@ public class Player extends Charakter {
     }
 
     /**
+     * Sets whether the player moves up or not
+     *
+     * @param movingUp whether the player moves up or not
+     */
+    public void setMovingUp(boolean movingUp) {
+        this.movingUp = movingUp;
+    }
+
+    /**
      * Returns whether or not the player is moving down
      *
      * @return whether or not the player is moving down
      */
     public boolean isMovingDown() {
         return movingDown;
+    }
+
+    /**
+     * Sets whether the player moves down or not
+     *
+     * @param movingDown whether the player moves down or not
+     */
+    public void setMovingDown(boolean movingDown) {
+        this.movingDown = movingDown;
     }
 
 }

@@ -14,6 +14,11 @@ public class TrialNPC extends NPC {
 
     }
 
+    @Override
+    public void promptInteraction() {
+
+    }
+
     public void talk() {
 
     }

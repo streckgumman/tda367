@@ -12,4 +12,8 @@ public class TestTrap extends Trap {
     public void update() {
 
     }
+
+    @Override
+    public void promptInteraction() {
+    }
 }
