@@ -18,6 +18,7 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
     protected GameObjectType type;
     private Hitbox hitbox;
     private List<TextObserver> observers = new ArrayList<>();
+    private Text lastInteractionPrompt;
 
 
     /**
@@ -104,6 +105,8 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
      * @param text The text to be acted upon.
      */
     public void notifyAdd(Text text) {
+        stopShowingInteractionPrompt();
+        lastInteractionPrompt = text;
         for (TextObserver observer : observers) {
             observer.actOnTextAdd(text);
         }
@@ -113,6 +116,10 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
         for (TextObserver observer : observers) {
             observer.actOnTextRemove(text);
         }
+    }
+
+    public void stopShowingInteractionPrompt() {
+        notifyRemove(lastInteractionPrompt);
     }
 
     /**

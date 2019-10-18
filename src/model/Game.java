@@ -86,6 +86,8 @@ public class Game {
             g.update();
             if (IntersectionDetector.intersects(g.getHitbox(), getPlayer().getHitbox())) {
                 g.promptInteraction();
+            } else {
+                g.stopShowingInteractionPrompt();
             }
         }
 
