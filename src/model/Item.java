@@ -1,6 +1,10 @@
 package model;
 
 /**
+ * @author Anna Nilsson
+ * @author Johannes Kvernes
+ * @author Samuel Widen
+ *
  * Abstract class for any item in the game.
  */
 public abstract class Item extends GameObject {
