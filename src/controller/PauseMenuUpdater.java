@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 /**
  * @author Anna Nilsson
  * @author Johannes Kvernes
- *
+ * <p>
  * Abstract class for all puzzles in the game
  */
 public class PauseMenuUpdater extends Updater {
@@ -25,8 +25,8 @@ public class PauseMenuUpdater extends Updater {
      * Constructor
      *
      * @param stateChanger an interface containing the InGameController's play() method
-     * @param gameExiter an interface containing the games exit() method
-     * @param v the current InGameView which will display the pause menu
+     * @param gameExiter   an interface containing the games exit() method
+     * @param v            the current InGameView which will display the pause menu
      */
     protected PauseMenuUpdater(GameStateChanger stateChanger, GameExiter gameExiter, InGameView v) {
         super(null);
