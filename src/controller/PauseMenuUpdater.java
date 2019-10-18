@@ -4,6 +4,12 @@ import view.InGameView;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * @author Anna Nilsson
+ * @author Johannes Kvernes
+ *
+ * Abstract class for all puzzles in the game
+ */
 public class PauseMenuUpdater extends Updater {
 
     private InGameController c;
