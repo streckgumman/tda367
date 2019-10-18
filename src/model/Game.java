@@ -84,11 +84,14 @@ public class Game {
 
         for (GameObject g : getLevel().getGameObjects()) {
             g.update();
-            if (IntersectionDetector.intersects(g.getHitbox(), getPlayer().getHitbox())/* && !g.isInteractionPrompted()*/) {
-                g.promptInteraction();
-//                g.setInteractionPrompted(true);
+            if (IntersectionDetector.intersects(g.getHitbox(), getPlayer().getHitbox())) {
+                if (!g.isInteractionPrompted()){
+                    g.promptInteraction();
+                    g.setInteractionPrompted(true);
+                }
             } else {
                 g.stopShowingInteractionPrompt();
+                g.setInteractionPrompted(false);
             }
         }
 
