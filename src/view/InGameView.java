@@ -191,44 +191,20 @@ public abstract class InGameView extends View {
     private void drawPauseMenu(Graphics g) {
         g.drawImage(pauseMenuImage, (1920 - pauseMenuImage.getWidth()) / 2, (1080 - pauseMenuImage.getHeight()) / 2, null);
 
-        int flameY = 0;
-        switch (buttonIndex) {
-            case 0:
-                flameY = 1080 / 2 - 200;
-                break;
-            case 1:
-                flameY = 1080 / 2 + 100;
-                break;
-        }
-        g.drawImage(flame, 1920 / 2 + 300, flameY, null);
+        int flameX = 1920 / 2 + 300;
+        int flameY = 340 + buttonIndex * 300;
+        g.drawImage(flame, flameX, flameY, null);
     }
 
 
     /**
      * Method to set the images for the items in the game.
      */
-  
+
     protected void setItemImages() {
-        try {
-            File backgroundPath = new File("./resources/scissors.png");
-            gameObjectImages.put(GameObjectType.SCISSORS, ImageIO.read(backgroundPath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            File backgroundPath = new File("./resources/key.png");
-            gameObjectImages.put(GameObjectType.KEY, ImageIO.read(backgroundPath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            File backgroundPath = new File("./resources/hammer.png");
-            gameObjectImages.put(GameObjectType.HAMMER, ImageIO.read(backgroundPath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        gameObjectImages.put(GameObjectType.SCISSORS, getImage("./resources/scissors.png"));
+        gameObjectImages.put(GameObjectType.KEY, getImage("./resources/key.png"));
+        gameObjectImages.put(GameObjectType.HAMMER, getImage("./resources/hammer.png"));
     }
 
     /**

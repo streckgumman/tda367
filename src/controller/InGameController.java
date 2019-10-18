@@ -50,7 +50,7 @@ public class InGameController extends Controller {
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game));
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
         addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, nextLevelChanger));
-        pauseMenuUpdater = new PauseMenuUpdater(this, gameExiter);
+        pauseMenuUpdater = new PauseMenuUpdater(this::play, gameExiter, (InGameView) getView());
     }
 
     /**
