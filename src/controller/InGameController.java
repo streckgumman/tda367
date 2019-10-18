@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
  * @author Amanda Dehlén
  * @author Linnea Johansson
  * @author Anna Nilsson
- *
+ * <p>
  * The in game controller that updates the model while playing.
  */
 public class InGameController extends Controller {
@@ -23,9 +23,9 @@ public class InGameController extends Controller {
     /**
      * Constructor
      *
-     * @param view the View that InGameController holds
-     * @param game the Game that InGameController holds
-     * @param gameExiter the GameExiter that InGameController holds
+     * @param view             the View that InGameController holds
+     * @param game             the Game that InGameController holds
+     * @param gameExiter       the GameExiter that InGameController holds
      * @param nextLevelChanger the GameStateChanger that InGameController holds
      */
     @SuppressWarnings("unchecked")
@@ -51,7 +51,7 @@ public class InGameController extends Controller {
 
             }
         });
-      
+
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game));
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
         addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, nextLevelChanger));
@@ -90,6 +90,7 @@ public class InGameController extends Controller {
     /**
      * If the game is not paused
      * opens the pause menu
+     *
      * @param event
      */
     @Override
@@ -111,6 +112,7 @@ public class InGameController extends Controller {
     /**
      * If the game is paused sends the key event to super
      * If the game is not paused sends the event to pauseMenuUpdater
+     *
      * @param event
      */
     @Override
