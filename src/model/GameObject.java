@@ -19,6 +19,8 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
     private Hitbox hitbox;
     private List<TextObserver> observers = new ArrayList<>();
 
+    private boolean interactionPrompted;
+
 
     /**
      * The public constructor for the class GameObject
@@ -31,6 +33,7 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
     public GameObject(int x, int y, int width, int height, GameObjectType type) {
         this.hitbox = new Hitbox(x, y, width, height);
         this.type = type;
+        interactionPrompted = false;
     }
 
     /**
@@ -76,6 +79,14 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
 
     public int getHeight() {
         return hitbox.getHeight();
+    }
+
+    public boolean isInteractionPrompted() {
+        return interactionPrompted;
+    }
+
+    public void setInteractionPrompted(boolean interactionPrompted) {
+        this.interactionPrompted = interactionPrompted;
     }
 
     /**
