@@ -59,7 +59,8 @@ public class InGameController extends Controller {
     }
 
     /**
-     * A method that updates the model through the game's player.
+     * A method that updates the model
+     * through the game's player.
      */
     protected void updateModel() {
         if (!paused) {
@@ -68,7 +69,8 @@ public class InGameController extends Controller {
     }
 
     /**
-     * Pauses the InGameView when the pause menu is active
+     * Pauses the InGameView when
+     * the pause menu is active
      */
     public void pause() {
         paused = true;
@@ -77,13 +79,19 @@ public class InGameController extends Controller {
     }
 
     /**
-     * Starts the game 
+     * Starts the game after the
+     * pause menu has been inactivated
      */
     public void play() {
         paused = false;
         ((InGameView) getView()).setPaused(false);
     }
 
+    /**
+     * If the game is not paused
+     * opens the pause menu
+     * @param event
+     */
     @Override
     public void keyPressed(KeyEvent event) {
         if (!paused) {
