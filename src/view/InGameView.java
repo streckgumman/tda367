@@ -161,8 +161,8 @@ public abstract class InGameView extends View implements TextObserver {
                 RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-        for (Text text : textToDraw) {
-            //System.out.println(text.getText());
+        for (int i = textToDraw.size() - 1; i >= 0; i--) {
+            Text text = textToDraw.get(i);
             Font font = determineFont(text.getType());
             g2.setFont(font);
             g2.drawString(text.getText(), text.getPosition().getX(), text.getPosition().getY());
