@@ -16,8 +16,8 @@ public class TrialLevel extends Level {
      *
      * @param nrInLine which position in the order of levels the level has
      */
-    public TrialLevel(int nrInLine, Player player) {
-        super(nrInLine, player);
+    public TrialLevel(int nrInLine) {
+        super(nrInLine);
     }
 
 }

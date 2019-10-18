@@ -1,6 +1,9 @@
 package model;
 
 /**
+ * @author Johannes Kvernes
+ * @author Samuel Widen
+ * <p>
  * Abstract class for any item in the game.
  */
 public abstract class Item extends GameObject {
@@ -17,11 +20,21 @@ public abstract class Item extends GameObject {
         this.name = name;
     }
 
+    /**
+     * The abstract public method that are implemented in subclasses
+     */
+    // Is not fully implemented in subclasses
+    //Should be moved to it's own class or interface
     public abstract void use();
 
 
     public void interact(GameObject go) {
 
+    }
+
+    @Override
+    public void promptInteraction() {
+        notifyAdd(new Text("Pick up (E)", Text.TextType.INTERACTION_PROMPT, new Point(getX(), getY())));
     }
 
 }

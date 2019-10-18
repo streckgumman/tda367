@@ -4,11 +4,13 @@ import model.Game;
 import view.*;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 /**
  * The "overlord" of controllers, responsible for switching which one is active, as well as which view is shown.
  */
-public class MainController {
+public class MainController  extends Updater {
+
 
     private final Game game;
     private JFrame frame;
@@ -26,6 +28,7 @@ public class MainController {
      * Constructor
      */
     public MainController() {
+        super(null);
         game = new Game();
         frame = new JFrame();
 
@@ -34,6 +37,7 @@ public class MainController {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 
     /**
      * Creates a window with the content of StartMenuView and makes StartMenuController the active controller. (shows the start menu)
@@ -47,7 +51,8 @@ public class MainController {
         frame.pack();
         frame.setVisible(true);
 
-        c = new StartMenuController(view, this);
+        c = new StartMenuController(view, this::switchToNameInput, this::exitGame);
+        c.addUpdater(this);
         view.addKeyListener(c);
 
         runGame();
@@ -79,10 +84,11 @@ public class MainController {
      */
     public void switchToIngame() {
         view = new InLevel1View(game);
-        switchView(view, new InGameController(view, game, this));
+        switchView(view, new InGameController(view, game, this::exitGame, this::switchToNextLevelView));
     }
 
-    public void switchToNextLevelView(int level) {
+    public void switchToNextLevelView() {
+        int level = game.getCurrentLevelsNrInLine();
         switch (level) {
             case 1:
                 view = new InLevel2View(game);
@@ -93,15 +99,19 @@ public class MainController {
             default:
                 view = null;
         }
-        switchView(view, new InGameController(view, game, this));
+        switchView(view, new InGameController(view, game, this::exitGame, this::switchToNextLevelView));
     }
 
+    /**
+     *General method for switching views
+     */
     private void switchView(View view, Controller c) {
         frame.remove(this.view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
         this.view = view;
         frame.add(view);
         frame.validate(); //Removing the view invalidates the frame, so we need to validate it in order to display it again.
 
+        view.removeKeyListener(this.c);
         this.c = c;
         view.addKeyListener(c);
         view.requestFocus(); //This is required in order to register user input again.
@@ -109,7 +119,7 @@ public class MainController {
 
     public void switchToNameInput() {
         view = new NameInputView(game);
-        switchView(view, new NameInputController(view, this));
+        switchView(view, new NameInputController(view, getGame(), this::switchToIngame, this::exitGame));
     }
 
     public void exitGame() {
@@ -118,8 +128,21 @@ public class MainController {
         running = false;
     }
 
+    public void keyPressed(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            exitGame();
+        }
+    }
+
+    public void keyReleased(KeyEvent event) {
+
+    }
+
+    public void keyTyped(KeyEvent event) {
+
+    }
+  
     Game getGame() {
         return game;
     }
-
 }

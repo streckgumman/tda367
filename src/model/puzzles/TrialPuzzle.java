@@ -1,5 +1,7 @@
 package model.puzzles;
 
+import model.Item;
+import model.Player;
 import model.Puzzle;
 
 public class TrialPuzzle extends Puzzle {
@@ -13,8 +15,11 @@ public class TrialPuzzle extends Puzzle {
 
     }
 
-    @Override
-    public void promptInteraction() {
+    protected boolean checkIfHoldingItem(Player player) {
+        return false;
+    }
 
+    protected Item getMyItem() {
+        return null;
     }
 }

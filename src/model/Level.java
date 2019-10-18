@@ -14,23 +14,28 @@ import java.util.List;
  */
 public abstract class Level {
 
-    private Player player;
+    //private Player player;
     private List<NPC> npcs;
     private List<Puzzle> puzzles;
     private List<Trap> traps;
     private List<Item> items;
     private int nrInLine;
+    private Puzzle currentPuzzle;
+    private boolean levelSolved;
+    private int nrPuzzle;
+    private List<TextObserver> observers;
 
     /**
      * The public constructor for the class Level
      *
      */
-    public Level(int nrInLine, Player player) {
-        this.player = player;
+    public Level(int nrInLine) {
+        //this.player = player;
         npcs = new ArrayList<>();
         puzzles = new ArrayList<>();
         traps = new ArrayList<>();
         items = new ArrayList<>();
+        observers = new ArrayList<>();
         this.nrInLine = nrInLine;
     }
 
@@ -72,13 +77,11 @@ public abstract class Level {
         for (GameObject gameObject : getGameObjects()) {
             gameObject.addObserver(observer);
         }
+        this.observers.add(observer);
     }
 
     public List<GameObject> getGameObjects() {
         List<GameObject> gameObjects = new ArrayList<>();
-        if (player != null) {
-            gameObjects.add(player);
-        }
         gameObjects.addAll(npcs);
         gameObjects.addAll(puzzles);
         gameObjects.addAll(traps);
@@ -90,5 +93,51 @@ public abstract class Level {
     public int getNrInLine() {
         return nrInLine;
     }
+
+    public Puzzle getCurrentPuzzle() {
+        return currentPuzzle;
+    }
+
+    public void setCurrentPuzzle(Puzzle currentPuzzle) {
+        this.currentPuzzle = currentPuzzle;
+    }
+
+    protected boolean isLevelSolved() {
+        return levelSolved;
+    }
+
+    protected void setLevelSolved(boolean levelSolved) {
+        this.levelSolved = levelSolved;
+    }
+
+    public boolean areAllPuzzlesSolved(){
+        for(Puzzle p : puzzles){
+            if( !p.isSolved()){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    protected int getNrPuzzle() {
+        return nrPuzzle;
+    }
+
+    protected void setNrPuzzle(int nrPuzzle) {
+        this.nrPuzzle = nrPuzzle;
+    }
+
+    public void startNextPuzzle(){
+
+        puzzles.remove(0);
+        currentPuzzle = puzzles.get(0);
+        Item newItem = currentPuzzle.getMyItem();
+        addItem(newItem);
+        for (TextObserver observer : observers){
+            newItem.addObserver(observer);
+        }
+
+    }
+
 }
 

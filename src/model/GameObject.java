@@ -93,7 +93,9 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
     /**
      * The abstract protected method that is implemented in subclasses
      */
-    public abstract void update();
+    // Is not fully implemented in subclasses
+    //Should be moved to it's own class or interface
+    protected abstract void update();
 
     public Hitbox getHitbox() {
         return this.hitbox;

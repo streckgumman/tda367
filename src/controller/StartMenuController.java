@@ -7,16 +7,16 @@ import java.awt.event.KeyEvent;
 public class StartMenuController extends Controller {
 
     @SuppressWarnings("unchecked")
-    public StartMenuController(View v, MainController mainController) {
+    public StartMenuController(View v, GameStateChanger stateChanger, GameExiter gameExiter) {
         super(v, null);
 
         Updater u = new Updater(null) {
             @Override
             public void keyPressed(KeyEvent event) {
                 if (event.getKeyCode() == java.awt.event.KeyEvent.VK_E) {
-                    mainController.switchToNameInput();
+                    stateChanger.changeGameState();
                 } else if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    mainController.exitGame();
+                    gameExiter.exit();
                 }
             }
 

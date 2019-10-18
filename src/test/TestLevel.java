@@ -31,7 +31,7 @@ public class TestLevel {
 
     @Test
     public void shouldGetAllItemsFromItemList() {
-        testLevel = new model.levels.TrialLevel(0, null);
+        testLevel = new model.levels.TrialLevel(0);
         Key testItem = new Key(10, 10);
         Scissors testItem2 = new Scissors("sax", 2, 15);
         testLevel.addItem(testItem);
@@ -48,7 +48,7 @@ public class TestLevel {
 
     @Test
     public void shouldAddItemToItemList() {
-        testLevel = new model.levels.TrialLevel(0, null);
+        testLevel = new model.levels.TrialLevel(0);
         Key testItem = new Key(10, 10);
         testLevel.addItem(testItem);
         assertEquals(testItem, testLevel.getItems().get(0));
@@ -61,7 +61,7 @@ public class TestLevel {
 
     @Test
     public void shouldGetAllNPCsFromNPCList() {
-        testLevel = new model.levels.TrialLevel(0, null);
+        testLevel = new model.levels.TrialLevel(0);
         NPC testNPC = new DogWithGun("TestNPC1");
         NPC testNPC2 = new TrialNPC("TestNPC2");
         testLevel.addNPC(testNPC);
@@ -78,7 +78,7 @@ public class TestLevel {
 
     @Test
     public void shouldAddNPCToNPCList() {
-        testLevel = new model.levels.TrialLevel(0, null);
+        testLevel = new model.levels.TrialLevel(0);
         NPC testNPC = new DogWithGun("Doggo");
         testLevel.addNPC(testNPC);
         assertEquals(testNPC, testLevel.getNpcs().get(0));
@@ -91,7 +91,7 @@ public class TestLevel {
 
     @Test
     public void shouldGetAllPuzzlesFromPuzzleList() {
-        testLevel = new model.levels.TrialLevel(0, null);
+        testLevel = new model.levels.TrialLevel(0);
         Puzzle testPuzzle = new Door(10, 10, 10, 10);
         Puzzle testPuzzle2 = new TrialPuzzle(10, 10, 10, 10);
         testLevel.addPuzzle(testPuzzle);
@@ -108,7 +108,7 @@ public class TestLevel {
 
     @Test
     public void shouldAddPuzzlesToPuzzleList() {
-        testLevel = new model.levels.TrialLevel(0, null);
+        testLevel = new model.levels.TrialLevel(0);
         Puzzle testPuzzle = new Door(10, 10, 10, 10);
         testLevel.addPuzzle(testPuzzle);
         assertEquals(testPuzzle, testLevel.getPuzzles().get(0));

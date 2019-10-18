@@ -21,7 +21,9 @@ import java.util.List;
 
 public abstract class InGameView extends View implements TextObserver {
 
+    public int buttonIndex = 0;
     int frame = 0;
+    boolean paused = false;
     /**
      * Images that represent the game.
      */
@@ -29,7 +31,8 @@ public abstract class InGameView extends View implements TextObserver {
     private BufferedImage character;
     private BufferedImage flippedCharacter;
     private List<Text> textToDraw = new ArrayList<>();
-
+    private BufferedImage pauseMenuImage;
+    private BufferedImage flame;
     private HorizontalDirection lastPlayerDirection;
 
     /**
@@ -43,6 +46,13 @@ public abstract class InGameView extends View implements TextObserver {
         try {
             File characterPath = new File("./resources/player.png");
             this.character = ImageIO.read(characterPath);
+
+            File pauseMenuPath = new File("./resources/pause_menu.png");
+            this.pauseMenuImage = ImageIO.read(pauseMenuPath);
+
+            File flamePath = new File("./resources/flame.png");
+            this.flame = ImageIO.read(flamePath);
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -64,6 +74,10 @@ public abstract class InGameView extends View implements TextObserver {
         drawPuzzles(g);
         drawPlayer(g);
         drawAllText(g);
+
+        if (paused) {
+            drawPauseMenu(g);
+        }
 
         frame++;
     }
@@ -93,6 +107,9 @@ public abstract class InGameView extends View implements TextObserver {
         }
     }
 
+    /**
+     * Method to get the player's direction
+     */
     private HorizontalDirection getPlayerDirection() {
         // Variables for where the player is moving, one for each arrow key being pressed
         boolean playerIsMovingRight = game.getPlayer().isMovingRight();
@@ -137,24 +154,57 @@ public abstract class InGameView extends View implements TextObserver {
         g.drawImage(flippedCharacter, playerX, playerY, character.getWidth() / 4, character.getHeight() / 4, null);
     }
 
+    /**
+     * Method to graphically draw all Items in the game
+     *
+     * @param g
+     */
     private void drawItems(Graphics g) {
         for (Item i : game.getLevel().getItems()) {
             g.drawImage(gameObjectImages.get(i.getType()), i.getX(), i.getY(), i.getWidth(), i.getHeight(), null);
         }
     }
 
+    /**
+     * Method to graphically draw all NPCs in the game
+     *
+     * @param g
+     */
     private void drawNPCs(Graphics g) {
         for (NPC npc : game.getLevel().getNpcs()) {
             g.drawImage(gameObjectImages.get(npc.getType()), npc.getX(), npc.getY(), npc.getWidth(), npc.getHeight(), null);
         }
     }
 
+    /**
+     * Method to graphically draw all Puzzles in the game
+     *
+     * @param g
+     */
     private void drawPuzzles(Graphics g) {
         for (Puzzle puzzle : game.getLevel().getPuzzles()) {
             g.drawImage(gameObjectImages.get(puzzle.getType()), puzzle.getX(), puzzle.getY(), puzzle.getHitbox().getWidth(), puzzle.getHitbox().getHeight(), null);
         }
     }
 
+    /**
+     * Method to graphically draw the Pause menu
+     * and the indicator that shows which option is selected
+     *
+     * @param g
+     */
+    private void drawPauseMenu(Graphics g) {
+        g.drawImage(pauseMenuImage, (1920 - pauseMenuImage.getWidth()) / 2, (1080 - pauseMenuImage.getHeight()) / 2, null);
+
+        int flameX = 1920 / 2 + 300;
+        int flameY = 340 + buttonIndex * 300;
+        g.drawImage(flame, flameX, flameY, null);
+    }
+
+
+    /**
+     * Method to set the images for the items in the game.
+     */
     private void drawAllText(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(
@@ -171,21 +221,14 @@ public abstract class InGameView extends View implements TextObserver {
 
 
     protected void setItemImages() {
-        try {
-            File backgroundPath = new File("./resources/scissors.png");
-            gameObjectImages.put(GameObjectType.SCISSORS, ImageIO.read(backgroundPath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            File backgroundPath = new File("./resources/key.png");
-            gameObjectImages.put(GameObjectType.KEY, ImageIO.read(backgroundPath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        gameObjectImages.put(GameObjectType.SCISSORS, getImage("./resources/scissors.png"));
+        gameObjectImages.put(GameObjectType.KEY, getImage("./resources/key.png"));
+        gameObjectImages.put(GameObjectType.HAMMER, getImage("./resources/hammer.png"));
     }
 
+    /**
+     * Method to set the images for the NPCs in the game.
+     */
     protected void setNPCImages() {
         try {
             File backgroundPath = new File("./resources/dog_with_gun.png");
@@ -195,10 +238,27 @@ public abstract class InGameView extends View implements TextObserver {
         }
     }
 
+    /**
+     * Method to set the images for the Puzzles in the game.
+     */
     protected void setPuzzleImages() {
         try {
             File backgroundPath = new File("./resources/door.png");
             gameObjectImages.put(GameObjectType.DOOR, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            File backgroundPath = new File("./resources/bush.png");
+            gameObjectImages.put(GameObjectType.BUSH, ImageIO.read(backgroundPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            File backgroundPath = new File("./resources/rock.png");
+            gameObjectImages.put(GameObjectType.ROCK, ImageIO.read(backgroundPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -213,6 +273,9 @@ public abstract class InGameView extends View implements TextObserver {
         return b;
     }
 
+    /**
+     * Method to flip the images for the Puzzles in the game.
+     */
     private BufferedImage horizontalFlip(BufferedImage image) {
         AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
         tx.translate(-image.getWidth(null), 0);
@@ -244,6 +307,9 @@ public abstract class InGameView extends View implements TextObserver {
                 return new Font("SansSerif", Font.ITALIC, 48);
         }
         return null; //If type didn't match, we have no font to return
+    }
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 
     /**

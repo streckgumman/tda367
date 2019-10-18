@@ -8,6 +8,9 @@ public enum GameObjectType {
     PLAYER,
     KEY,
     SCISSORS,
+    HAMMER,
     DOGWITHGUN,
-    DOOR
+    DOOR,
+    BUSH,
+    ROCK,
 }

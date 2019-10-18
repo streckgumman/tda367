@@ -27,9 +27,9 @@ public class Game {
     public Game() {
         player = new Player("Duckoo");
         levels = new ArrayList<>();
-        levels.add(new Level1(0, player));
-        levels.add(new Level2(1, player));
-        levels.add(new Level3(2, player));
+        levels.add(new Level1(0));
+        levels.add(new Level2(1));
+        levels.add(new Level3(2));
         currentLevel = levels.get(0);
     }
 

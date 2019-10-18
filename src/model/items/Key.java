@@ -2,22 +2,28 @@ package model.items;
 
 import model.GameObjectType;
 import model.Item;
-import model.Point;
-import model.Text;
 
+/**
+ * @author Johannes Kvernes
+ * <p>
+ * The class Scissors represent the item Scissor that can be used to solve the puzzle Bush
+ */
 public class Key extends Item {
 
+    /**
+     * The public constructor for the class Key
+     * <p>
+     * The class Key extends the class Item
+     *
+     * @param x the position of the Key in x axis
+     * @param y the position of the Key in y axis
+     */
     public Key(int x, int y) {
         super("Key", GameObjectType.KEY, x, y, 80, 80);
     }
 
     public void update() {
 
-    }
-
-    @Override
-    public void promptInteraction() {
-        notifyAdd(new Text("Pick up (E)", Text.TextType.INTERACTION_PROMPT, new Point(getX(), getY())));
     }
 
     public void use() {

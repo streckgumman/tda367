@@ -1,0 +1,62 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-10-18
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+    Latex är jobbigt
+
+    Anna har för få kodrader
+
+##Gjorts sen sist
+    Amanda: suttit med RAD
+
+    Johannes: suttit med SDD och tagit bort circular dependencies
+
+    Linnea: suttit med UML
+
+    Anna: mergat sin branch in i dev och skrivit dokumentation
+
+    Samuel: fixat med text-branchen
+
+##Diskussion
+    Latex är jobbigt
+        Latex gör inte vad vi vill
+
+    Anna har få kodrader
+        Skriver dokumentation och fler tester för att komma upp med rader
+        Har varit strul med hennes kod, den kod Anna har skrivit har behövts skrivas om och krävt mycket tid
+
+    RAD
+        Det är bara att göra och faktiskt skriva
+        Behöver göra bra domändiagram
+
+    SDD
+        Lite samma som RAD
+        Behöver göra bra UML-diagram
+
+##Beslut
+    Amanda, Linnea och Johannes sitter med RAD och SDD
+
+    Anna skriver kommentarer och tester
+
+    Samuel fixar text-branchen och mergar in den
+
+##Skvaller
+    Hemligt
+
+##Wrap up
+    Handledning vid 13
+
+    Nästa vecka ses vi:
+        Hela tisdag köttar vi tills vi är klara
+        9-sent
+        Om vi inte blir klara så sitter vi hela natten alternativt på torsdag
+
+        Först gör vi RAD och SDD
+        sen presentationen
+
+    Mål:
+        Lämna in RAD, SDD, kod och Peer Review på tisdag

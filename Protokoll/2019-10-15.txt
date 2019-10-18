@@ -1,0 +1,84 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-10-15
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+    Vi vet inte hur vi ska göra med Peer Review exakt
+
+    Vi borde göra våra UML snyggare
+
+    Vi borde merga våra branches
+
+    Problem med GIT - merga
+        Att merga Pause_menu och dev
+
+    InteractionPrompts har massa buggar
+        Vet hur vi ska hantera dem, så ska lösa det
+
+    Vi måste bli klara, helst imorgon med koden
+        För att kunna lägga tid på SDD, RAD och presentation
+
+
+##Gjorts sen sist
+    Alla: skrivit Peer Review
+
+    Amanda, Linnea: Jobbat för att få ett första pussel
+        Skrivit kommentarer
+
+    Amanda: Skrivit i RAD-dokumentet
+
+    Samuel, Johannes: Försökt få hunden att prata
+
+    Johannes: Har tagit bort circular dependencies
+        Mellan main controller och övriga controllers
+
+    Anna: Fortsatt jobba på Pause_menu
+
+    Samuel: NPCs kan prata och interactionPrompts existerar nu
+
+
+##Diskussion
+    Hur göra Peer Review
+        Kolla igenom texterna och rätta småfel
+        Kolla igenom koden och se om nåt är tokigt / standard-fel
+        Inte kolla på småfel, mer "det här är otydligt"
+        Skriva en rapport om det på en-två sidor
+        Spendera ~2 h på det
+        Bedöma koden
+
+    När sitta med Peer Review?
+        Måndag eller onsdag eller båda?
+            Avbryter mötet för att jobba på Peer Review
+            Jobba mest idag, fixa det sista på onsdag
+
+    Borde göra UML snyggt
+        Löser det nästa vecka
+
+    Problem med GIT - merga
+        Att merga Pause_menu och dev
+        Samuel och Anna kollar på det
+        Om vi inte får till det frågar vi Robert imorgon
+
+    InteractionPrompts har massa buggar
+        Vet hur vi ska hantera dem, så ska lösa det
+
+    Vi måste bli klara, helst imorgon med koden
+        För att kunna lägga tid på SDD, RAD och presentation
+        Vi kollar med Robert om alla har kodat tillräckligt mycket
+
+
+##Beslut
+    Amanda, Linnea adderar kommentarer och börjar skriva på RAD och SDD
+
+    Anna, Johannes försöker få klart Annas branch
+
+    Samuel löser buggar i InteractionPrompts
+
+##Skvaller
+    Hemligt och väldigt spännande
+
+##Wrap up
+    Vi ses imorgon <3
