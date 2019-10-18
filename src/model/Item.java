@@ -20,6 +20,8 @@ public abstract class Item extends GameObject {
     /**
      * The abstract public method that are implemented in subclasses
      */
+    // Is not fully implemented in subclasses
+    //Should be moved to it's own class or interface
     public abstract void use();
 
 
