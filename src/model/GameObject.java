@@ -76,6 +76,8 @@ public abstract class GameObject implements HitboxOwner {
     /**
      * The abstract protected method that are implemented in subclasses
      */
+    // Is not fully implemented in subclasses
+    //Should be moved to it's own class or interface
     protected abstract void update();
 
     public Hitbox getHitbox() {
