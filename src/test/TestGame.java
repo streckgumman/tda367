@@ -6,7 +6,7 @@ import model.Player;
 import model.levels.Level1;
 import model.levels.Level2;
 import model.levels.Level3;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
