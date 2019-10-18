@@ -108,6 +108,11 @@ public class InGameController extends Controller {
     // the game the player will be moving in the direction
     // that the key represents.
 
+    /**
+     * If the game is paused sends the key event to super
+     * If the game is not paused sends the event to pauseMenuUpdater
+     * @param event
+     */
     @Override
     public void keyReleased(KeyEvent event) {
         if (!paused) {
