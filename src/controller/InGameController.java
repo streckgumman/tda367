@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
  * @author Amanda Dehlén
  * @author Linnea Johansson
  * @author Anna Nilsson
- *
+ * <p>
  * The in game controller that updates the model while playing.
  */
 public class InGameController extends Controller {
@@ -23,9 +23,9 @@ public class InGameController extends Controller {
     /**
      * Constructor
      *
-     * @param view the View that InGameController holds
-     * @param game the Game that InGameController holds
-     * @param gameExiter the GameExiter that InGameController holds
+     * @param view             the View that InGameController holds
+     * @param game             the Game that InGameController holds
+     * @param gameExiter       the GameExiter that InGameController holds
      * @param nextLevelChanger the GameStateChanger that InGameController holds
      */
     @SuppressWarnings("unchecked")
@@ -51,21 +51,22 @@ public class InGameController extends Controller {
 
             }
         });
-      
+
         addUpdater(new ItemInteractionUpdater(game.getPlayer(), game));
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
         addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, nextLevelChanger));
         pauseMenuUpdater = new PauseMenuUpdater(this::play, gameExiter, (InGameView) getView());
+        game.addObserver(view); //When you create a new InGameController, add the view as an observer to all GameObjects
     }
 
     /**
-     * A method that updates the model
-     * through the game's player.
+     * Updates the model every frame.
      */
     protected void updateModel() {
         if (!paused) {
             game.getPlayer().update();
         }
+        game.updateModel();
     }
 
     /**
@@ -90,6 +91,7 @@ public class InGameController extends Controller {
     /**
      * If the game is not paused
      * opens the pause menu
+     *
      * @param event
      */
     @Override
@@ -108,6 +110,12 @@ public class InGameController extends Controller {
     // the game the player will be moving in the direction
     // that the key represents.
 
+    /**
+     * If the game is paused sends the key event to super
+     * If the game is not paused sends the event to pauseMenuUpdater
+     *
+     * @param event
+     */
     @Override
     public void keyReleased(KeyEvent event) {
         if (!paused) {

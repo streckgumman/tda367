@@ -1,14 +1,14 @@
 package model.levels;
 
 import model.Level;
+import model.Player;
 
 /**
  * @author Amanda Dehlén
  * @author Linnea Johansson
- *
+ * <p>
  * TrialLevel exists to test the methods of the class Level and extends Level
- *
- * */
+ */
 public class TrialLevel extends Level {
 
     /**

@@ -5,15 +5,16 @@ import model.Item;
 
 /**
  * @author Johannes Kvernes
- *
+ * <p>
  * The class Scissors represent the item Scissor that can be used to solve the puzzle Bush
  */
 public class Key extends Item {
 
     /**
      * The public constructor for the class Key
-     *
+     * <p>
      * The class Key extends the class Item
+     *
      * @param x the position of the Key in x axis
      * @param y the position of the Key in y axis
      */
@@ -21,7 +22,7 @@ public class Key extends Item {
         super("Key", GameObjectType.KEY, x, y, 80, 80);
     }
 
-    protected void update() {
+    public void update() {
 
     }
 

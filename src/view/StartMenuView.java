@@ -1,5 +1,7 @@
 package view;
 
+import model.Text;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -69,5 +71,15 @@ public class StartMenuView extends View {
 
     protected void setPuzzleImages() {
 
+    }
+
+    @Override
+    public void actOnTextAdd(Text text) {
+        //Do stuff
+    }
+
+    @Override
+    public void actOnTextRemove(Text text) {
+        //Do stuff
     }
 }

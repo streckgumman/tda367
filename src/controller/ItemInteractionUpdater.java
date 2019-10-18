@@ -43,6 +43,8 @@ public class ItemInteractionUpdater extends Updater<Player> {
         dropItem();
         getGameObject().pickUpItem(i);
         game.getLevel().getItems().remove(i);
+        i.stopShowingInteractionPrompt();
+        i.setInteractionPrompted(false);
     }
 
     public void keyReleased(KeyEvent event) {
