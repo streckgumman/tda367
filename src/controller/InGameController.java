@@ -23,10 +23,10 @@ public class InGameController extends Controller {
     /**
      * Constructor
      *
-     * @param view             the View that InGameController holds
-     * @param game             the Game that InGameController holds
-     * @param gameExiter       the GameExiter that InGameController holds
-     * @param nextLevelChanger the GameStateChanger that InGameController holds
+     * @param view             The current view of the game
+     * @param game             The game object containing the state of game
+     * @param gameExiter       interface with method to exit the game
+     * @param nextLevelChanger interface with method to change the level
      */
     @SuppressWarnings("unchecked")
 
