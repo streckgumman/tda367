@@ -31,10 +31,14 @@ public abstract class Puzzle extends GameObject {
     //PLACEHOLDER
     public void something() {
         //Världen ska vända tillbaka sig rätt och dörren till nästa nivå ska öppnas
+    //This method is going to flip the upside down
+    //world back to it's normal state
+    public void flipWorld() {
     }
 
     public void interact(GameObject go) {
         something();
+        flipWorld();
     }
 
     /**
