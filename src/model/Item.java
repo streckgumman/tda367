@@ -1,7 +1,6 @@
 package model;
 
 /**
- * @author Anna Nilsson
  * @author Johannes Kvernes
  * @author Samuel Widen
  *
