@@ -111,7 +111,7 @@ public class TestLevel {
         testLevel = new model.levels.TrialLevel(0);
         Puzzle testPuzzle = new Door(10, 10, 10, 10);
         testLevel.addPuzzle(testPuzzle);
-        assertEquals(testPuzzle, testLevel.getPuzzles());
+        assertEquals(testPuzzle, testLevel.getPuzzles().get(0));
     }
 
 }
