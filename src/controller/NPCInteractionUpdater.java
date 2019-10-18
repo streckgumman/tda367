@@ -18,7 +18,7 @@ public class NPCInteractionUpdater extends Updater<Player> {
             for (int j = game.getLevel().getNpcs().size() - 1; j >= 0; j--) {
                 NPC npc = game.getLevel().getNpcs().get(j);
                 if (IntersectionDetector.intersects(getGameObject().getHitbox(), npc.getHitbox())) {
-                    npc.talk();
+                    npc.interact(npc);
                 }
             }
         }

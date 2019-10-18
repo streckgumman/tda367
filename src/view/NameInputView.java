@@ -1,13 +1,13 @@
 package view;
 
 import model.Game;
+import model.Text;
 
 import java.awt.*;
 import java.awt.geom.Line2D;
 
 public class NameInputView extends View {
 
-    private Shape line = new Line2D.Double(3, 3, 303, 303);
     private int frame = 0;
 
     public NameInputView(Game game) {
@@ -48,6 +48,16 @@ public class NameInputView extends View {
     @Override
     protected void setNPCImages() {
 
+    }
+
+    @Override
+    public void actOnTextAdd(Text text) {
+        //Do stuff
+    }
+
+    @Override
+    public void actOnTextRemove(Text text) {
+        //Do stuff
     }
 }
 

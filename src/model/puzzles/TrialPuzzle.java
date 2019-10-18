@@ -11,7 +11,7 @@ public class TrialPuzzle extends Puzzle {
 
     }
 
-    protected void update() {
+    public void update() {
 
     }
 

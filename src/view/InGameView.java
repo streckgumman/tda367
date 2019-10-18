@@ -1,6 +1,7 @@
 package view;
 
 import model.*;
+import model.Point;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,31 +10,30 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class that presents the view while playing the game.
  * <p>
  * Presents the player with graphics, such as the background, the character etc.
- *
  */
 
-public abstract class InGameView extends View {
+public abstract class InGameView extends View implements TextObserver {
 
+    public int buttonIndex = 0;
     int frame = 0;
     boolean paused = false;
-
     /**
      * Images that represent the game.
      */
     private BufferedImage background;
     private BufferedImage character;
     private BufferedImage flippedCharacter;
+    private List<Text> textToDraw = new ArrayList<>();
     private BufferedImage pauseMenuImage;
     private BufferedImage flame;
-
     private HorizontalDirection lastPlayerDirection;
-
-    public int buttonIndex = 0;
 
     /**
      * The public constructor creates an instance of InGameView
@@ -73,6 +73,7 @@ public abstract class InGameView extends View {
         drawNPCs(g);
         drawPuzzles(g);
         drawPlayer(g);
+        drawAllText(g);
 
         if (paused) {
             drawPauseMenu(g);
@@ -107,7 +108,7 @@ public abstract class InGameView extends View {
     }
 
     /**
-     * Method to get the players direction
+     * Method to get the player's direction
      */
     private HorizontalDirection getPlayerDirection() {
         // Variables for where the player is moving, one for each arrow key being pressed
@@ -155,6 +156,7 @@ public abstract class InGameView extends View {
 
     /**
      * Method to graphically draw all Items in the game
+     *
      * @param g
      */
     private void drawItems(Graphics g) {
@@ -165,6 +167,7 @@ public abstract class InGameView extends View {
 
     /**
      * Method to graphically draw all NPCs in the game
+     *
      * @param g
      */
     private void drawNPCs(Graphics g) {
@@ -175,6 +178,7 @@ public abstract class InGameView extends View {
 
     /**
      * Method to graphically draw all Puzzles in the game
+     *
      * @param g
      */
     private void drawPuzzles(Graphics g) {
@@ -186,6 +190,7 @@ public abstract class InGameView extends View {
     /**
      * Method to graphically draw the Pause menu
      * and the indicator that shows which option is selected
+     *
      * @param g
      */
     private void drawPauseMenu(Graphics g) {
@@ -200,6 +205,20 @@ public abstract class InGameView extends View {
     /**
      * Method to set the images for the items in the game.
      */
+    private void drawAllText(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(
+                RenderingHints.KEY_TEXT_ANTIALIASING,
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        for (int i = textToDraw.size() - 1; i >= 0; i--) {
+            Text text = textToDraw.get(i);
+            Font font = determineFont(text.getType());
+            g2.setFont(font);
+            g2.drawString(text.getText(), text.getPosition().getX(), text.getPosition().getY());
+        }
+    }
+
 
     protected void setItemImages() {
         gameObjectImages.put(GameObjectType.SCISSORS, getImage("./resources/scissors.png"));
@@ -266,13 +285,31 @@ public abstract class InGameView extends View {
         return image;
     }
 
-    public void setPaused(boolean paused) {
-        this.paused = paused;
+    @Override
+    public void actOnTextAdd(Text text) {
+        int size = determineFont(text.getType()).getSize();
+        //When you draw text at (x,y), the bottom left of the text will be placed at (x,y), unlike EVERYTHING ELSE, where the top left is placed at (x,y).
+        //This leads to text effectively being offset by the height of the characters, therefore we have to counter that offset by adding the size of the text.
+        text.setPosition(new Point(text.getPosition().getX(), text.getPosition().getY() + size));
+        textToDraw.add(text);
     }
 
-    private enum HorizontalDirection {
-        RIGHT,
-        LEFT
+    @Override
+    public void actOnTextRemove(Text text) {
+        textToDraw.remove(text);
+    }
+
+    private Font determineFont(Text.TextType type) {
+        switch (type) {
+            case DIALOGUE:
+                return new Font("SansSerif", Font.PLAIN, 48);
+            case INTERACTION_PROMPT:
+                return new Font("SansSerif", Font.ITALIC, 48);
+        }
+        return null; //If type didn't match, we have no font to return
+    }
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 
     /**
@@ -281,6 +318,11 @@ public abstract class InGameView extends View {
      * @return the background image
      */
     protected abstract BufferedImage getBackgroundImage();
+
+    private enum HorizontalDirection {
+        RIGHT,
+        LEFT
+    }
 
 
 }

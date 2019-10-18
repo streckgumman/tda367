@@ -1,6 +1,7 @@
 package view;
 
 import model.*;
+import model.Point;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class View extends JPanel {
+public abstract class View extends JPanel implements TextObserver {
 
     protected final int w, h;
     protected final Game game;

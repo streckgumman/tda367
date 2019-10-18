@@ -1,9 +1,9 @@
 package model.levels;
 
 import model.Level;
+import model.Player;
 import model.items.Key;
 import model.items.Scissors;
-import model.npcs.DogWithGun;
 import model.puzzles.Door;
 
 /**
