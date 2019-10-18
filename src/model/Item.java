@@ -17,6 +17,9 @@ public abstract class Item extends GameObject {
         this.name = name;
     }
 
+    /**
+     * The abstract public method that are implemented in subclasses
+     */
     public abstract void use();
 
 
