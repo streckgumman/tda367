@@ -4,24 +4,24 @@ package model;
  * @author Amanda Dehlén
  * @author Linnea Johansson
  * @author Johannes Kvernes
- *
+ * @author Anna Nilsson
+ * <p>
  * Abstract class for all puzzles in the game
  */
 public abstract class Puzzle extends GameObject {
 
     private boolean isSolved;
-    private Item puzzleSolver;
 
     /**
      * The public constructor for the class Puzzle
-     *
+     * <p>
      * The class Puzzle extends the class GameObject
      *
-     * @param x the position of the Door in x axis
-     * @param y the position of the Door in y axis
-     * @param width the width of the Door's hitbox
+     * @param x      the position of the Door in x axis
+     * @param y      the position of the Door in y axis
+     * @param width  the width of the Door's hitbox
      * @param height the height of the Door's hitbox
-     * @param type the type of GameObject
+     * @param type   the type of GameObject
      */
     public Puzzle(int x, int y, int width, int height, GameObjectType type) {
         super(x, y, width, height, type);
@@ -29,15 +29,12 @@ public abstract class Puzzle extends GameObject {
 
 
     //PLACEHOLDER
-    public void something() {
-        //Världen ska vända tillbaka sig rätt och dörren till nästa nivå ska öppnas
     //This method is going to flip the upside down
     //world back to it's normal state
     public void flipWorld() {
     }
 
     public void interact(GameObject go) {
-        something();
         flipWorld();
     }
 
@@ -48,7 +45,7 @@ public abstract class Puzzle extends GameObject {
      * @param player the character the user controls
      * @return true if the player is holding the correct item
      */
-    public boolean checkIfDone(Player player){
+    public boolean checkIfDone(Player player) {
         if (IntersectionDetector.intersects(player.getHitbox(), this.getHitbox())) {
             if (checkIfHoldingItem(player)) {
                 return true;
