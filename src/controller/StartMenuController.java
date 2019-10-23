@@ -4,8 +4,18 @@ import view.View;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * Public class that controls the start menu
+ */
 public class StartMenuController extends Controller {
 
+    /**
+     * Constructor for the class
+     *
+     * @param v            the view
+     * @param stateChanger used to change the state of the game
+     * @param gameExiter   used to exit the game
+     */
     @SuppressWarnings("unchecked")
     public StartMenuController(View v, GameStateChanger stateChanger, GameExiter gameExiter) {
         super(v, null);
