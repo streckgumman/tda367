@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * @author Linnea Johansson
- *
+ * <p>
  * Class to test the Game Class
  */
 
@@ -28,7 +28,7 @@ public class TestGame {
      * Tests that the current level is not the same as the last level
      */
     @Test
-    public void shouldGoToNextLevel(){
+    public void shouldGoToNextLevel() {
         game = new Game();
         Level testLevel1 = game.getLevel();
         game.nextLevel();

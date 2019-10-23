@@ -24,13 +24,14 @@ public class Rock extends Puzzle {
 
     /**
      * Method checks if the player holds the item in their inventory to solve the puzzle
+     *
      * @param player
      * @return true if player holds hammer
      */
     @Override
     protected boolean checkIfHoldingItem(Player player) {
         if (player.getItem() != null) {
-            if(player.getItem().getType() == GameObjectType.HAMMER){
+            if (player.getItem().getType() == GameObjectType.HAMMER) {
                 setSolved(true);
 
                 return true;
@@ -45,7 +46,7 @@ public class Rock extends Puzzle {
      * @return key
      */
     protected Item getMyItem() {
-        return new Scissors("Scissors", 1000-300,1080-300);
+        return new Scissors("Scissors", 1000 - 300, 1080 - 300);
     }
 
 

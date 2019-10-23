@@ -17,11 +17,11 @@ public abstract class Trap extends GameObject {
 
     }
 
-    public void activate(){
+    public void activate() {
         //fällan ska aktiveras och spelaren ska få en "debuff"
     }
 
-    public void interact(GameObject go){
+    public void interact(GameObject go) {
         activate();
     }
 

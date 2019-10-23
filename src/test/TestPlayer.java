@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import model.Player;
 import org.junit.jupiter.api.Test;
 
@@ -10,15 +11,15 @@ public class TestPlayer {
 
 
     @Test
-    public void playerShouldHaveCorrectStartPosition(){
+    public void playerShouldHaveCorrectStartPosition() {
         Player player = new Player("Duckoo");
 
-        assertEquals(player.getX(),1920 / 2);
+        assertEquals(player.getX(), 1920 / 2);
         assertEquals(player.getY(), 1080 / 2);
     }
 
     @Test
-    public void playerAreMovingTheDirectionThatAreSet(){
+    public void playerAreMovingTheDirectionThatAreSet() {
         player.setMovingRight(true);
         assertEquals(player.isMovingRight(), true);
 
@@ -47,8 +48,8 @@ public class TestPlayer {
 
 
     @Test
-    public void testMove(){
-        player.setPosition(0,0);
+    public void testMove() {
+        player.setPosition(0, 0);
         assertEquals(player.getX(), 0);
         assertEquals(player.getY(), 0);
 
@@ -61,18 +62,17 @@ public class TestPlayer {
         assertEquals(player.getX(), 0);
         assertEquals(player.getY(), 0);
 
-        player.move(10,10);
+        player.move(10, 10);
         assertEquals(player.getX(), 10);
         assertEquals(player.getY(), 10);
     }
 
 
-
     @Test
-    public void testUpdate(){
+    public void testUpdate() {
         player.setMovingRight(true);
         player.setMovingDown(true);
-        player.setPosition(0,0);
+        player.setPosition(0, 0);
 
         player.update();
         assertEquals(player.getX(), 10);

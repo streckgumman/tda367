@@ -1,13 +1,16 @@
 package model;
 
 /**
- *  The class represent an position on both the x and y axis
- *  @author Amanda
- *  @since 2019-09-28
+ * The class represent an position on both the x and y axis
+ *
+ * @author Amanda
+ * @since 2019-09-28
  */
 public class Point {
 
-    /** The coordinates in x and y axis */
+    /**
+     * The coordinates in x and y axis
+     */
     private int x;
     private int y;
 
@@ -17,7 +20,7 @@ public class Point {
      * @param x coordinate ín x axis
      * @param y coordinate in y axis
      */
-    public Point(int x, int y){
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -27,7 +30,7 @@ public class Point {
      *
      * @param point an instance of Point
      */
-    public Point(Point point){
+    public Point(Point point) {
         x = point.getX();
         y = point.getY();
     }

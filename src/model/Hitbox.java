@@ -14,14 +14,14 @@ public class Hitbox {
     /**
      * @return the objects x position
      */
-    public int getX(){
+    public int getX() {
         return point.getX();
     }
 
     /**
      * @return the objects y position
      */
-    public int getY(){
+    public int getY() {
         return point.getY();
     }
 

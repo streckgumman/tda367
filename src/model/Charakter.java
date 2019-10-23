@@ -2,7 +2,7 @@ package model;
 
 /**
  * Abstract class for any character in the game.
- *
+ * <p>
  * Intentionally misspelled to not interfere with java's own Character class
  */
 public abstract class Charakter extends GameObject {

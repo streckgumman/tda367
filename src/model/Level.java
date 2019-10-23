@@ -9,7 +9,7 @@ import java.util.List;
  * @author Linnea Johansson
  * @author Johannes Kvernes
  * @author Anna Nilson
- *
+ * <p>
  * Class for the level to play
  */
 public abstract class Level {
@@ -27,7 +27,6 @@ public abstract class Level {
 
     /**
      * The public constructor for the class Level
-     *
      */
     public Level(int nrInLine) {
         //this.player = player;
@@ -110,9 +109,9 @@ public abstract class Level {
         this.levelSolved = levelSolved;
     }
 
-    public boolean areAllPuzzlesSolved(){
-        for(Puzzle p : puzzles){
-            if( !p.isSolved()){
+    public boolean areAllPuzzlesSolved() {
+        for (Puzzle p : puzzles) {
+            if (!p.isSolved()) {
                 return false;
             }
         }
@@ -127,13 +126,13 @@ public abstract class Level {
         this.nrPuzzle = nrPuzzle;
     }
 
-    public void startNextPuzzle(){
+    public void startNextPuzzle() {
 
         puzzles.remove(0);
         currentPuzzle = puzzles.get(0);
         Item newItem = currentPuzzle.getMyItem();
         addItem(newItem);
-        for (TextObserver observer : observers){
+        for (TextObserver observer : observers) {
             newItem.addObserver(observer);
         }
 
