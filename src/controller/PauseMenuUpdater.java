@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
  * @author Anna Nilsson
  * @author Johannes Kvernes
  * <p>
- * Abstract class for all puzzles in the game
+ * Public class that updates the pause menu
  */
 public class PauseMenuUpdater extends Updater {
 
