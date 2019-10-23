@@ -6,15 +6,16 @@ import model.Item;
 /**
  * @author Linnea Johansson
  * @author Amanda Dehlén
- *
+ * <p>
  * The class Hammer represent the item hammer that can be used to solve the puzzle Rock
  */
 public class Hammer extends Item {
 
-     /**
+    /**
      * The public constructor for the class Hammer
-     *
+     * <p>
      * The class Hammer extends the class Item
+     *
      * @param x the position of the Key in x axis
      * @param y the position of the Key in y axis
      */

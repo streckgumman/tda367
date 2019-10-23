@@ -115,6 +115,7 @@ public abstract class GameObject implements HitboxOwner, TextObservable {
 
     /**
      * Calls the Observers' methods for adding text.
+     *
      * @param text The text to be acted upon.
      */
     public void notifyAdd(Text text) {

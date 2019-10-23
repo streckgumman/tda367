@@ -4,12 +4,22 @@ import model.Player;
 
 import java.awt.event.KeyEvent;
 
-public class PlayerUpdater extends Updater<Player> {
+/**
+ *Public class that updates the players movement
+ */
+public class PlayerMovementUpdater extends Updater<Player> {
 
-    public PlayerUpdater(Player player) {
+    /**
+     * @param player the player
+     */
+    public PlayerMovementUpdater(Player player) {
         super(player);
     }
 
+    /**
+     * Takes a keyEvent and sets corresponding movement direction to true.
+     * @param event
+     */
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_LEFT) {
             getGameObject().setMovingLeft(true);
@@ -25,6 +35,10 @@ public class PlayerUpdater extends Updater<Player> {
         }
     }
 
+    /**
+     * Takes a keyEvent and sets corresponding movement direction to false.
+     * @param event
+     */
     public void keyReleased(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_LEFT) {
             getGameObject().setMovingLeft(false);
