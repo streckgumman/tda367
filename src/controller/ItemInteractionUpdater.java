@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 /**
  * @author Johannes Kvernes
  * @author Anna Nilsson
- *
+ * <p>
  * Updater for all interactions with items
  */
 public class ItemInteractionUpdater extends Updater<Player> {
@@ -19,7 +19,7 @@ public class ItemInteractionUpdater extends Updater<Player> {
      * Constructor
      *
      * @param player the players that interacts with items
-     * @param game the game that the items reside in
+     * @param game   the game that the items reside in
      */
     protected ItemInteractionUpdater(Player player, Game game) {
         super(player);
@@ -67,6 +67,7 @@ public class ItemInteractionUpdater extends Updater<Player> {
 
     /**
      * Method that handles the player picking up an item
+     *
      * @param i
      */
     private void pickUpItem(Item i) {
