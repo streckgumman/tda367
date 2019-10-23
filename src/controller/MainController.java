@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 /**
  * The "overlord" of controllers, responsible for switching which one is active, as well as which view is shown.
  */
-public class MainController  extends Updater {
+public class MainController extends Updater {
 
 
     private final Game game;
@@ -87,6 +87,9 @@ public class MainController  extends Updater {
         switchView(view, new InGameController(view, game, this::exitGame, this::switchToNextLevelView));
     }
 
+    /**
+     * Switches the current view to the next levels view
+     */
     public void switchToNextLevelView() {
         int level = game.getCurrentLevelsNrInLine();
         switch (level) {
@@ -103,7 +106,7 @@ public class MainController  extends Updater {
     }
 
     /**
-     *General method for switching views
+     * General method for switching views
      */
     private void switchView(View view, Controller c) {
         frame.remove(this.view); //I don't know why this is necessary, but I could not get it to work without first removing the view and then adding it again. /Vargen
@@ -117,17 +120,30 @@ public class MainController  extends Updater {
         view.requestFocus(); //This is required in order to register user input again.
     }
 
+    /**
+     * Switches the view to the NameInput view
+     */
     public void switchToNameInput() {
         view = new NameInputView(game);
         switchView(view, new NameInputController(view, getGame(), this::switchToIngame, this::exitGame));
     }
 
+    /**
+     * Method that exits the game and shuts down the program.
+     */
     public void exitGame() {
-        // save?
+        //Should in future implementations use a
+        //Save game method that saves the players progress
         frame.dispose();
         running = false;
     }
 
+    /**
+     * When the escape key is pressed it calls
+     * the exitGame method
+     *
+     * @param event
+     */
     public void keyPressed(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
             exitGame();
@@ -141,7 +157,12 @@ public class MainController  extends Updater {
     public void keyTyped(KeyEvent event) {
 
     }
-  
+
+    /**
+     * Returns game
+     *
+     * @return game
+     */
     Game getGame() {
         return game;
     }
