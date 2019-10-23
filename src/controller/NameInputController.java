@@ -5,6 +5,9 @@ import view.View;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * Public class that handles the name input
+ */
 public class NameInputController extends Controller {
 
     private Game game;
@@ -63,6 +66,10 @@ public class NameInputController extends Controller {
         }
     }
 
+    /**
+     * Calls the method redrawView from
+     * NameInputController's super class
+     */
     @Override
     protected void redrawView() {
         super.redrawView();
