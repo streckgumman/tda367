@@ -83,7 +83,7 @@ public class MainController extends Updater {
      * Switches view to the in-game view, and makes InGameController the active controller. (Changes to the screen where you play the game)
      */
     public void switchToIngame() {
-        view = new InLevel1View(game);
+        view = new Level1View(game);
         switchView(view, new InGameController(view, game, this::exitGame, this::switchToNextLevelView));
     }
 
@@ -94,10 +94,10 @@ public class MainController extends Updater {
         int level = game.getCurrentLevelsNrInLine();
         switch (level) {
             case 1:
-                view = new InLevel2View(game);
+                view = new Level2View(game);
                 break;
             case 2:
-                view = new InLevel3View(game);
+                view = new Level3View(game);
                 break;
             default:
                 view = null;

@@ -11,15 +11,15 @@ import java.io.IOException;
  * @author Amanda Dehlén
  * @author Linnea Johansson
  * <p>
- * InLevel1View controlls the view that are shown when the game is in level 1
+ * Level1View controlls the view that are shown when the game is in level 1
  */
-public class InLevel1View extends InGameView {
+public class Level1View extends InGameView {
     /**
-     * The public constructor for the class InLevel1View
+     * The public constructor for the class Level1View
      *
      * @param game the model's game.
      */
-    public InLevel1View(Game game) {
+    public Level1View(Game game) {
         super(game);
     }
 

@@ -8,15 +8,15 @@ import java.awt.image.BufferedImage;
  * @author Amanda Dehlén
  * @author Linnea Johansson
  * <p>
- * InLevel2View controlls the view that are shown when the game is in level 2
+ * Level2View controlls the view that are shown when the game is in level 2
  */
-public class InLevel2View extends InGameView {
+public class Level2View extends InGameView {
     /**
-     * The public constructor that creates an instance of the class InLevel2View
+     * The public constructor that creates an instance of the class Level2View
      *
      * @param game the model's game.
      */
-    public InLevel2View(Game game) {
+    public Level2View(Game game) {
         super(game);
     }
 
