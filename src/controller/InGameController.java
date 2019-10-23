@@ -56,16 +56,17 @@ public class InGameController extends Controller {
         addUpdater(new NPCInteractionUpdater(game.getPlayer(), game));
         addUpdater(new PuzzleInteractionUpdater(game.getPlayer(), game, nextLevelChanger));
         pauseMenuUpdater = new PauseMenuUpdater(this::play, gameExiter, (InGameView) getView());
+        game.addObserver(view); //When you create a new InGameController, add the view as an observer to all GameObjects
     }
 
     /**
-     * A method that updates the model
-     * through the game's player.
+     * Updates the model every frame.
      */
     protected void updateModel() {
         if (!paused) {
             game.getPlayer().update();
         }
+        game.updateModel();
     }
 
     /**

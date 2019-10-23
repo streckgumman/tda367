@@ -3,7 +3,7 @@ package model;
 /**
  * @author Johannes Kvernes
  * @author Samuel Widen
- *
+ * <p>
  * Abstract class for any item in the game.
  */
 public abstract class Item extends GameObject {
@@ -30,6 +30,11 @@ public abstract class Item extends GameObject {
 
     public void interact(GameObject go) {
 
+    }
+
+    @Override
+    public void promptInteraction() {
+        notifyAdd(new Text("Pick up (E)", Text.TextType.INTERACTION_PROMPT, new Point(getX(), getY())));
     }
 
 }
