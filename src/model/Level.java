@@ -14,7 +14,7 @@ import java.util.List;
  */
 public abstract class Level {
 
-    private Player player;
+    //private Player player;
     private List<NPC> npcs;
     private List<Puzzle> puzzles;
     private List<Trap> traps;
@@ -23,16 +23,19 @@ public abstract class Level {
     private Puzzle currentPuzzle;
     private boolean levelSolved;
     private int nrPuzzle;
+    private List<TextObserver> observers;
 
     /**
      * The public constructor for the class Level
      *
      */
     public Level(int nrInLine) {
-        npcs = new ArrayList<NPC>();
-        puzzles = new ArrayList<Puzzle>();
-        traps = new ArrayList<Trap>();
-        items = new ArrayList<Item>();
+        //this.player = player;
+        npcs = new ArrayList<>();
+        puzzles = new ArrayList<>();
+        traps = new ArrayList<>();
+        items = new ArrayList<>();
+        observers = new ArrayList<>();
         this.nrInLine = nrInLine;
     }
 
@@ -54,11 +57,11 @@ public abstract class Level {
         items.add(i);
     }
 
-    public void addNPC(NPC npc){
+    public void addNPC(NPC npc) {
         npcs.add(npc);
     }
 
-    public List<NPC> getNpcs(){
+    public List<NPC> getNpcs() {
         return npcs;
     }
 
@@ -66,8 +69,25 @@ public abstract class Level {
         return puzzles;
     }
 
-    public void addPuzzle(Puzzle p){
+    public void addPuzzle(Puzzle p) {
         puzzles.add(p);
+    }
+
+    public void addObserver(TextObserver observer) {
+        for (GameObject gameObject : getGameObjects()) {
+            gameObject.addObserver(observer);
+        }
+        this.observers.add(observer);
+    }
+
+    public List<GameObject> getGameObjects() {
+        List<GameObject> gameObjects = new ArrayList<>();
+        gameObjects.addAll(npcs);
+        gameObjects.addAll(puzzles);
+        gameObjects.addAll(traps);
+        gameObjects.addAll(items);
+
+        return gameObjects;
     }
 
     public int getNrInLine() {
@@ -108,9 +128,15 @@ public abstract class Level {
     }
 
     public void startNextPuzzle(){
+
         puzzles.remove(0);
         currentPuzzle = puzzles.get(0);
-        addItem(currentPuzzle.getMyItem());
+        Item newItem = currentPuzzle.getMyItem();
+        addItem(newItem);
+        for (TextObserver observer : observers){
+            newItem.addObserver(observer);
+        }
+
     }
 
 }

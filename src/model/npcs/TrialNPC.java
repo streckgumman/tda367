@@ -8,7 +8,12 @@ public class TrialNPC extends NPC {
         super(name, null, 240, 367, 200, 300);
     }
 
-    protected void update() {
+    public void update() {
+
+    }
+
+    @Override
+    public void promptInteraction() {
 
     }
 

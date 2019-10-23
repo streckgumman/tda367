@@ -1,7 +1,6 @@
 package model.npcs;
 
-import model.GameObjectType;
-import model.NPC;
+import model.*;
 
 import java.util.Random;
 
@@ -11,8 +10,7 @@ public class DogWithGun extends NPC {
         super(name, GameObjectType.DOGWITHGUN, 0, 0, 625 / 4, 532 / 4);
     }
 
-    protected void update() {
-
+    public void update() {
     }
 
     @Override
@@ -26,8 +24,13 @@ public class DogWithGun extends NPC {
                 bark = dialogues[i];
             }
         }
-        System.out.println(bark);
-        //Här ska vi lägga till så att någon vet att de ska skriva text i spelet....
+        notifyAdd(new Text(bark, Text.TextType.DIALOGUE, new Point(getX(), getY())));
     }
+
+    @Override
+    public void promptInteraction() {
+        notifyAdd(new Text("Pet (E)", Text.TextType.INTERACTION_PROMPT, new Point(getX(), getY())));
+    }
+
 
 }

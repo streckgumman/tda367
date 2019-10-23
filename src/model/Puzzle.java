@@ -54,6 +54,10 @@ public abstract class Puzzle extends GameObject {
         return false;
     }
 
+    @Override
+    public void promptInteraction() {
+    }
+
     /**
      * An abstract method implemented by Puzzle's subclasses
      *

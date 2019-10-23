@@ -1,9 +1,11 @@
 package model.puzzles;
 
 import model.GameObjectType;
+import model.Point;
 import model.Item;
 import model.Player;
 import model.Puzzle;
+import model.Text;
 import model.items.Key;
 
 /**
@@ -31,8 +33,14 @@ public class Door extends Puzzle {
     }
 
     @Override
-    protected void update() {
+    public void update() {
 
+    }
+
+    @Override
+    public void promptInteraction() {
+        notifyAdd(new Text("Open (E)", Text.TextType.INTERACTION_PROMPT, new Point(getX(), getY())));
+        //@TODO if the player doesn't have a key, instead print "The door is locked"
     }
 
     /**
