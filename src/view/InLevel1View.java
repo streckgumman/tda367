@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * @author Amanda Dehlén
  * @author Linnea Johansson
- *
+ * <p>
  * InLevel1View controlls the view that are shown when the game is in level 1
  */
 public class InLevel1View extends InGameView {
@@ -32,8 +32,6 @@ public class InLevel1View extends InGameView {
     protected BufferedImage getBackgroundImage() {
         return getImage("./resources/background_1.png");
     }
-
-
 
 
 }

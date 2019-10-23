@@ -308,6 +308,7 @@ public abstract class InGameView extends View implements TextObserver {
         }
         return null; //If type didn't match, we have no font to return
     }
+
     public void setPaused(boolean paused) {
         this.paused = paused;
     }
