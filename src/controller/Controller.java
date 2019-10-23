@@ -14,7 +14,7 @@ import java.util.List;
  * @author Anna Nilsson
  * @author Linnea Johanson
  * @author Amanda Dahlen
- *
+ * <p>
  * Abstract class for all controllers
  */
 public abstract class Controller implements KeyListener {
@@ -71,6 +71,7 @@ public abstract class Controller implements KeyListener {
             updater.keyTyped(e);
         }
     }
+
     /**
      * Adds a updater to the controller
      */
