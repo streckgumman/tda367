@@ -1,8 +1,6 @@
 package controller;
 
 import model.Game;
-import model.IntersectionDetector;
-import model.Level;
 import view.InGameView;
 import view.View;
 
@@ -32,7 +30,7 @@ public class InGameController extends Controller {
 
     public InGameController(View view, Game game, GameExiter gameExiter, GameStateChanger nextLevelChanger) {
         super(view, game);
-        addUpdater(new PlayerUpdater(game.getPlayer()));
+        addUpdater(new PlayerMovementUpdater(game.getPlayer()));
         addUpdater(new Updater(null) {
             @Override
             public void keyPressed(KeyEvent event) {
