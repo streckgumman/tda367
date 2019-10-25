@@ -1,0 +1,72 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-10-02
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+    Interactions är inte klara än. Är mycket större och kräver mer tid att fixa än vad vi trodde. Strukturen behöver ses
+    över.
+
+    Testerna fungerar inte på allas datorer.
+
+    Strukturen är inte optimal, vi borde se över koden när vi har en level klar.
+
+    Just nu har vi 0 pussel  i vårt pusselspel.
+
+    Prompts när player kommer till dörren?
+
+
+##Gjorts sen sist
+    Anna: Implementerat hitboxes. Gjorde med hjälp av Johannes en Interaction detection.
+
+    Amanda och Linnea: Skapat NPCs, skrivit kommentarer och tester
+
+    Amanda: abstraherat Point så att vi inte är beroende av Java.awt.point
+
+    Samuel: Skapat en mainController och abstraherat main. Fixat så vi kan byta view (och jobbat med en dum bugg)
+
+    Johannes: Skrivit massa dokumentation, gjort så att man kan stänga programmet och gjort att karaktären svävar
+
+
+##Diskussion
+    Prompts - hur implementera?
+        "Om player har nyckel --> visa prompt"
+        "Om player inte har nyckel --> inte visa prompt"
+
+    Interactions
+        Koden är inte så fin som den kan vara. Vi borde strukturera om koden när vi fått klart interactions.
+
+    Testerna fungerar inte på allas datorer
+        Fel JUnit på någras datorer?
+        Kan inte köra resten av koden när testerna är där, kommenterar bort testerna tills vidare
+        "[ERROR] Maven execution terminated abnormally (exit code 1)"
+        "Can't find symbol"
+
+    Just nu har vi 0 pussel  i vårt pusselspel
+        Borde vi få in ett pussel så snart som möjligt?
+            Funktionaliteten är tekniskt sett inte relevant för projektet egentligen
+            Pussel kommer naturligt när vi kommer vidare i koden.
+        Är vår pusselklass helt onödig? Är våra pussel pussel utan pusselklassen?
+            Vår pusselklass har just nu bara position och storlek och är ett GameObject.
+            Borde inte lägga all pusselfunktionalitet i controller, då blir de för stora. Vi borde ha pusselklass
+        Slutsats:
+            Vi har kvar pusselklassen tills vidare, vi får se hur vi använder den senare när vi kommer dit i
+            programmeringen
+
+
+   Fråga: Smart model, dumb view, slim controller. Hur ska vi implementera det i vårt pusselspel?
+
+
+##Beslut
+    Anna och Johannes: göra en inventory i samband med interaction, så att man kan plocka upp saker
+
+    Samuel, Linnea och Amanda: Kolla på RAD & SDD, kolla om vi använder några spännande designmönster
+
+
+##Skvaller
+    Hemligt och väldigt spännande
+
+##Wrap up
+    Jobba hårt så ses vi imorgon <3

@@ -1,0 +1,54 @@
+#Mötesprotokoll
+
+Grupp: Duckoo
+Datum: 2019-09-27
+Antecknare: Linnea
+Deltagare: Anna Nilsson, Linnea Johansson, Johannes Kvernes, Amanda Dehlén, Samuel Widén
+
+##Uppkomna problem
+    Anna blir sur när Johannes kodar för bra och mycket haha
+
+    Vi vet inte var file paths ska ligga, om vi har en level med flera items som har egna bilder, men view vet inte vilket
+    item som är vilket. De ska inte vara i model, och då måste vi ha massa instanceOf i View och det är inte bra.
+
+    Vi hade ett problem att programmet läste bilderna varje frame, vilket gjorde spelet väldig hackigt. Johannes och Samuel fixade
+    det separat, vi ska merga deras lösningar för att få Johannes lösning för att få det smooth och Samuels kod för att
+    få karaktärens bild att byta håll när vi byter direction
+
+    Hur byter man scen? Från TitleScreen till själva spelet. Typ "press E to play" på titlescreen och sen hamnar man
+    i spelet.
+
+##Gjorts sen sist
+    Amanda och Linnea har fått karaktären att röra på sig, Johannes har optimerat så att den rör sig smidigare
+
+    Samuel och Johannes har gjort en startmeny. Inte klar än, just nu kommer den inte upp alls
+
+##Diskussion
+    Vi har ändrat i en User Story så att vi inte ska behöva ta in Mouse Input. Vi kom överens om att Mouse Input
+    inte är nödvändigt eller förbättrar spelet.
+
+    Vi har inte hunnit göra alla User Stories vi tänkt den här veckan. Att prata med NPCs har inte hunnits med.
+
+    För att göra klart de övriga User Stories som ska fixas den här veckan ska Anna och Johannes parprogrammera att
+    startmenyn kommer upp först och följs av själva spelet.
+
+    Att byta scen försöktes göra igår, men det gick inte. Vi tar vidare frågan till handledningen
+
+##Beslut
+    Johannes och Anna parprogrammerar idag
+
+    Amanda och Linnea skriver kommentarer till koden vi skrev igår
+
+    Samuel börjar skriva tester för det som gjorts senast
+
+##Skvaller
+    Hemligt, och spännande!
+
+##Wrap up
+    Nästa vecka ses vi:
+    Måndag 10-12
+    Tisdag 10-12
+    Onsdag 10-12
+    Torsdag 13-15
+    Fredag 10-12
+    Handledning ev fredag vid 13:15
